@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-0 -z-10" src="{{ asset('assets/profile_bg.png') }}" alt="">
+    <img class="w-full absolute top-10 lg:top-0 -z-10" src="{{ asset('assets/profile_bg.png') }}" alt="">
     <div class="max-w-5xl  mx-auto text-2xl font-semibold mt-20 lg:mt-40 lg:bg-gray-100 border relative p-6 lg:p-0 mb-40 ">
         <div class="max-w-sm grid items-center mx-auto text-center">
-            <h2 class="border-b-2 border-black"><span>BOOKER </span><span class="text-[#F58220]">Profile</span></h2>
+            <h2 class="border-b-2 border-white lg:border-black text-white lg:text-black"><span>BOOKER </span><span
+                    class="text-[#F58220]">Profile</span></h2>
         </div>
 
         <div class="lg:flex">

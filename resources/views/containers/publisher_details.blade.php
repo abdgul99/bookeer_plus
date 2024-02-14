@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-0 -z-10 brightness-75" src="{{ asset('assets/chat_bg.png') }}" alt="">
+    <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/chat_bg.png') }}" alt="">
     <div class="max-w-5xl mx-auto mt-40 bg-white mb-10">
         <p class="p-3 text-center border-b-4 border-[#F5821F]">GENTOSHA INC.</p>
         <div>

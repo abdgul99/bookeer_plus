@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="absolute top-[760px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
-    <img class="w-full absolute top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
+    <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="max-w-4xl mx-auto  lg:mt-34 px-8">
         <div class="">
             @include('components/slider/slider')

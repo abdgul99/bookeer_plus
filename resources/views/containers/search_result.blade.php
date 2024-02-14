@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt="">
-    <div class="max-w-4xl mx-auto bg-white mt-20 mb-10">
+    <div class="max-w-4xl mx-auto p-8 lg:p-0 bg-white lg:mt-20 mb-10">
         <div class="flex mt-12 p-3 bg-[#F5821F] text-white justify-evenly">
             <p>
                 お気に入りの出版社 一覧

@@ -2,7 +2,7 @@
 @section('content')
     <img class="w-full absolute top-0 -z-10 max-h-[1100px] hidden lg:block" src="{{ asset('assets/search_bg.png') }}"
         alt="">
-    <div class="lg:h-[80vh] grid items-center max-w-5xl mt-16 mx-auto lg:mb-60 px-8">
+    <div class="lg:h-[80vh] grid items-center max-w-5xl mt-16  mx-auto lg:mb-[400px] px-8">
         <div class="max-w-3xl mx-auto w-full">
             <p class="m-5 text-[#12px]">出版社と執筆者のマッチングサービスTOP ▶︎ 会員登録</p>
             <button class="w-full p-3  text-white bg-[#F58220]">新規BOOKEER 登録</button>
