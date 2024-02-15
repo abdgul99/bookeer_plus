@@ -33,9 +33,9 @@ Route::get('account' , function(){
     return view('dashboard.account');
 })->name('account');
 
-Route::get('membership_registration' , function(){
+Route::get('profile_login' , function(){
     return view('containers.membership_registration');
-})->name('membership_registration');
+})->name('profile_login');
 
 Route::get('new_booker_registration' , function(){
     return view('containers.new_booker_registration');

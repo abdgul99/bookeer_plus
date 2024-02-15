@@ -44,11 +44,12 @@
 
                         </div>
                     </div>
-                    <button class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
+                    <a href="publisher_details"
+                        class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
                         <img src="{{ asset('assets/txt.png') }}" alt="">
                         <span>出版社詳細</span>
                         <img src="{{ asset('assets/forward.png') }}" alt="">
-                    </button>
+                    </a>
                 </div>
             </div>
             {{-- card end --}}
@@ -82,11 +83,12 @@
 
                         </div>
                     </div>
-                    <button class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
+                    <a href="publisher_details"
+                        class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
                         <img src="{{ asset('assets/txt.png') }}" alt="">
                         <span>出版社詳細</span>
                         <img src="{{ asset('assets/forward.png') }}" alt="">
-                    </button>
+                    </a>
                 </div>
             </div>
             {{-- card end --}}
@@ -120,11 +122,12 @@
 
                         </div>
                     </div>
-                    <button class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
+                    <a href="publisher_details"
+                        class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
                         <img src="{{ asset('assets/txt.png') }}" alt="">
                         <span>出版社詳細</span>
                         <img src="{{ asset('assets/forward.png') }}" alt="">
-                    </button>
+                    </a>
                 </div>
             </div>
             {{-- card end --}}

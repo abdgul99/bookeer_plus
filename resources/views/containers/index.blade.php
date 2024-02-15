@@ -11,8 +11,9 @@
                 <div class="p-1 lg:p-4 bg-white mx-auto max-w-[150px] lg:max-w-[583px] w-full rounded-md lg:rounded-2xl">
                     <button class="flex items-center px-4 w-full ">
                         <img class="w-4 lg:w-[36px]" src="{{ asset('assets/txt_black.png') }}" alt="">
-                        <span class="text-[11px] lg:text-[24px] text-start flex-1 flex items-center justify-center">Find
-                            a publisher</span>
+                        
+                        <a href="search" class="text-[11px] lg:text-[24px] text-start flex-1 flex items-center justify-center">Find
+                            a publisher</a>
                         </buton>
                 </div>
             </div>

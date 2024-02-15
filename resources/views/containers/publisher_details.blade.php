@@ -119,7 +119,8 @@
                     </div>
                 </div>
                 <div class="lg:flex items-center mt-5">
-                    <button class="p-4 text-white bg-black w-full">Send DM</button>
+                    <a href="message_list" class="p-4 text-white bg-black w-full text-center">Send DM</a>
+                    {{-- <button class="">Send DM</button> --}}
                     <button class="p-4 text-white bg-[#F5821F] w-full">Favorite Publishers</button>
                 </div>
             </div>

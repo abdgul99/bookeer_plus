@@ -7,28 +7,46 @@
                 </div>
                 <div class="mx-auto">
                     <ul class="flex items-center gap-5">
-                        @if (auth())
+                        <li class="hover:text-[F5821F] hover:cursor-pointer">
+                            <a href="faq"><img class="w-[31px] mx-auto" src="{{ asset('assets/faq.png') }}"
+                                    alt="">
+                                <h4 class="text-[10px] text-center  mt-1" ss>Faq</h4>
+                            </a>
+                        </li>
+                        <li class="hover:text-[F5821F] hover:cursor-pointer">
+                            <a href="new_booker_registration"><img class="w-[31px] mx-auto"
+                                    src="{{ asset('assets/nav_item_1.png') }}" alt="">
+                                <h4 class="text-[10px] text-center  mt-1" ss>Registers</h4>
+                            </a>
+                        </li>
+                        <li class="hover:text-[F5821F] hover:cursor-pointer">
+                            <a href="{{ route('profile_login') }}"> <img class="w-[31px] mx-auto"
+                                    src="{{ asset('assets/nav_item_4.png') }}" alt="">
+                                <h4 class="text-[10px] text-center mt-1">Login</h4>
+                            </a>
+                        </li>
+                        @auth
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
                                 <a href="booker_profile"><img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_1.png') }}" alt="">
-                                    <span class="text-[10px] text-center " ss>Profile</span></a>
+                                    <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
+                                </a>
                             </li>
+
+
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
                                 <a href="message_list"> <img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_2.png') }}" alt="">
-                                    <span class="text-[10px] text-center " ss>Chat</span></a>
+                                    <h4 class="text-[10px] text-center  mt-1" ss>Chat</h4>
+                                </a>
                             </li>
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
                                 <a href="faverout_publisher"> <img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_3.png') }}" alt="">
-                                    <span class="text-[10px] text-center" ss>Faverout</span></a>
+                                    <h4 class="text-[10px] text-center mt-1" ss>Faverout</h4>
+                                </a>
                             </li>
-                            <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="{{ route('logout') }}"> <img class="w-[31px] mx-auto"
-                                        src="{{ asset('assets/nav_item_4.png') }}" alt="">
-                                    <span class="text-[10px] text-center" ss>Logout</span></a>
-                            </li>
-                        @endif
+                        @endauth
                     </ul>
                 </div>
             </div>
