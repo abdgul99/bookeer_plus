@@ -131,7 +131,8 @@
         </div>
         <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.</p>
         <div class="flex justify-center">
-            <a href="search_result" class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white">Search</a>
+            <a href="search_result"
+                class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white hover:bg-[#ffa25b]">Search</a>
             {{-- <button class="">Search</button> --}}
         </div>
 

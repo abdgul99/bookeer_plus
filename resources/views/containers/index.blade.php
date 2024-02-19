@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <img class="absolute top-[760px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
+    <img class="absolute top-[700px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
     <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="max-w-4xl mx-auto  lg:mt-34 px-8">
         <div class="">
@@ -8,11 +8,13 @@
         </div>
         <div class="mt-4 lg:mt-10">
             <div class="bg-[#F5821F] px-8 py-2 lg:p-8">
-                <div class="p-1 lg:p-4 bg-white mx-auto max-w-[150px] lg:max-w-[583px] w-full rounded-md lg:rounded-2xl">
-                    <button class="flex items-center px-4 w-full ">
+                <div
+                    class="p-1 lg:p-4 hover:brightness-75 bg-white mx-auto max-w-[150px] lg:max-w-[583px] w-full rounded-md lg:rounded-2xl">
+                    <button class="flex items-center px-4 w-full  ">
                         <img class="w-4 lg:w-[36px]" src="{{ asset('assets/txt_black.png') }}" alt="">
-                        
-                        <a href="search" class="text-[11px] lg:text-[24px] text-start flex-1 flex items-center justify-center">Find
+
+                        <a href="search"
+                            class="text-[11px] lg:text-[24px] text-start flex-1 flex items-center justify-center ">Find
                             a publisher</a>
                         </buton>
                 </div>
@@ -24,19 +26,19 @@
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10 items-center ">
                     <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-1.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-2.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-3.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-4.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-5.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-6.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-7.png') }}" alt=""></div>
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
+                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
                             src="{{ asset('assets/recommended-publishers/publisher-8.png') }}" alt=""></div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
                     </div>
                     <img class="mx-auto pt-8" src="{{ asset('assets/girl.png') }}" alt="">
                     <div class="flex justify-center mt-5 pb-6">
-                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 ">edit</button>
+                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75">edit</button>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                     </div>
                     <p class="text-center font-bold text-xl my-5"> BOOKEER A</p>
                     <div class="flex justify-center mt-5 pb-6">
-                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 ">edit</button>
+                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75">edit</button>
                     </div>
                 </div>
                 <div>
@@ -51,7 +51,7 @@
                         To commemorate the 10th anniversary of my company, I would like to create a book that describes my
                         itinerary to date!</p>
                     <div class="flex justify-center mt-5 pb-6">
-                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 ">edit</button>
+                        <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75">edit</button>
                     </div>
                 </div>
 
@@ -69,27 +69,27 @@
                             <ul class=" text-[16px] mt-2">
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                                 <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
                                     <span>35 years old</span> <span class="flex justify-end"><button
-                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 ">edit</button></span>
+                                            class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75 ">edit</button></span>
                                 </li>
                             </ul>
                         </div>
@@ -159,7 +159,8 @@
                                     <input type="checkbox"><label for="">Novels</label>
                                 </div>
                                 <div class=" mt-5 pb-6">
-                                    <button class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 ">edit</button>
+                                    <button
+                                        class="mx-auto  text-[13px] bg-[#D9D9D9] px-5 hover:brightness-75">edit</button>
                                 </div>
 
                             </div>

@@ -5,7 +5,7 @@
     <div class="lg:h-[80vh] grid items-center max-w-5xl mt-16  mx-auto lg:mb-[400px] px-8">
         <div class="max-w-3xl mx-auto w-full">
             <p class="m-5 text-[#12px]">出版社と執筆者のマッチングサービスTOP ▶︎ 会員登録</p>
-            <button class="w-full p-3  text-white bg-[#F58220]">新規BOOKEER 登録</button>
+            <button class="w-full p-3  text-white bg-[#F58220] hover:bg-[#ff8e2b]">新規BOOKEER 登録</button>
             <p class="text-center text-sm space-x-2 my-3"><span>登録情報</span><span class="text-[#F58220]">を入力してください。</span>
             </p>
 
@@ -54,7 +54,7 @@
                 </div>
                 <p class="text-center">利用規約とプライバシーポリシーに同意したうえで送信する</p>
                 <div class="grid justify-center">
-                    <button class="p-3 bg-[#F58220] rounded px-5 text-white">BOOKEER 登録</button>
+                    <button class="p-3 bg-[#F58220] rounded px-5 text-white hover:bg-[#ff8e2b]">BOOKEER 登録</button>
                 </div>
             </form>
         </div>

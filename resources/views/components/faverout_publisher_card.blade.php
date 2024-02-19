@@ -37,12 +37,12 @@
         </div>
         <div class="grid grid-cols-2">
             <button
-                class="p-3 px-5  flex items-center justify-between border-b-2 w-full bg-[#D9D9D9] border-b-[#F5821F]">
+                class="p-3 px-5  flex items-center justify-between border-b-2 w-full bg-[#D9D9D9] border-b-[#F5821F] hover:bg-[#eee5e5]">
                 <img src="{{ asset('assets/txt.png') }}" alt="">
                 <span>出版社詳細</span>
                 <img src="{{ asset('assets/forward.png') }}" alt="">
             </button>
-            <button class="p-3  px-5 flex justify-between bg-[#F5821F] items-center ">
+            <button class="p-3  px-5 flex justify-between bg-[#F5821F] items-center hover:bg-[#ff8e2b]">
                 <span>出版社詳細</span>
                 <img src="{{ asset('assets/vector.png') }}" alt="">
             </button>
