@@ -1,77 +1,48 @@
-@extends('layouts.app')
-
+@extends('layouts.master')
 @section('content')
-    <div class="min-h-[75vh] flex items-center justify-center">
-        <div class=" max-w-sm mx-auto shadow-2xl border border-gray-200 rounded-2xl flex justify-center items-center">
-            <div class="mx-auto text-center py-7 p-12  w-full">
-                <a href="/"><img class="mx-auto" src="{{ asset('assets/logo.png') }}" alt=""></a>
-                <p class=" text-[#CA8EEE] font-serif mt-3 ">admin pannel</p>
+    <img class="w-full absolute top-0 h-[110vh] -z-10 max-h-[1100px] hidden lg:block"
+        src="{{ asset('assets/search_bg.png') }}" alt="">
 
-                <div class="my-12 w-full ">
-                    <form class="w-full" method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="">
-                            <div class="flex items-center gap-3">
-                                <img src="" alt="">
-                                <div class="w-full">
-                                    <div class="flex  gap-3 items-center">
-                                        <img class="w-[16px] h-[16px]" src="{{ asset('assets/profile.png') }}"
-                                            alt="">
-                                        <input id="email" type="email"
-                                            class="w-full p-2 border border-gray-100 text-sm w-full focus:outline-none focus:ring-0 focus:border-b-black"
-                                            name="email" placeholder="email" value="{{ old('email') }}" required
-                                            autocomplete="email" autofocus>
-                                    </div>
-
-                                    @error('email')
-                                        <span class="" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full mt-4">
-                            <div class="flex items-center gap-3 w-full">
-                                <img src="" alt="">
-                                <div class="w-full">
-                                    <div class="flex gap-3 items-center">
-                                        <img class="w-[16px] h-[16px]" src="{{ asset('assets/lock.png') }}" alt="">
-                                        <input id="password" type="password" placeholder="password"
-                                            class="p-2 text-sm w-full border-0 focus:border-0 focus:outline-none focus:ring-0 focus:border-b-black"
-                                            name="password" required autocomplete="current-password">
-                                    </div>
-
-                                    @error('password')
-                                        <span class="" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="mt-8 px-8">
-                            <div class="bg-[#CA8EEE]  text-white rounded-2xl w-full p-2 flex justify-evenly">
-                                <button type="submit" class="">
-                                    {{ __('Login') }}
-                                </button>
-                                <img class="w-[16px]" src="{{ asset('assets/arrow.png') }}" alt="">
-
-                                <!-- @if (Route::has('password.request'))
-    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                                                                    {{ __('Forgot Your Password?') }}
-                                                                                                </a>
-    @endif -->
-                            </div>
-                        </div>
-                    </form>
+    <div class="lg:h-[80vh] grid items-center max-w-5xl mx-auto px-8">
+        <div class="max-w-3xl mx-auto w-full">
+            <p class="m-5 text-[12px]">出版社と執筆者のマッチングサービスTOP ▶︎ 会員登録</p>
+            <button class="w-full p-3  text-white bg-[#F58220]">ログイン情報を入力してください。</button>
+            {{-- display errors --}}
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                        <svg onclick="this.parentElement.remove()" class="fill-current h-6 w-6 text-red-500" role="button"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <title>Close</title>
+                            <path
+                                d="M14.348 14.849a1 1 0 0 1-1.497 1.316l-3.351-3.85-3.351 3.85a1 1 0 1 1-1.497-1.316l3.85-4.427-3.85-4.427a1 1 0 0 1 1.497-1.316l3.351 3.85 3.351-3.85a1 1 0 0 1 1.497 1.316l-3.85 4.427 3.85 4.427z" />
+                        </svg>
+                    </span>
                 </div>
-            </div>
+            @endif
+            <form action="{{ route('login') }}" class="my-5 space-y-5" method="POST">
+                @csrf
+                <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0  ">
+                    <div class="flex items-center gap-6 lg:justify-center font-semibold w-[250px] gap-5"><label
+                            for="">ログイン
+                            ID</label><span class="text-[#F58220]">必須</span></div>
+                    <input type="email" id="email" class="p-3 w-full border-2 border-gray-300 border-b-0" name="email" required value="{{ old('email') }}">
+                </div>
+                <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0 ">
+                    <div class="flex items-center gap-6 lg:justify-center font-semibold w-[250px] gap-5"><label
+                            for="">ログインパスワード
+                            Password</label><span class="text-[#F58220]">必須</span></div>
+                    <input type="password" name="password" class="p-3 w-full border-2 border-gray-300 border-b-0" id="password">
+                </div>
+                <div class="grid justify-center">
+                    <button type="submit" class="p-3 bg-[#F58220] rounded px-5 text-white">ログイン</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection
