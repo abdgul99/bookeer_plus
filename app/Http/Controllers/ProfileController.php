@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Genre;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\PublisherDetail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -226,5 +227,15 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+
+
+    public function publisherProfile()
+    {
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $publisher = PublisherDetail::where('user_id', $user_id)->first();
+        return view('containers.publisher_details')->with(['user' => $user, 'publisher' => $publisher]);
     }
 }

@@ -43,6 +43,16 @@
                     <li class="hover:text-[#CA8EEE]"><a href="booker_user">Booker User</a></li>
                     <li class="hover:text-[#CA8EEE]"><a href="publisher_user">Publisher User</a></li>
                     <li class="hover:text-[#CA8EEE]"><a href="account">Account</a></li>
+                    <li class="hover:text-[#CA8EEE]">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            @csrf
+                        </form>
+                    </li>
+
                 </ul>
             </div>
             <div class="lg:w-[80%]">

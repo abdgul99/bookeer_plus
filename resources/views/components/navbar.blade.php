@@ -28,12 +28,23 @@
                         </li>
                         @endguest
                         @auth
-                            <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="booker_profile"><img class="w-[31px] mx-auto"
-                                        src="{{ asset('assets/nav_item_1.png') }}" alt="">
-                                    <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
-                                </a>
-                            </li>
+                            @if(Auth::user()->type == 'publisher')
+                                <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                    <a href="publisher_profile"><img class="w-[31px] mx-auto"
+                                            src="{{ asset('assets/nav_item_1.png') }}" alt="">
+                                        <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->type == 'booker')
+
+                                <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                    <a href="booker_profile"><img class="w-[31px] mx-auto"
+                                            src="{{ asset('assets/nav_item_1.png') }}" alt="">
+                                        <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
+                                    </a>
+                                </li>
+                            @endif
 
 
                             <li class="hover:text-[F5821F] hover:cursor-pointer">

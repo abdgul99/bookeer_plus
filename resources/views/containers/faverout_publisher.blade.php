@@ -24,12 +24,9 @@
             <div class="bg-white">
                 <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt="">
                 <div class="p-6">
-                    @include('components/faverout_publisher_card')
-                    @include('components/faverout_publisher_card')
-                    @include('components/faverout_publisher_card')
-                    @include('components/faverout_publisher_card')
-                    @include('components/faverout_publisher_card')
-                    @include('components/faverout_publisher_card')
+                    @foreach ($favorite_publishers as $favorite_publisher)
+                        @include('components/faverout_publisher_card')
+                    @endforeach
                 </div>
             </div>
         </div>

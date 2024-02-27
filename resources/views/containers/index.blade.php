@@ -24,22 +24,15 @@
                     class="lg:max-w-[452px] w-full text-[11px] lg:text-[24px] mx-auto p-4 mb-5 text-center border-2 border-l-black border-t-black border-r-[#F5821F] border-b-[#F5821F]">
                     Recommended Publishers</p>
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10 items-center ">
-                    <div class="mx-auto"><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-1.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-2.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-3.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-4.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-5.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-6.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-7.png') }}" alt=""></div>
-                    <div class="mx-auto "><img class="max-w-[90px] lg:max-w-[163px]"
-                            src="{{ asset('assets/recommended-publishers/publisher-8.png') }}" alt=""></div>
+                    @foreach ($recommeded_publishers as $publisher)
+                        <div class="mx-auto">
+                            <a href="{{ url('publisher_profile/'.$publisher->id) }}">
+                                <img class="max-w-[90px] lg:max-w-[163px]"
+                                    src="{{ asset('assets/recommended-publishers/publisher-1.png') }}" alt="">
+                            </a>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

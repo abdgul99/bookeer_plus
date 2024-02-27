@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\PublisherDetail;
 
 class User extends Authenticatable
 {
@@ -46,4 +47,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function publisherDetail()
+    {
+        return $this->hasOne(PublisherDetail::class);
+    }
+
+    public function favorite_publishers()
+    {
+        return $this->belongsToMany(User::class, 'favorite', 'booker_id', 'publisher_id');
+    }
 }

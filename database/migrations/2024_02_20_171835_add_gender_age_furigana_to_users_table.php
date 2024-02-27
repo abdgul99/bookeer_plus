@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('comment')->nullable()->after('sns');
             $table->string('job')->nullable()->after('comment');
             $table->text('genres')->nullable()->after('job');
+            $table->tinyInteger('status')->default(1)->after('genres');
         });
     }
 

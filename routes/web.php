@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ use App\Http\Controllers\ProfileController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('containers.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
 
@@ -39,15 +38,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/updateWebsite', [ProfileController::class, 'updateWebsite'])->name('profile.updateWebsite');
         Route::post('/updateSns', [ProfileController::class, 'updateSns'])->name('profile.updateSns');
         Route::post('/updateGenre', [ProfileController::class, 'updateGenre'])->name('profile.updateGenre');
+        Route::get('/favorite_unfavorite_publisher/{id}', [HomeController::class, 'favoriteUnfavoritePublisher'])->name('favorite_unfavorite_publisher');
+        Route::get('faverout_publisher',[HomeController::class, 'faveroutPublisher'])->name('faverout_publisher');
     });
 
 
     // Routes for publishers
     Route::middleware(['publisher'])->group(function () {
         // Define publisher routes here
-        Route::get('publisher_user', function () {
-            return view('dashboard.publisher_user');
-        })->name('publisher_user');
+        Route::get('publisher_profile', [ProfileController::class, 'publisherProfile'])->name('publisher_profile');
     });
 
 
@@ -55,6 +54,15 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['admin'])->group(function () {
         // Define admin routes here
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('booker_user', [DashboardController::class, 'bookerUsers'])->name('booker_user');
+        Route::get('publisher_user', [DashboardController::class, 'publisherUsers'])->name('publisher_user');
+        Route::post('/booker_user_status', [DashboardController::class, 'bookerUserStatus'])->name('booker_user_status');
+        Route::post('/publisher_user_status', [DashboardController::class, 'publisherUserStatus'])->name('publisher_user_status');
+        Route::get('add_publisher', [DashboardController::class, 'addPublisher'])->name('add_publisher');
+        Route::post('new_publisher', [DashboardController::class, 'storePublisher'])->name('new_publisher');
+        Route::get('account', function () {
+            return view('dashboard.account');
+        })->name('account');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -63,33 +71,18 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('booker_user', function () {
-    return view('dashboard.booker_user');
-})->name('booker_user');
 
-Route::get('publisher_user', function () {
-    return view('dashboard.publisher_user');
-})->name('publisher_user');
 
-Route::get('account', function () {
-    return view('dashboard.account');
-})->name('account');
 
-Route::get('profile_login', function () {
-    return view('containers.membership_registration');
-})->name('profile_login');
 
-Route::get('new_booker_registration', function () {
-    return view('containers.new_booker_registration');
-})->name('new_booker_registration');
 
-// Route::get('booker_profile', function () {
-//     return view('containers.booker_profile');
-// })->name('booker_profile');
 
-Route::get('faverout_publisher', function () {
-    return view('containers.faverout_publisher');
-})->name('faverout_publisher');
+
+Route::get('publisher_profile/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile');
+
+
+
+
 
 Route::get('search_result', function () {
     return view('containers.search_result');
@@ -115,9 +108,7 @@ Route::get('search', function () {
     return view('containers.search');
 })->name('search');
 
-Route::get('publisher_details', function () {
-    return view('containers.publisher_details');
-})->name('publisher_details');
+
 
 Route::get('message_list', function () {
     return view('containers.message_list');
@@ -131,6 +122,4 @@ Route::get('publisher_search', function () {
 
 
 Auth::routes();
-Route::get('/home', function () {
-    return view('containers.index');
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
