@@ -53,12 +53,24 @@
                                     <h4 class="text-[10px] text-center  mt-1" ss>Chat</h4>
                                 </a>
                             </li>
+                            {{-- auth user booker --}}
+                            @if(Auth::user()->type == 'booker')
+                                <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                    <a href="{{ route('faverout_publisher') }}"> <img class="w-[31px] mx-auto"
+                                            src="{{ asset('assets/nav_item_3.png') }}" alt="">
+                                        <h4 class="text-[10px] text-center mt-1" ss>Faverout</h4>
+                                    </a>
+                                </li>
+                            @else
+
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="faverout_publisher"> <img class="w-[31px] mx-auto"
+                                <a href="{{ route('faverout_booker') }}"> <img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_3.png') }}" alt="">
                                     <h4 class="text-[10px] text-center mt-1" ss>Faverout</h4>
                                 </a>
                             </li>
+                            
+                            @endif
                             {{-- logout --}}
                             <li class="hover:text[F5821F] hover:cursor-pointer">
                                 <a href="{{ route('logout') }}"

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\PublisherDetail;
@@ -119,5 +120,56 @@ class DashboardController extends Controller
             }
             return redirect()->back()->with('success', 'Publisher added successfully');
         }
+    }
+
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        return view('dashboard.faqs')->with('faqs', $faqs);
+    }
+
+    public function createFaqs()
+    {
+        return view('dashboard.create_faqs');
+    }
+
+    public function storeFaqs(Request $request)
+    {
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+        $faq = new Faq;
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+        return redirect()->back()->with('success', 'FAQ added successfully');
+    }
+
+    public function editFaqs($id)
+    {
+        $faq = Faq::find($id);
+        return view('dashboard.edit_faqs')->with('faq', $faq);
+    }
+
+    public function updateFaqs(Request $request)
+    {
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+        $faq = Faq::find($request->id);
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+        return redirect()->back()->with('success', 'FAQ updated successfully');
+    }
+
+    public function destroyFaqs(Request $request)
+    {
+        $faq = Faq::find($request->id);
+        $faq->delete();
+        return redirect()->back()->with('success', 'FAQ deleted successfully');
     }
 }

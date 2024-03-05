@@ -1,6 +1,14 @@
 {{-- black footer desktop view --}}
-
-<footer class="bg-black p-4 text-white w-full hidden lg:block">
+@if(Auth::check() && Auth::user()->type == 'publisher')
+    @php
+        $backgorund = 'bg-[#F5821F]';
+    @endphp
+@else
+    @php
+        $backgorund = 'bg-black';
+    @endphp
+@endif
+<footer class="{{ $backgorund }} p-4 text-white w-full hidden lg:block">
     <div class="grid lg:grid-cols-4  max-w-5xl mx-auto">
         <div class="mx-auto">
             <p class="text-[10px]">出版社と執筆者のマッチングサービス</p>

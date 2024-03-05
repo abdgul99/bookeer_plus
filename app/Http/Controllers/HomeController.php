@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\PublisherDetail;
 use App\Models\User;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -13,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $recommeded_publishers = User::where('type', 'publisher')->where('status', 1)->inRandomOrder()->limit(5)->get();
-        return view('containers.index')->with('recommeded_publishers', $recommeded_publishers);
+        $recommeded_bookers = User::where('type', 'booker')->where('status', 1)->inRandomOrder()->limit(5)->get();
+        $faqs = Faq::limit(3)->get();
+        return view('containers.index')->with(['recommeded_publishers' => $recommeded_publishers, 'recommeded_bookers' => $recommeded_bookers, 'faqs' => $faqs]);
     }
 
     public function publisherProfile($id)
@@ -21,6 +25,13 @@ class HomeController extends Controller
         $user = User::find($id);
         $publisherDetail = PublisherDetail::where('user_id', $id)->first();
         return view('containers.publisher_details')->with(['user' => $user, 'publisherDetail' => $publisherDetail]);
+    }
+
+    public function bookerProfile($id)
+    {
+        $user = User::find($id);
+        $genres = Genre::all();
+        return view('containers.booker_profile_view')->with(['user' => $user, 'genres' => $genres]);
     }
 
     public function favoriteUnfavoritePublisher($id)
@@ -42,7 +53,12 @@ class HomeController extends Controller
     public function faveroutPublisher()
     {
         $userid = Auth::user()->id;
+        $user = Auth::user();
         $favorite_publishers = User::find($userid)->favorite_publishers()->get();
-        return view('containers.faverout_publisher')->with('favorite_publishers', $favorite_publishers);
+        if ($user->type == 'publisher') {
+            return view('containers.faverout_booker')->with('favorite_publishers', $favorite_publishers);
+        } else {
+            return view('containers.faverout_publisher')->with('favorite_publishers', $favorite_publishers);
+        }
     }
 }

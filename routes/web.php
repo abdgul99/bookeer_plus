@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/updateSns', [ProfileController::class, 'updateSns'])->name('profile.updateSns');
         Route::post('/updateGenre', [ProfileController::class, 'updateGenre'])->name('profile.updateGenre');
         Route::get('/favorite_unfavorite_publisher/{id}', [HomeController::class, 'favoriteUnfavoritePublisher'])->name('favorite_unfavorite_publisher');
-        Route::get('faverout_publisher',[HomeController::class, 'faveroutPublisher'])->name('faverout_publisher');
+        Route::get('faverout_publisher', [HomeController::class, 'faveroutPublisher'])->name('faverout_publisher');
     });
 
 
@@ -47,6 +47,25 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['publisher'])->group(function () {
         // Define publisher routes here
         Route::get('publisher_profile', [ProfileController::class, 'publisherProfile'])->name('publisher_profile');
+        Route::post('/updateImagePublisher', [ProfileController::class, 'updateImage'])->name('profile.updateImagePublisher');
+        Route::post('/updateNamePublisher', [ProfileController::class, 'updateName'])->name('profile.updateNamePublisher');
+        Route::post('/updateCommentPublisher', [ProfileController::class, 'updateComment'])->name('profile.updateCommentPublisher');
+        Route::post('/updateGenrePublisher', [ProfileController::class, 'updateGenre'])->name('profile.updateGenrePublisher');
+        Route::post('/updateEditorial', [ProfileController::class, 'updateEditorial'])->name('profile.updateEditorial');
+        Route::post('/updatePublication', [ProfileController::class, 'updatePublication'])->name('profile.updatePublication');
+        Route::post('/updateCost', [ProfileController::class, 'updateCost'])->name('profile.updateCost');
+        Route::post('/updateCirculation', [ProfileController::class, 'updateCirculation'])->name('profile.updateCirculation');
+        Route::post('/updateBusiness', [ProfileController::class, 'updateBusiness'])->name('profile.updateBusiness');
+        Route::post('/updateCapital', [ProfileController::class, 'updateCapital'])->name('profile.updateCapital');
+        Route::post('/updateArea', [ProfileController::class, 'updateArea'])->name('profile.updateArea');
+        Route::post('/updateEstablished', [ProfileController::class, 'updateEstablished'])->name('profile.updateEstablished');
+        Route::post('/updateRepresentative', [ProfileController::class, 'updateRepresentative'])->name('profile.updateRepresentative');
+        Route::post('/updateHistory', [ProfileController::class, 'updateHistory'])->name('profile.updateHistory');
+        Route::post('/updateMagazine', [ProfileController::class, 'updateMagazine'])->name('profile.updateMagazine');
+        Route::get('publisher_search', [ProfileController::class, 'publisherSearch'])->name('publisher_search');
+        Route::get('/search_booker', [ProfileController::class, 'searchBookerResult'])->name('search_booker');
+        Route::get('/favorite_unfavorite_booker/{id}', [HomeController::class, 'favoriteUnfavoritePublisher'])->name('favorite_unfavorite_booker');
+        Route::get('faverout_booker', [HomeController::class, 'faveroutPublisher'])->name('faverout_booker');
     });
 
 
@@ -66,6 +85,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('faqs', [DashboardController::class, 'faqs'])->name('faqs');
+        Route::get('faqs/create', [DashboardController::class, 'createFaqs'])->name('faq.create');
+        Route::post('faqs/store', [DashboardController::class, 'storeFaqs'])->name('faq.store');
+        Route::get('faqs/{id}/edit', [DashboardController::class, 'editFaqs'])->name('faq.edit');
+        Route::post('faqs/update', [DashboardController::class, 'updateFaqs'])->name('faq.update');
+        //faq.destroy
+        Route::delete('faqs/destroy/{id}', [DashboardController::class, 'destroyFaqs'])->name('faq.destroy');
     });
 });
 
@@ -79,6 +105,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('publisher_profile/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile');
+Route::get('booker_details/{id}', [HomeController::class, 'bookerProfile'])->name('booker.details');
 
 
 
@@ -115,9 +142,7 @@ Route::get('message_list', function () {
 })->name('message_list');
 
 
-Route::get('publisher_search', function () {
-    return view('containers.publisher.publisher_search');
-})->name('publisher_search');
+
 
 
 

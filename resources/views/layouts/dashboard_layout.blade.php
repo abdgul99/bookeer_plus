@@ -39,10 +39,11 @@
                     <p class=" text-[#CA8EEE] font-serif text-sm mt-3">admin pannel</p>
                 </div>
                 <ul class="lg:p-1 text-sm lg:space-y-4 lg:mt-5 lg:block flex items-center justify-between p-4">
-                    <li class="hover:text-[#CA8EEE]"><a href="home">Dashboard</a></li>
-                    <li class="hover:text-[#CA8EEE]"><a href="booker_user">Booker User</a></li>
-                    <li class="hover:text-[#CA8EEE]"><a href="publisher_user">Publisher User</a></li>
-                    <li class="hover:text-[#CA8EEE]"><a href="account">Account</a></li>
+                    <li class="hover:text-[#CA8EEE]"><a href="{{ route('home') }}">Dashboard</a></li>
+                    <li class="hover:text-[#CA8EEE]"><a href="{{ route('booker_user') }}">Booker User</a></li>
+                    <li class="hover:text-[#CA8EEE]"><a href="{{ route('publisher_user') }}">Publisher User</a></li>
+                    <li class="hover:text-[#CA8EEE]"><a href="{{ route('faqs') }}">Faqs</a></li>
+                    <li class="hover:text-[#CA8EEE]"><a href="{{ route('account') }}">Account</a></li>
                     <li class="hover:text-[#CA8EEE]">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

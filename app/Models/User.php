@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'favorite', 'booker_id', 'publisher_id');
     }
+
+    public function favorite_bookers()
+    {
+        return $this->belongsToMany(User::class, 'favorite', 'publisher_id', 'booker_id');
+    }
 }
