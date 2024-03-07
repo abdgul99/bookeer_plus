@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/updateHistory', [ProfileController::class, 'updateHistory'])->name('profile.updateHistory');
         Route::post('/updateMagazine', [ProfileController::class, 'updateMagazine'])->name('profile.updateMagazine');
         Route::get('publisher_search', [ProfileController::class, 'publisherSearch'])->name('publisher_search');
-        Route::get('/search_booker', [ProfileController::class, 'searchBookerResult'])->name('search_booker');
+        // Route::get('/search_booker', [ProfileController::class, 'searchBookerResult'])->name('search_booker');
         Route::get('/favorite_unfavorite_booker/{id}', [HomeController::class, 'favoriteUnfavoritePublisher'])->name('favorite_unfavorite_booker');
         Route::get('faverout_booker', [HomeController::class, 'faveroutPublisher'])->name('faverout_booker');
     });
@@ -106,13 +106,15 @@ Route::middleware('auth')->group(function () {
 
 Route::get('publisher_profile/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile');
 Route::get('booker_details/{id}', [HomeController::class, 'bookerProfile'])->name('booker.details');
-
+// Route::get('search', [HomeController::class, 'publisherSearch'])->name('search');
+Route::get('/search', [ProfileController::class, 'searchPublisher'])->name('search');
+Route::get('search_publisher_result', [ProfileController::class, 'search_publisher_result'])->name('search_publisher_result');
 
 
 
 
 Route::get('search_result', function () {
-    return view('containers.search_result');
+    
 })->name('search_result');
 
 Route::get('about_company', function () {
@@ -131,9 +133,7 @@ Route::get('faq', function () {
     return view('containers.faq');
 })->name('faq');
 
-Route::get('search', function () {
-    return view('containers.search');
-})->name('search');
+
 
 
 

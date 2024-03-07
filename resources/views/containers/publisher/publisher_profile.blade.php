@@ -559,7 +559,16 @@
                                                     @csrf
                                                     <div class="flex flex-col">
                                                         <label for="area" class="text-sm font-semibold text-gray-900 dark:text-gray-100">Area</label>
-                                                        <input type="text" name="area" id="area" class="w-full border-2 border-gray-200 rounded-lg mb-2" value="{{ $user->area ?? '' }}">
+                                                        @php
+                                                            $suppot_area = getSupportAreas();
+                                                        @endphp
+                                                        <select name="area" id="area" class="w-full border-2 border-gray-200 rounded-lg mb-2">
+                                                            <option value="">Select Area</option>
+                                                            @foreach($suppot_area as $area)
+                                                                <option value="{{ $area->name }}" {{ $user->area == $area->name ? 'selected' : '' }}>{{ $area->name }}</option>
+                                                            @endforeach
+
+                                                        </select>
                                                     </div>
                                                     <div class="flex items">
                                                         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
@@ -677,7 +686,7 @@
                                         <button data-modal-target="history-modal" data-modal-toggle="history-modal" class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 py-2" type="button">
                                             edit
                                         </button>
-        
+
                                         <!-- Main modal -->
                                         <div id="history-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                             <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -712,7 +721,7 @@
                                                 </div>
                                             </div>
                                         </div>
-        
+
                                     </span>
                             </span>
                         </li>
@@ -724,7 +733,7 @@
                                         <button data-modal-target="magazine-modal" data-modal-toggle="magazine-modal" class="w-[120px] text-[13px] bg-[#D9D9D9] px-5 py-2" type="button">
                                             edit
                                         </button>
-        
+
                                         <!-- Main modal -->
                                         <div id="magazine-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                             <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -759,7 +768,7 @@
                                                 </div>
                                             </div>
                                         </div>
-        
+
                                     </span>
                             </span>
                         </li>

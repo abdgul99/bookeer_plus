@@ -5,7 +5,13 @@
         <p class="p-3 text-center border-b-4 border-[#F5821F]">GENTOSHA INC.</p>
         <div>
             <div class="flex items-center gap-5 p-10">
-                <img class="w-full max-w-[100px] lg:max-w-[177px]" src="{{ asset('assets/gentosh.png') }}" alt="">
+                @php
+                    if($user->profile_photo_path != null)
+                        $img = asset('assets/profile/'.$user->profile_photo_path);
+                    else
+                        $img = asset('assets/girl.png');
+                @endphp
+                <img class="w-full max-w-[100px] lg:max-w-[177px]" src="{{ $img }}" alt="">
                 <div class=" lg:p-5 space-y-3">
                     <p class="text-xs lg:text-lg">
                         {{ $user->comment ?? '' }}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Genre;
 use Illuminate\View\View;
+use App\Models\SupportArea;
 use Illuminate\Http\Request;
 use App\Models\PublisherDetail;
 use Illuminate\Support\Facades\DB;
@@ -513,5 +514,39 @@ class ProfileController extends Controller
             })
             ->get();
         return view('containers.publisher.searchResult')->with('bookers', $bookers);
+    }
+
+    public function searchPublisher()
+    {
+        $genres = Genre::all();
+        $support_area = SupportArea::all();
+        return view('containers.search')->with(['genres' => $genres, 'support_area' => $support_area]);
+    }
+
+    public function search_publisher_result(Request $request)
+    {
+        $request->validate([
+            'genres' => 'required',
+            'area' => 'required'
+        ]);
+
+        $genres = $request->genres;
+        $area = $request->area;
+
+        // Define the minimum number of genre matches required
+        $minGenreMatches = 1;
+        $publishers = User::where('type', 'publisher')
+            ->where('status', 1)
+            ->whereNotIn('type', ['booker'])
+            ->where(function ($query) use ($genres, $minGenreMatches) {
+                $query->where(function ($query) use ($genres, $minGenreMatches) {
+                    foreach ($genres as $g) {
+                        $query->orWhereJsonContains('genres', $g);
+                    }
+                })->havingRaw('COUNT(*) < ?', [$minGenreMatches]);
+            })
+            ->where('area', $area)
+            ->get();
+        return view('containers.search_result')->with('publishers', $publishers);
     }
 }

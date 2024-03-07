@@ -13,3 +13,7 @@ function getFavoritePublishers()
     $user = \Illuminate\Support\Facades\Auth::user();
     return $user->favorite_publishers()->pluck('publisher_id')->toArray();
 }
+function getSupportAreas()
+{
+    return \App\Models\SupportArea::all();
+}
