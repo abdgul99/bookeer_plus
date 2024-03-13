@@ -14,21 +14,21 @@
                             </a>
                         </li>
                         @guest
-                        <li class="hover:text-[F5821F] hover:cursor-pointer">
-                            <a href="{{ route('register') }}"><img class="w-[31px] mx-auto"
-                                    src="{{ asset('assets/nav_item_1.png') }}" alt="">
-                                <h4 class="text-[10px] text-center  mt-1" ss>Registers</h4>
-                            </a>
-                        </li>
-                        <li class="hover:text-[F5821F] hover:cursor-pointer">
-                            <a href="{{ route('login') }}"> <img class="w-[31px] mx-auto"
-                                    src="{{ asset('assets/nav_item_4.png') }}" alt="">
-                                <h4 class="text-[10px] text-center mt-1">Login</h4>
-                            </a>
-                        </li>
+                            <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                <a href="{{ route('register') }}"><img class="w-[31px] mx-auto"
+                                        src="{{ asset('assets/nav_item_1.png') }}" alt="">
+                                    <h4 class="text-[10px] text-center  mt-1" ss>Registers</h4>
+                                </a>
+                            </li>
+                            <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                <a href="{{ route('login') }}"> <img class="w-[31px] mx-auto"
+                                        src="{{ asset('assets/nav_item_4.png') }}" alt="">
+                                    <h4 class="text-[10px] text-center mt-1">Login</h4>
+                                </a>
+                            </li>
                         @endguest
                         @auth
-                            @if(Auth::user()->type == 'publisher')
+                            @if (Auth::user()->type == 'publisher')
                                 <li class="hover:text-[F5821F] hover:cursor-pointer">
                                     <a href="publisher_profile"><img class="w-[31px] mx-auto"
                                             src="{{ asset('assets/nav_item_1.png') }}" alt="">
@@ -36,8 +36,7 @@
                                     </a>
                                 </li>
                             @endif
-                            @if(Auth::user()->type == 'booker')
-
+                            @if (Auth::user()->type == 'booker')
                                 <li class="hover:text-[F5821F] hover:cursor-pointer">
                                     <a href="booker_profile"><img class="w-[31px] mx-auto"
                                             src="{{ asset('assets/nav_item_1.png') }}" alt="">
@@ -54,7 +53,7 @@
                                 </a>
                             </li>
                             {{-- auth user booker --}}
-                            @if(Auth::user()->type == 'booker')
+                            @if (Auth::user()->type == 'booker')
                                 <li class="hover:text-[F5821F] hover:cursor-pointer">
                                     <a href="{{ route('faverout_publisher') }}"> <img class="w-[31px] mx-auto"
                                             src="{{ asset('assets/nav_item_3.png') }}" alt="">
@@ -62,20 +61,19 @@
                                     </a>
                                 </li>
                             @else
-
-                            <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="{{ route('faverout_booker') }}"> <img class="w-[31px] mx-auto"
-                                        src="{{ asset('assets/nav_item_3.png') }}" alt="">
-                                    <h4 class="text-[10px] text-center mt-1" ss>Faverout</h4>
-                                </a>
-                            </li>
-                            
+                                <li class="hover:text-[F5821F] hover:cursor-pointer">
+                                    <a href="{{ route('faverout_booker') }}"> <img class="w-[31px] mx-auto"
+                                            src="{{ asset('assets/nav_item_3.png') }}" alt="">
+                                        <h4 class="text-[10px] text-center mt-1" ss>Faverout</h4>
+                                    </a>
+                                </li>
                             @endif
                             {{-- logout --}}
                             <li class="hover:text[F5821F] hover:cursor-pointer">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <img class="w-[31px] mx-auto" src="{{ asset('assets/nav_item_4.png') }}" alt="">
+                                    <img class="w-[31px] mx-auto" src="{{ asset('assets/nav_item_4.png') }}"
+                                        alt="">
                                     <h4 class="text-[10px] text-center mt-1">Logout</h4>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -119,32 +117,70 @@
                         class="block py-2 px-3 text-white bg-orange-500 rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                         aria-current="page">Home</a>
                 </li>
-                <li>
-                    <a href="booker_profile"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Booker
-                        Profile</a>
-                </li>
-                <li>
-                    <a href="message_list"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">chat</a>
-                </li>
-                <li>
-                    <a href="faverout_publisher"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">faverout
-                        publisher</a>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Logout</a>
-                </li>
-                <li>
-                    <a href="login"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Login</a>
-                </li>
-                <li>
-                    <a href="rehister"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">register</a>
-                </li>
+                @guest
+
+                    <li>
+                        <a href="{{ route('register') }}"
+                            class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                            aria-current="page">Registers</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}"
+                            class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                            aria-current="page">Login</a>
+                    </li>
+
+                @endguest
+                @auth
+                    @if (Auth::user()->type == 'publisher')
+                        <li>
+                            <a href="publisher_profile"
+                                class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                                aria-current="page">Profile</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->type == 'booker')
+                        <li>
+                            <a href="booker_profile"
+                                class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                                aria-current="page">Profile</a>
+                        </li>
+                    @endif
+                    <li>
+                        <a href="message_list"
+                            class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                            aria-current="page">Chat</a>
+                    </li>
+
+
+                    {{-- auth user booker --}}
+                    @if (Auth::user()->type == 'booker')
+                        <li>
+                            <a href="{{ route('faverout_publisher') }}"
+                                class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                                aria-current="page">Faverout</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route('faverout_booker') }}"
+                                class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                                aria-current="page">Faverout</a>
+                        </li>
+                    @endif
+                    {{-- logout --}}
+                    <li class="hover:text[F5821F] hover:cursor-pointer">
+                    <li>
+                        <a href="{{ route('faverout_booker') }}"
+                            class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
+                            aria-current="page">Logout</a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    </li>
+                @endauth
+
+
             </ul>
         </div>
     </div>

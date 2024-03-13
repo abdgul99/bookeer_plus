@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/profile_bg.png') }}" alt="">
-    <div class="px-4">
+    <div class="px-4 min-h-[80vh] lg:min-h-[200vh]">
         <div class="max-w-3xl mt-40 mx-auto">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white">お気に入りの出版社</button>
@@ -30,16 +30,18 @@
                                 <div class="flex flex-col lg:flex-row p-3 items-center ">
                                     <div class="w-full lg:w-[36%] flex items-center mb-4">
                                         @php
-                                            if($booker->profile_photo_path != null)
-                                                $img = asset('assets/profile/'.$booker->profile_photo_path);
-                                            else
+                                            if ($booker->profile_photo_path != null) {
+                                                $img = asset('assets/profile/' . $booker->profile_photo_path);
+                                            } else {
                                                 $img = asset('assets/girl.png');
+                                            }
                                         @endphp
                                         <img class="mx-auto" src="{{ $img }}" alt="">
                                         <p class=" p-2 lg:hidden text-sm">{{ $booker->name }}</p>
                                     </div>
                                     <div class="w-full text-[10px]">
-                                        <p class=" border-b-2 p-2 border-black hidden lg:block">{{ $booker->comment ?? '' }}</p>
+                                        <p class=" border-b-2 p-2 border-black hidden lg:block">{{ $booker->comment ?? '' }}
+                                        </p>
                                         <div class="border-b-2 border-black flex items-center">
                                             <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Age</h2>
                                             <p class="p-2">{{ $booker->age ?? '' }}</p>
@@ -66,7 +68,8 @@
                                         <span>Go to BOOKEER details</span>
                                         <img src="{{ asset('assets/forward.png') }}" alt="">
                                     </a>
-                                    <a href="{{ route('favorite_unfavorite_booker', $booker->id) }}" class="p-3  px-5 flex justify-between bg-[#F5821F] items-center hover:bg-[#ff8e2b]">
+                                    <a href="{{ route('favorite_unfavorite_booker', $booker->id) }}"
+                                        class="p-3  px-5 flex justify-between bg-[#F5821F] items-center hover:bg-[#ff8e2b]">
                                         <span>Favorite BOOKEER</span>
                                         <img src="{{ asset('assets/vector.png') }}" alt="">
                                     </a>
