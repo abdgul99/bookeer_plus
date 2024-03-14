@@ -8,8 +8,8 @@
                 <div class="mx-auto">
                     <ul class="flex items-center gap-5">
                         <li class="hover:text-[F5821F] hover:cursor-pointer">
-                            <a href="faq"><img class="w-[31px] mx-auto" src="{{ asset('assets/faq.png') }}"
-                                    alt="">
+                            <a href="{{ route('faq') }}"><img class="w-[31px] mx-auto"
+                                    src="{{ asset('assets/faq.png') }}" alt="">
                                 <h4 class="text-[10px] text-center  mt-1" ss>Faq</h4>
                             </a>
                         </li>

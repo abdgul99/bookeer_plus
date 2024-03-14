@@ -484,12 +484,12 @@
                             </ul>
                         </form>
                     </div>
-                    <button
+                    <a href="{{ route('faverout_publisher') }}"
                         class="p-3 px-5 float-right mt-12 text-[18px] text-white flex items-center justify-between border-b-2 w-full bg-[#F5821F] lg:w-[482px] border-b-[F5821F] translate-x-8">
                         <img src="{{ asset('assets/txt.png') }}" alt="">
                         <span>Favorite Publishers</span>
                         <img src="{{ asset('assets/vector.png') }}" alt="">
-                    </button>
+                </a>
                 </div>
             </div>
 
