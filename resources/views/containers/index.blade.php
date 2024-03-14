@@ -61,6 +61,29 @@
                         @endforeach
                     </div>
                 @endguest
+                @if (Auth::check() && Auth::user()->type == 'admin')
+                    <p
+                        class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
+                        Recommended
+                        Publishers</p>
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px]">
+                        @foreach ($recommeded_publishers as $publisher)
+                            <div class="mx-auto">
+                                <a href="{{ url('publisher_profile/' . $publisher->id) }}">
+                                    @php
+                                        if ($publisher->profile_photo_path != null) {
+                                            $img = asset('assets/profile/' . $publisher->profile_photo_path);
+                                        } else {
+                                            $img = asset('assets/girl.png');
+                                        }
+                                    @endphp
+                                    <img class="max-w-[90px] h-[90px] object-cover lg:max-w-[163px]"
+                                        src="{{ $img }}" alt="">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
                 @if (Auth::check() && Auth::user()->type == 'booker')
                     <p
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">

@@ -14,8 +14,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $recommeded_publishers = User::where('type', 'publisher')->where('status', 1)->inRandomOrder()->limit(5)->get();
-        $recommeded_bookers = User::where('type', 'booker')->where('status', 1)->inRandomOrder()->limit(5)->get();
+        $recommeded_publishers = User::where('type', 'publisher')->where('status', 1)->inRandomOrder()->limit(6)->get();
+        $recommeded_bookers = User::where('type', 'booker')->where('status', 1)->inRandomOrder()->limit(6)->get();
         $faqs = Faq::limit(3)->get();
         return view('containers.index')->with(['recommeded_publishers' => $recommeded_publishers, 'recommeded_bookers' => $recommeded_bookers, 'faqs' => $faqs]);
     }
