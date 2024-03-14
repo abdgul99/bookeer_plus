@@ -6,17 +6,22 @@
         <div class="max-w-4xl min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
-                    <img src="{{ asset('assets/chatbox/messages-image.png') }}" alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/messages-image.png') }}"
+                        alt="">
                 </div>
                 <div class="flex flex-col gap-4 p-4">
-                    <img src="{{ asset('assets/chatbox/profile.png') }}" alt="">
-                    <img src="{{ asset('assets/chatbox/message.png') }}" alt="">
-                    <img src="{{ asset('assets/chatbox/offer.png') }}" alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/profile.png') }}"
+                        alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/message.png') }}"
+                        alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/offer.png') }}"
+                        alt="">
                 </div>
                 <div class="flex flex-col gap-4 p-6">
-                    <img src="{{ asset('assets/chatbox/home.png') }}" alt="">
-                    <img src="{{ asset('assets/chatbox/list.png') }}" alt="">
-                    <img src="{{ asset('assets/chatbox/heart.png') }}" alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/home.png') }}" alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/list.png') }}" alt="">
+                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/heart.png') }}"
+                        alt="">
                 </div>
             </div>
             <div class="w-full grid lg:grid-cols-2">
