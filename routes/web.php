@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/updateHistory', [ProfileController::class, 'updateHistory'])->name('profile.updateHistory');
         Route::post('/updateMagazine', [ProfileController::class, 'updateMagazine'])->name('profile.updateMagazine');
         Route::get('publisher_search', [ProfileController::class, 'publisherSearch'])->name('publisher_search');
-        // Route::get('/search_booker', [ProfileController::class, 'searchBookerResult'])->name('search_booker');
+        Route::get('/search_booker', [ProfileController::class, 'searchBookerResult'])->name('search_booker');
         Route::get('/favorite_unfavorite_booker/{id}', [HomeController::class, 'favoriteUnfavoritePublisher'])->name('favorite_unfavorite_booker');
         Route::get('faverout_booker', [HomeController::class, 'faveroutPublisher'])->name('faverout_booker');
     });
