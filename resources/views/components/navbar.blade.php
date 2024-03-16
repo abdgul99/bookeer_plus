@@ -3,7 +3,8 @@
         <nav class="grid justify-center lg:block ">
             <div class="grid  lg:grid-cols-3 max-w-5xl space-y-5 mx-auto items-center justify-between py-6">
                 <div class="text-sm mx-auto font-semibold">出版社と執筆者のマッチングサービス</div>
-                <div class="mx-auto "><img class="w-[285px]" src="{{ asset('assets/booker_logo.png') }}" alt="">
+                <div class="mx-auto "><a href="/"><img class="w-[285px]" src="{{ asset('assets/booker_logo.png') }}"
+                            alt=""></a>
                 </div>
                 <div class="mx-auto">
                     <ul class="flex items-center gap-5">
@@ -94,7 +95,7 @@
 
 
 
-<nav class="bg-white lg:hidden border-gray-200">
+<nav class="bg-white z-10 lg:hidden border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img class="w-[200px]" src="{{ asset('assets/logo1.png') }}" class="h-8" alt="Flowbite Logo" />

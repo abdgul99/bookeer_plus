@@ -15,18 +15,21 @@
         @endif
         <form action="{{ route('search_booker') }}" method="GET">
             <div class="flex items-center border-b-2 border-black">
-                <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8">Age</div>
-                <div class="w-full py-4 lg:py-0 space-y-3 lg:flex items-center px-8  gap-3 ">
+                <div class=" text-clg:enter p-4 h-full w-[70px] text-[10px] lg:text-[14px] lg:w-[200px] bg-[#FDE6D2] p-8">
+                    Age</div>
+                <div class="w-full py-4 lg:py-0 space-y-3 lg:flex items-center px-3 lg:px-8  gap-3 ">
                     <input class="w-full" type="text" name="age">
                 </div>
             </div>
             <div class="flex  border-b-2 border-black">
-                <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-8">Genres</div>
-                <div class="w-full grid grid-cols-3 px-8  text-[10px] space-y-2 p-4">
-                    @if(count($genres) > 0)
+                <div class=" lg:text-center p-4  w-[70px] text-[10px] lg:text-[14px] lg:w-[200px] bg-[#FDE6D2] p-8">
+                    Genres</div>
+                <div class="w-full grid grid-cols-3 px-3 lg:px-8  text-[10px] space-y-2 p-4">
+                    @if (count($genres) > 0)
                         @foreach ($genres as $genre)
-                            <div class="flex items-center gap-4">
-                                <input type="checkbox" name="genres[]" value="{{ $genre->id }}"><label for="">{{ $genre->name }}</label>
+                            <div class="flex items-center gap-1 lg:gap-4">
+                                <input type="checkbox" name="genres[]" value="{{ $genre->id }}"><label
+                                    for="">{{ $genre->name }}</label>
                             </div>
                         @endforeach
                     @endif
@@ -34,14 +37,16 @@
             </div>
 
             <div class="flex items-center border-b-2 border-black">
-                <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8">area</div>
-                <div class="w-full  px-8 ">
+                <div class=" text-clg:enter p-4 h-full w-[70px] text-[10px] lg:text-[14px] lg:w-[200px] bg-[#FDE6D2] p-8">
+                    area</div>
+                <div class="w-full  px-3 lg:px-8 ">
                     <select class="w-[153px] p-2" name="area" id="">
                         <option value="tokyo">Tokyo</option>
                     </select>
                 </div>
             </div>
-            <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.</p>
+            <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.
+            </p>
             <div class="flex justify-center">
                 <button type="submit" class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white">Search</button>
             </div>

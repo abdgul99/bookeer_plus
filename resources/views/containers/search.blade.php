@@ -27,7 +27,8 @@
                 <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-8">Support</div>
                 <div class="w-full  px-8  text-[10px] space-y-2 p-4">
                     <div class="space-x-2">
-                        <input type="checkbox" name="editorial"><label for="">Editing/proofreading support OK</label>
+                        <input type="checkbox" name="editorial"><label for="">Editing/proofreading support
+                            OK</label>
                     </div>
                     <div class="space-x-2">
                         <input type="checkbox" name="card"><label for="">Credit Card Payment</label>
@@ -36,7 +37,8 @@
                         <input type="checkbox" name="ebook"><label for="">E-book OK</label>
                     </div>
                     <div class="space-x-2">
-                        <input type="checkbox" name="commercial"><label for="">Commercial publishing Consultation OK</label>
+                        <input type="checkbox" name="commercial"><label for="">Commercial publishing Consultation
+                            OK</label>
                     </div>
                     <div class="space-x-2">
                         <input type="checkbox" name="distribution"><label for="">Distrbution support</label>
@@ -57,10 +59,11 @@
                 <div class="grid w-full">
 
                     <div class="w-full grid grid-cols-3 px-8  text-[10px] space-y-2 p-4">
-                        @if(count($genres) > 0)
+                        @if (count($genres) > 0)
                             @foreach ($genres as $genre)
                                 <div class="flex items-center gap-4">
-                                    <input type="checkbox" name="genres[]" value="{{ $genre->id }}"><label for="">{{ $genre->name }}</label>
+                                    <input type="checkbox" name="genres[]" value="{{ $genre->id }}"><label
+                                        for="">{{ $genre->name }}</label>
                                 </div>
                             @endforeach
                         @endif
@@ -72,7 +75,7 @@
                 <div class="w-full  px-8   ">
                     <select class="w-[153px] p-2" name="area" id="area">
                         <option value="">Select Area</option>
-                        @if($support_area)
+                        @if ($support_area)
                             @foreach ($support_area as $area)
                                 <option value="{{ $area->name }}">{{ $area->name }}</option>
                             @endforeach
@@ -80,7 +83,8 @@
                     </select>
                 </div>
             </div>
-            <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.</p>
+            <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.
+            </p>
             <div class="flex justify-center">
                 <button type="submit"
                     class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white hover:bg-[#ffa25b]">Search</button>

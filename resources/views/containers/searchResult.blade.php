@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/profile_bg.png') }}" alt="">
-    <div class="px-4">
-        <div class="max-w-3xl mt-40 mx-auto">
+    <div class="px-4 ">
+        <div class="max-w-3xl mt-40 mx-auto min-w-">
             <p
                 class="border border-2 border-black border-b-[#F5821F] border-r-[#F5821F] w-full text-center font-semibold text-lg bg-white p-2">
                 List Of Booker</p>

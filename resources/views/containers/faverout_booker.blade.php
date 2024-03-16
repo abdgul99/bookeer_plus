@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/profile_bg.png') }}" alt="">
-    <div class="px-4 min-h-[80vh] lg:min-h-[200vh]">
+    <div class="px-4 min-h-[80vh] lg:min-h-[300vh]">
         <div class="max-w-3xl mt-40 mx-auto">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white">お気に入りの出版社</button>
@@ -28,7 +28,7 @@
                         <div class="shadow mt-5 bg-white">
                             <div class="border-2 border-l-black border-r-[#F5821F] border-t-black">
                                 <div class="flex flex-col lg:flex-row p-3 items-center ">
-                                    <div class="w-full lg:w-[36%] flex items-center mb-4">
+                                    <div class="w-full lg:w-[36%]  text-center">
                                         @php
                                             if ($booker->profile_photo_path != null) {
                                                 $img = asset('assets/profile/' . $booker->profile_photo_path);
@@ -40,7 +40,10 @@
                                         <p class=" p-2 lg:hidden text-sm">{{ $booker->name }}</p>
                                     </div>
                                     <div class="w-full text-[10px]">
-                                        <p class=" border-b-2 p-2 border-black hidden lg:block">{{ $booker->comment ?? '' }}
+                                        @if ($booker->comment)
+                                            <p class=" border-b-2 p-2 border-black hidden lg:block">
+                                                {{ $booker->comment ?? '' }}
+                                        @endif
                                         </p>
                                         <div class="border-b-2 border-black flex items-center">
                                             <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Age</h2>
@@ -61,17 +64,19 @@
 
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-2 text-sm ">
+                                <div class="grid grid-cols-2 text-[9px] lg:text-[13px] ">
                                     <a href="{{ route('booker.details', $booker->id) }}"
                                         class="p-3 px-5  flex items-center justify-between border-b-2 w-full bg-[#D9D9D9]  hover:bg-[#eee5e5]">
-                                        <img src="{{ asset('assets/txt.png') }}" alt="">
-                                        <span>Go to BOOKEER details</span>
-                                        <img src="{{ asset('assets/forward.png') }}" alt="">
+                                        <img class="w-[15px] lg:w-[20px] " src="{{ asset('assets/txt.png') }}"
+                                            alt="">
+                                        <h3 class="">Go to BOOKEER details</h3>
+                                        <img class="w-[5px]" src="{{ asset('assets/forward.png') }}" alt="">
                                     </a>
                                     <a href="{{ route('favorite_unfavorite_booker', $booker->id) }}"
                                         class="p-3  px-5 flex justify-between bg-[#F5821F] items-center hover:bg-[#ff8e2b]">
                                         <span>Favorite BOOKEER</span>
-                                        <img src="{{ asset('assets/vector.png') }}" alt="">
+                                        <img class="w-[15px] lg:w-[20px] " src="{{ asset('assets/vector.png') }}"
+                                            alt="">
                                     </a>
                                 </div>
                             </div>

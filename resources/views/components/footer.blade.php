@@ -8,7 +8,7 @@
         $backgorund = 'bg-black';
     @endphp
 @endif
-<div class="relative bottom-0">
+<div class="w-full relative bottom-0 ">
     <footer class="{{ $backgorund }} p-4 text-white w-full hidden lg:block relative bottom-0">
         <div class="grid lg:grid-cols-4  max-w-5xl mx-auto">
             <div class="mx-auto">
@@ -36,7 +36,7 @@
 </div>
 
 {{-- black footer mobile view --}}
-<footer class="{{ $backgorund }} text-white p-5 px-8 space-y-3 lg:hidden relative bottom-0">
+<footer class="{{ $backgorund }} text-white p-5 px-8 space-y-3 lg:hidden w-full relative bottom-0">
     <p class="text-center">
         Matching Service between Publishers and Authors
     </p>

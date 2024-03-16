@@ -1,6 +1,9 @@
 <?php
 function getUserGenres($ids)
 {
+    if(empty($ids)){
+        return [];
+    }
     $genres = \App\Models\Genre::whereIn('id', $ids)->get();
     $names = [];
     foreach ($genres as $genre) {

@@ -3,8 +3,16 @@
     <img class="absolute top-[700px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
     <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="max-w-4xl mx-auto  lg:mt-34 px-8">
-        <div class="">
+        <div class="hidden lg:block">
             @include('components/slider/slider')
+        </div>
+        <div class="lg:grid lg:hidden">
+            @include('components/slider/mobile_slider')
+        </div>
+
+
+        <div>
+
         </div>
         <div class="mt-4 lg:mt-10">
             <div class="bg-[#F5821F] px-8 py-2 lg:p-8">
@@ -43,7 +51,7 @@
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
                         Recommended
                         Publishers</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px]">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7   min-h-[300px]">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
                                 <a href="{{ url('publisher_profile/' . $publisher->id) }}">
@@ -77,7 +85,7 @@
                                             $img = asset('assets/girl.png');
                                         }
                                     @endphp
-                                    <img class="max-w-[90px] h-[90px] object-cover lg:max-w-[163px]"
+                                    <img class="max-w-[90px] max-h-[90px] object-cover lg:max-w-[163px]"
                                         src="{{ $img }}" alt="">
                                 </a>
                             </div>
@@ -100,8 +108,8 @@
                                             $img = asset('assets/girl.png');
                                         }
                                     @endphp
-                                    <img class="max-w-[90px] lg:max-w-[163px]" src="{{ $img }}" alt="">
-                                    {{-- <h2 class="text-center">Name</h2> --}}
+                                    <img class="max-w-[90px] max-h-[90px] object-cover lg:max-w-[163px]"
+                                        src="{{ $img }}" alt="">
                                 </a>
                             </div>
                         @endforeach
@@ -123,8 +131,9 @@
                                             $image = asset('assets/profile/' . $booker->profile_photo_path);
                                         }
                                     @endphp
-                                    <img class="max-w-[90px] lg:max-w-[163px]" src="{{ $image }}" alt="">
-                                    <h2>{{ $booker->name }}</h2>
+                                    <img class="max-w-[90px] h-[90px] object-cover lg:max-w-[163px] lg:max-h-[163px]"
+                                        src="{{ $image }}" alt="">
+                                    <h2 class="text-[10px] font-semibold text-center mt-2">{{ $booker->name }}</h2>
                                 </a>
                             </div>
                         @endforeach
@@ -160,9 +169,9 @@
                             </button>
                         </h2>
                         <div id="accordion-flush-body-{{ $faq->id }}" class="hidden"
-                            aria-labelledby="accordion-flush-heading-{{ $faq->id }}">
+                            aria-labelledby="px-2 accordion-flush-heading-{{ $faq->id }}">
                             <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p class="mb-2 text-gray-500 dark:text-gray-400">{{ $faq->answer }}</p>
+                                <p class="mb-2 text-gray-500 dark:text-gray-400 px-2">{{ $faq->answer }}</p>
                             </div>
                         </div>
                     @endforeach
