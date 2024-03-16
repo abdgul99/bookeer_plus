@@ -58,7 +58,7 @@
                 <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-8">Genres</div>
                 <div class="grid w-full">
 
-                    <div class="w-full grid grid-cols-3 px-8  text-[10px] space-y-2 p-4">
+                    <div class="w-full grid grid-cols-2 lg:grid-cols-3 px-8  text-[10px] space-y-2 p-4">
                         @if (count($genres) > 0)
                             @foreach ($genres as $genre)
                                 <div class="flex items-center gap-4">
