@@ -5,7 +5,7 @@
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white">お気に入りの出版社</button>
-                <button class="p-4 w-full bg-white ">あなたに注目している出版社</button>
+                <button class="p-4 w-full bg-white ">あなたに注目している出版社 </button>
             </div>
             <div class="w-full bg-[#F5821F] flex items-center justify-end mt-12">
                 <div class="flex p-3 text-white items-center justify-between text-sm w-full lg:w-2/3">
