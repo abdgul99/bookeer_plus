@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <img class=" w-full h-[150vh]  absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt="">
-    <div class="max-w-4xl mx-auto mt-5 lg:mt-20 p-4 lg:p-4 shadow">
+    {{-- <img class=" w-full h-[150vh]  absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt=""> --}}
+    <div class="max-w-4xl mx-auto mt-5 lg:mt-20 p-4 lg:p-4 shadow min-h-[110vh]">
         <h2 class="p-4 text-center bg-[#F5821F] font-bold text-white text-[20px]">Booker Search</h2>
         {{-- errors --}}
         @if ($errors->any())
