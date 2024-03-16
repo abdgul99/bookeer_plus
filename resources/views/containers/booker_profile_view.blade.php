@@ -5,7 +5,7 @@
         <div
             class="max-w-5xl  mx-auto text-2xl font-semibold mt-20 lg:mt-40 bg-white lg:bg-gray-100 border relative p-6 lg:p-0 mb-40 min-h-[200px] ">
             <div class="max-w-sm grid items-center mx-auto text-center">
-                <h2 class="border-b-2 border-white lg:border-black text-white lg:text-black pt-3"><span>BOOKER </span><span
+                <h2 class="border-b-2 border-white lg:border-black  pt-3"><span>BOOKER </span><span
                         class="text-[#F58220]">Profile</span></h2>
             </div>
             @if (Session::has('message'))
