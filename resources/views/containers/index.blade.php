@@ -59,7 +59,7 @@
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
                         Recommended
                         Publishers</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7   min-h-[300px]">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7   min-h-[200px] lg:min-h-[300px]">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
                                 <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
@@ -82,7 +82,7 @@
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
                         Recommended
                         Publishers</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px]">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[200px] lg:min-h-[300px]">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
                                 <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
@@ -105,7 +105,7 @@
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
                         Recommended
                         Publishers</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px] ">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[200px] lg:min-h-[300px] ">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
                                 <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
@@ -128,7 +128,7 @@
                         class="text-center p-3 font-semibold border border-2 border-t-black  border-l-black border-r-[#F5821F] border-b-[#F5821F] lg:max-w-[300px] mx-auto mb-5">
                         Recommended
                         Booker</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px]  ">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[200px] lg:min-h-[300px]  ">
                         @foreach ($recommeded_bookers as $booker)
                             <div class="mx-auto">
                                 <a href="{{ url('booker_details/' . $booker->id) }}">
@@ -156,7 +156,7 @@
         <div>
             <img src="{{ asset('assets/slider.png') }}" alt="">
         </div>
-        <div class="mt-10 lg:mt-32 bg-gray-100 shadow mb-10 p-4 min-h-[300px]">
+        <div class="mt-10 lg:mt-32 bg-gray-100 shadow mb-10 p-4 min-h-[200px] lg:min-h-[300px]">
             <p class="text-center p-3 font-semibold">Questions about our services</p>
             <div id="accordion-flush" data-accordion="collapse"
                 data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
