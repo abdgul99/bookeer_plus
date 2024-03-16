@@ -5,7 +5,7 @@
         <div
             class="max-w-5xl  mx-auto text-2xl font-semibold mt-20 lg:mt-40 bg-white lg:bg-gray-100 border relative lg:p-6 lg:p-0 mb-40 ">
             <div class="max-w-sm grid items-center mx-auto text-center">
-                <h2 class="border-b-2 border-white lg:border-black  lg:text-black mt-3"><span>BOOKER
+                <h2 class="border-b-2 border-white lg:border-black  lg:text-black mt-3"><span>PUBLISHER
                     </span><span class="text-[#F58220]">Profile</span></h2>
             </div>
             @if (Session::has('message'))
@@ -242,7 +242,7 @@
                                                             <form action="{{ route('profile.updateGenrePublisher') }}"
                                                                 method="POST">
                                                                 @csrf
-                                                                <ul cl0ss=" text-[10px] mt-2 grid grid-c4ls-3 ">
+                                                                <ul cl0ss=" text-[10px] mt-2 grid grid-cols-3 ">
                                                                     @if ($genres)
                                                                         @foreach ($genres as $genre)
                                                                             <div>

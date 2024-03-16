@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <style>
-        @media screen and (max-width: 430px) {
+        @media screen and (max-width: 1023px) {
             .mobile_nav {
                 margin-top: 50px;
                 width: 100% !important;
@@ -10,11 +10,11 @@
     </style>
     <img class="absolute top-[700px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
     <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
-    <div class="max-w-4xl mx-auto  lg:mt-34 px-8">
-        <div class="hidden lg:block">
+    <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
+        <div class="hidden md:block">
             @include('components/slider/slider')
         </div>
-        <div class="lg:grid lg:hidden">
+        <div class="block md:hidden ">
             @include('components/slider/mobile_slider')
         </div>
 
@@ -22,8 +22,8 @@
         <div>
 
         </div>
-        <div class="mt-4 lg:mt-10">
-            <div class="bg-[#F5821F] px-8 py-2 lg:p-8">
+        <div class="mt-4 lg:mt-10 ">
+            <div class="bg-[#F5821F]  px-8 py-2 lg:p-8">
                 <div
                     class="p-1 lg:p-4 hover:brightness-75 bg-white mx-auto max-w-[150px] lg:max-w-[583px] w-full rounded-md lg:rounded-2xl">
                     <button class="flex items-center px-4 w-full">
@@ -62,7 +62,7 @@
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-7   min-h-[300px]">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
-                                <a href="{{ url('publisher_profile/' . $publisher->id) }}">
+                                <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
                                     @php
                                         if ($publisher->profile_photo_path != null) {
                                             $img = asset('assets/profile/' . $publisher->profile_photo_path);
@@ -85,7 +85,7 @@
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px]">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
-                                <a href="{{ url('publisher_profile/' . $publisher->id) }}">
+                                <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
                                     @php
                                         if ($publisher->profile_photo_path != null) {
                                             $img = asset('assets/profile/' . $publisher->profile_photo_path);
@@ -108,7 +108,7 @@
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-7 gap-y-10  min-h-[300px] ">
                         @foreach ($recommeded_publishers as $publisher)
                             <div class="mx-auto">
-                                <a href="{{ url('publisher_profile/' . $publisher->id) }}">
+                                <a href="{{ url('publisher_profile_view/' . $publisher->id) }}">
                                     @php
                                         if ($publisher->profile_photo_path != null) {
                                             $img = asset('assets/profile/' . $publisher->profile_photo_path);

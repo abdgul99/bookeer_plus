@@ -195,7 +195,7 @@
 <body>
 
 
-    <div class="mt-28 ">
+    <div class="mt-28">
 
 
         <div class="card-carousel">

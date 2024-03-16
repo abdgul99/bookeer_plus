@@ -1,7 +1,14 @@
+<style>
+    @media screen and (max-width: 1023px) and (min-width: 800px) {
+        #navitems {
+            background-color: white !important;
+        }
+    }
+</style>
 <div class="">
-    <div class=" mt-10 lg:mt-0 hidden lg:block " id="navitems">
-        <nav class="grid justify-center lg:block ">
-            <div class="grid  lg:grid-cols-3 max-w-5xl space-y-5 mx-auto items-center justify-between py-6">
+    <div class=" mt-10 lg:mt-0 hidden md:block w-full background " id="navitems">
+        <nav class="grid justify-center md:block ">
+            <div class="grid  md:grid-cols-3 max-w-5xl space-y-5 mx-auto items-center justify-between py-6">
                 <div class="text-sm mx-auto font-semibold">出版社と執筆者のマッチングサービス</div>
                 <div class="mx-auto "><a href="/"><img class="w-[285px]" src="{{ asset('assets/booker_logo.png') }}"
                             alt=""></a>
@@ -31,7 +38,7 @@
                         @auth
                             @if (Auth::user()->type == 'publisher')
                                 <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                    <a href="publisher_profile"><img class="w-[31px] mx-auto"
+                                    <a href="{{ route('publisher_profile') }}"><img class="w-[31px] mx-auto"
                                             src="{{ asset('assets/nav_item_1.png') }}" alt="">
                                         <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
                                     </a>
@@ -39,7 +46,7 @@
                             @endif
                             @if (Auth::user()->type == 'booker')
                                 <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                    <a href="booker_profile"><img class="w-[31px] mx-auto"
+                                    <a href="{{ route('booker_profile') }}"><img class="w-[31px] mx-auto"
                                             src="{{ asset('assets/nav_item_1.png') }}" alt="">
                                         <h4 class="text-[10px] text-center  mt-1" ss>Profile</h4>
                                     </a>
@@ -48,7 +55,7 @@
 
 
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="message_list"> <img class="w-[31px] mx-auto"
+                                <a href="{{ route('message_list') }}"> <img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_2.png') }}" alt="">
                                     <h4 class="text-[10px] text-center  mt-1" ss>Chat</h4>
                                 </a>
@@ -95,7 +102,7 @@
 
 
 
-<nav class="bg-white z-10 lg:hidden border-gray-200 mobile_nav">
+<nav class="bg-white z-10 md:hidden border-gray-200 mobile_nav">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img class="w-[200px]" src="{{ asset('assets/logo1.png') }}" class="h-8" alt="Flowbite Logo" />
@@ -135,20 +142,20 @@
                 @auth
                     @if (Auth::user()->type == 'publisher')
                         <li>
-                            <a href="publisher_profile"
+                            <a href="{{ route('publisher_profile') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                                 aria-current="page">Profile</a>
                         </li>
                     @endif
                     @if (Auth::user()->type == 'booker')
                         <li>
-                            <a href="booker_profile"
+                            <a href="{{ route('booker_profile') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                                 aria-current="page">Profile</a>
                         </li>
                     @endif
                     <li>
-                        <a href="message_list"
+                        <a href="{{ route('message_list') }}"
                             class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                             aria-current="page">Chat</a>
                     </li>
@@ -171,7 +178,7 @@
                     {{-- logout --}}
                     <li class="hover:text[F5821F] hover:cursor-pointer">
                     <li>
-                        <a href="{{ route('faverout_booker') }}"
+                        <a href="{{ route('logout') }}"
                             class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                             aria-current="page">Logout</a>
                     </li>

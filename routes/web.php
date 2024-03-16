@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('publisher_profile/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile');
+Route::get('publisher_profile_view/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile_view');
 Route::get('booker_details/{id}', [HomeController::class, 'bookerProfile'])->name('booker.details');
 // Route::get('search', [HomeController::class, 'publisherSearch'])->name('search');
 Route::get('/search', [ProfileController::class, 'searchPublisher'])->name('search');
