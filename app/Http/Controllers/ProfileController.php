@@ -513,6 +513,16 @@ class ProfileController extends Controller
                 })->havingRaw('COUNT(*) < ?', [$minGenreMatches]);
             })
             ->get();
+        //if empty show random 3
+        if ($bookers->isEmpty()) {
+            $bookers = User::where('type', 'booker')
+                ->where('status', 1)
+                ->whereNotIn('type', ['publisher'])
+                ->inRandomOrder()
+                ->limit(3)
+                ->get();
+        }
+
         return view('containers.publisher.searchResult')->with('bookers', $bookers);
     }
 
@@ -547,6 +557,17 @@ class ProfileController extends Controller
             })
             ->where('area', $area)
             ->get();
+        // if empty show random 3
+        if ($publishers->isEmpty()) {
+            $publishers = User::where('type', 'publisher')
+                ->where('status', 1)
+                ->whereNotIn('type', ['booker'])
+                ->inRandomOrder()
+                ->limit(3)
+                ->get();
+        }
+
+
         return view('containers.search_result')->with('publishers', $publishers);
     }
 }
