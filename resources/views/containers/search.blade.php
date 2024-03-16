@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full hidden lg:block lg:absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt="">
+    {{-- <img class="w-full hidden lg:block lg:absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt=""> --}}
     <div class="max-w-4xl mx-auto mt-5 lg:mt-20 mb-5 p-4 lg:p-0 shadow">
         <h2 class="p-4 text-center bg-[#F5821F] font-bold text-white text-[20px]">Publisher Search</h2>
         {{-- errors --}}

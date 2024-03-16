@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/profile_bg.png') }}" alt="">
-    <div class="px-4 min-h-[80vh] lg:min-h-[300vh]">
+    <div class="px-4 min-h-[80vh] lg:min-h-[115vh]">
         <div class="max-w-3xl mt-40 mx-auto">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white">お気に入りの出版社</button>

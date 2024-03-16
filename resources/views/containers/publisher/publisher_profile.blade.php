@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full overflow-hidden absolute top-10 lg:top-0 -z-10" src="{{ asset('assets/profile_bg.png') }}"
-        alt="">
+    <img class="w-full overflow-hidden absolute top-10 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="px-4 lg:px-0 ">
         <div
             class="max-w-5xl  mx-auto text-2xl font-semibold mt-20 lg:mt-40 bg-white lg:bg-gray-100 border relative lg:p-6 lg:p-0 mb-40 ">
