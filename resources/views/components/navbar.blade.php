@@ -142,20 +142,20 @@
                 @auth
                     @if (Auth::user()->type == 'publisher')
                         <li>
-                            <a href="publisher_profile"
+                            <a href="{{ route('publisher_profile') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                                 aria-current="page">Profile</a>
                         </li>
                     @endif
                     @if (Auth::user()->type == 'booker')
                         <li>
-                            <a href="booker_profile"
+                            <a href="{{ route('booker_profile') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                                 aria-current="page">Profile</a>
                         </li>
                     @endif
                     <li>
-                        <a href="message_list"
+                        <a href="{{ route('message_list') }}"
                             class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                             aria-current="page">Chat</a>
                     </li>
@@ -178,7 +178,7 @@
                     {{-- logout --}}
                     <li class="hover:text[F5821F] hover:cursor-pointer">
                     <li>
-                        <a href="{{ route('faverout_booker') }}"
+                        <a href="{{ route('logout') }}"
                             class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                             aria-current="page">Logout</a>
                     </li>

@@ -242,7 +242,7 @@
                                                             <form action="{{ route('profile.updateGenrePublisher') }}"
                                                                 method="POST">
                                                                 @csrf
-                                                                <ul cl0ss=" text-[10px] mt-2 grid grid-c4ls-3 ">
+                                                                <ul cl0ss=" text-[10px] mt-2 grid grid-cols-3 ">
                                                                     @if ($genres)
                                                                         @foreach ($genres as $genre)
                                                                             <div>
