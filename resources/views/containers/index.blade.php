@@ -1,5 +1,13 @@
 @extends('layouts.master')
 @section('content')
+    <style>
+        @media screen and (max-width: 430px) {
+            .mobile_nav {
+                margin-top: 50px;
+                width: 100% !important;
+            }
+        }
+    </style>
     <img class="absolute top-[700px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
     <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="max-w-4xl mx-auto  lg:mt-34 px-8">
