@@ -59,7 +59,9 @@
                     <div class="p-5">
                         <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p>
                     </div>
-                    <div class="border p-5 m-5 bg-white rounded-2xl relative">
+                    <div id="chat"></div>
+
+                    {{-- <div class="border p-5 m-5 bg-white rounded-2xl relative">
                         <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
                         dignissimos
@@ -98,9 +100,71 @@
                         vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
                         laboriosam necessitatibus!
                         <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div>
+                    </div> --}}
+                </div>
+                <div class="w-full">
+                    <textarea rows="20" type="text" id="message" class="w-full"></textarea>
+    <button id="send" class="btn btn-primary">Send</button>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- pusher is not defined --}}
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    // Initialize Pusher
+    console.log('ready');
+
+
+    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+        cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
+    });
+
+    var channel = pusher.subscribe('chat');
+
+    channel.bind('App\\Events\\MessageSent', function(data) {
+        $('#chat').append($('<div>').text(data.message));
+    });
+
+    // Send message
+    $('#send').click(function(){
+        var message = $('#message').val();
+        //crsf token
+        var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/send-message',
+            data: {message: message},
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response){
+                console.log(response);
+            },
+            error: function(xhr, status, error){
+                console.error(error);
+            }
+        });
+    });
+});
+// Fetch messages
+function fetchMessages() {
+    $.get('/messages', function(messages) {
+        $('#chat').empty(); // Clear existing messages
+        $.each(messages, function(index, message) {
+            $('#chat').append('<div class="received-message">' + message.message + '</div>');
+        });
+    });
+}
+
+// Call fetchMessages initially to load messages
+fetchMessages();
+
+// Set interval to periodically fetch messages
+setInterval(fetchMessages, 5000); // Adjust the interval as needed
+
+    </script>
