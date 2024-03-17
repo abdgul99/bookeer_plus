@@ -71,6 +71,7 @@
 
             </tbody>
         </table>
+        {{ $publishers->links() }}
         <div class="grid justify-center">
             <a href="{{ route('add_publisher') }}" class="text-2xl font-semibold text-center px-5 p-3 rounded bg-[#CA8EEE] text-white my-5">+ publisher
                 account</a>
