@@ -166,19 +166,20 @@
                         <li>
                             <a href="{{ route('faverout_publisher') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
-                                aria-current="page">Faverout</a>
+                                aria-current="page">Favourit</a>
                         </li>
                     @else
                         <li>
                             <a href="{{ route('faverout_booker') }}"
                                 class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
-                                aria-current="page">Faverout</a>
+                                aria-current="page">Favourit</a>
                         </li>
                     @endif
                     {{-- logout --}}
                     <li class="hover:text[F5821F] hover:cursor-pointer">
                     <li>
                         <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             class="block py-2 px-3  rounded md:bg-transparent md:text-orange-500 md:p-0 md:dark:text-orange-400"
                             aria-current="page">Logout</a>
                     </li>
