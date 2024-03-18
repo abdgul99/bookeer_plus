@@ -55,7 +55,7 @@
 
 
                             <li class="hover:text-[F5821F] hover:cursor-pointer">
-                                <a href="{{ route('message_list') }}"> <img class="w-[31px] mx-auto"
+                                <a href="{{ route('chat') }}"> <img class="w-[31px] mx-auto"
                                         src="{{ asset('assets/nav_item_2.png') }}" alt="">
                                     <h4 class="text-[10px] text-center  mt-1" ss>Chat</h4>
                                 </a>
