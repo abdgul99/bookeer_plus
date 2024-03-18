@@ -7,6 +7,13 @@
                 <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">お気に入りの出版社</button>
                 <button class="p-4 w-full bg-white " onclick="send_f()">あなたに注目している出版社 </button>
             </div>
+            <div>
+
+                @include('components.model')
+
+                <button class="w-1/3 float-end my-3 p-3  text-white bg-[#F58220]" data-modal-target="default-modal"
+                    data-modal-toggle="default-modal" type="button">narrow</button>
+            </div>
             <div class="" id="recive_content">
                 <div class="w-full bg-[#F5821F] flex items-center justify-end mt-12">
                     <div class="flex p-3 text-white items-center justify-between text-sm w-full lg:w-2/3">
@@ -31,10 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden bg-white" id="send_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum amet obcaecati veniam autem earum ex sed
-                exercitationem dignissimos, molestias est tempora eveniet quidem, reprehenderit voluptatem in magni sapiente
-                repudiandae alias?
+            <div class="hidden" id="send_content">
                 <div class="" id="recive_content">
                     <div class="w-full bg-[#F5821F] flex items-center justify-end mt-12">
                         <div class="flex p-3 text-white items-center justify-between text-sm w-full lg:w-2/3">
