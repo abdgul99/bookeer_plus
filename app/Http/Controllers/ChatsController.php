@@ -29,7 +29,13 @@ class ChatsController extends Controller
     {
         $id = Auth::id();
         $messages = Message::where('user_id', $id)->get();
-        $users = Message::where('from_user_id', $id)->get();
+        $usersall = Message::where('from_user_id', $id)->get();
+        //pluck user_id
+        $user_ids = $usersall->pluck('user_id')->toArray();
+        // remove due duplicate ids
+        $user_ids = array_unique($user_ids);
+        // get user from ids
+        $users = User::whereIn('id', $user_ids)->get();
         return view('containers.message_list', compact('users', 'messages'));
         // return view('containers.message_list');
     }

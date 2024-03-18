@@ -28,10 +28,10 @@
                 <div class="">
                     @if($users->count() > 0)
                         @foreach($users as $muser)
-                            <a href="{{ route('message_to', $muser->user_id) }}">
+                            <a href="{{ route('message_to', $muser->id) }}">
                                 <div class="p-5 border flex gap-5 items-center ">
                                     @php
-                                    $user = App\Models\User::find($muser->user_id);
+                                    $user = App\Models\User::find($muser->id);
                                     if($user->profile_photo_path != null){
                                         $img = asset('assets/profile/'.$user->profile_photo_path);
                                     }else{
