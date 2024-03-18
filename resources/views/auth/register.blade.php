@@ -34,28 +34,32 @@
                         <label for="" class="text-[13px] lg:text-base" class="text-[13px] lg:text-base">お名前</label>
                         <span class="text-[#F58220]">必須</span>
                     </div>
-                    <input type="text" name="name" value="{{ old('name') }}" class="p-3 w-full border-2 border-gray-300 border-b-0" required>
+                    <input type="text" name="name" value="{{ old('name') }}"
+                        class="p-3 w-full border-2 border-gray-300 border-b-0" required>
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
                     <div class="flex items-center gap-2 font-semibold w-[250px] lg:justify-between px-2">
                         <label for="" class="text-[13px] lg:text-base">ふりがな</label>
                         <span class="text-[#F58220]">必須</span>
                     </div>
-                    <input type="text" name="furigana" id="furigana" class="p-3 w-full border-2 border-gray-300 border-b-0">
+                    <input type="text" name="furigana" id="furigana"
+                        class="p-3 w-full border-2 border-gray-300 border-b-0">
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
                     <div class="flex items-center gap-2 font-semibold w-[250px] lg:justify-between px-2">
                         <label for="" class="text-[13px] lg:text-base">メールアドレス</label>
                         <span class="text-[#F58220]">必須</span>
                     </div>
-                    <input type="email" name="email" id="email" required class="p-3 w-full border-2 border-gray-300 border-b-0">
+                    <input type="email" name="email" id="email" required
+                        class="p-3 w-full border-2 border-gray-300 border-b-0">
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
                     <div class="flex items-center gap-2 font-semibold w-[250px] lg:justify-between px-2">
                         <label for="" class="text-[13px] lg:text-base">パスワード</label>
                         <span class="text-[#F58220]">必須</span>
                     </div>
-                    <input type="password" name="password" id="password" class="p-3 w-full border-2 border-gray-300 border-b-0">
+                    <input type="password" name="password" id="password"
+                        class="p-3 w-full border-2 border-gray-300 border-b-0">
                 </div>
 
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
@@ -63,14 +67,16 @@
                         <label for="" class="text-[13px] lg:text-base">パスワード</label>
                         <span class="text-[#F58220]">確認する 必須</span>
                     </div>
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="p-3 w-full border-2 border-gray-300 border-b-0">
+                    <input type="password" name="password_confirmation" id="password_confirmation"
+                        class="p-3 w-full border-2 border-gray-300 border-b-0">
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
                     <div class="flex items-center gap-2 font-semibold w-[250px] lg:justify-between px-2">
                         <label for="" class="text-[13px] lg:text-base">年齢</label>
                         <span class="text-[#F58220]">必須</span>
                     </div>
-                    <input type="text" name="age" id="age" class="p-3 w-full border-2 border-gray-300 border-b-0">
+                    <input type="text" name="age" id="age"
+                        class="p-3 w-full border-2 border-gray-300 border-b-0">
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2">
                     <div class="flex items-center gap-2 font-semibold w-[250px] lg:justify-between px-2">
@@ -83,7 +89,10 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-                <p class="text-center">利用規約とプライバシーポリシーに同意したうえで送信する</p>
+                <div class="flex items-center gap-2">
+                    <input type="checkbox">
+                    <p class="text-center">利用規約とプライバシーポリシーに同意したうえで送信する</p>
+                </div>
                 <div class="grid justify-center">
                     <button type="submit" class="p-3 bg-[#F58220] rounded px-5 text-white">BOOKEER 登録</button>
                 </div>

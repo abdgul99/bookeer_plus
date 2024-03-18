@@ -125,9 +125,9 @@ Route::get('privacy_policy', function () {
     return view('containers.privacy_policy');
 })->name('privacy_policy');
 
-Route::get('team_of_use', function () {
+Route::get('term_of_use', function () {
     return view('containers.team_of_use');
-})->name('team_of_use');
+})->name('term_of_use');
 
 Route::get('faq', function () {
     return view('containers.faq');

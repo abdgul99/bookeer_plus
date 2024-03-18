@@ -16,12 +16,12 @@
                 <img class="mt-3 mx-auto" src="{{ asset('assets/footerlogo.png') }}" alt="">
             </div>
             <div class="lg:mx-auto">
-                <h2 class="text-[16px]">株式会社Uni-８</h2>
-                <ul class="space-y-2 mt-2 text-[14px]">
-                    <li><a href="#">利用規約</a></li>
-                    <li><a href="#">個人情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                    <li><a href="#">会社概要</a></li>
+                <h2 class="text-[16px] ">株式会社Uni-８</h2>
+                <ul class="space-y-2 mt-2 text-[14px] list-disc">
+                    <li><a href="term_of_use">term of use</a></li>
+                    <li><a href="privacy_policy">privacy policy</a></li>
+                    <li><a href="about_company">about</a></li>
+                    <li><a href="#">contact</a></li>
                 </ul>
             </div>
             <div>
@@ -50,11 +50,11 @@
     <div class="grid grid-cols-2 text-white">
         <div class="">
             <span class="text-[16px] m-0 p-0">株式会社Uni-８</span>
-            <ul class="space-y-2 mt-2 text-[14px]">
-                <li><a href="#">利用規約</a></li>
-                <li><a href="#">個人情報</a></li>
-                <li><a href="#">お問い合わせ</a></li>
-                <li><a href="#">会社概要</a></li>
+            <ul class="space-y-2 mt-2 text-[14px] list-disc">
+                <li><a href="term_of_use">Term of use</a></li>
+                <li><a href="privacy_policy">Privacy Policy</a></li>
+                <li><a href="about_company">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </div>
         <img class="h-full" src="{{ asset('assets/clip.png') }}" alt="">

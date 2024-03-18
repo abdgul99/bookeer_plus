@@ -1,24 +1,22 @@
 @extends('layouts.master')
 @section('content')
     <style>
-        @media screen and (max-width: 1023px) {
-            .mobile_nav {
-                margin-top: 50px;
-                width: 100% !important;
-            }
-        }
+        /* @media screen and (max-width: 1023px) {
+                                                                                    .mobile_nav {
+                                                                                        margin-top: 50px;
+                                                                                        width: 100% !important;
+                                                                                    }
+                                                                                } */
     </style>
     <img class="absolute top-[830px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
     <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
-        <div class="hidden md:block">
+        <div class="hidden md:block overflow-hidden">
             @include('components/slider/slider')
         </div>
         <div class="block md:hidden ">
             @include('components/slider/mobile_slider')
         </div>
-
-
         <div>
 
         </div>
@@ -152,8 +150,18 @@
         </div>
     </div>
 
+    {{-- <div>
+        <div class="hidden md:block overflow-hidden">
+            @include('components/slider/slider')
+        </div>
+        <div class="block md:hidden ">
+            @include('components/slider/mobile_slider')
+        </div>
+
+    </div> --}}
     <div class="max-w-4xl mx-auto mt-14 lg:mt-40 px-8">
         <div>
+
             <img src="{{ asset('assets/slider.png') }}" alt="">
         </div>
         <div class="mt-10 lg:mt-32 bg-gray-100 shadow mb-10 p-4 min-h-[200px] lg:min-h-[300px]">

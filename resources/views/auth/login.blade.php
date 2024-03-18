@@ -28,16 +28,21 @@
             <form action="{{ route('login') }}" class="my-5 space-y-5" method="POST">
                 @csrf
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0  ">
-                    <div class="flex items-center gap-6 lg:justify-center font-semibold w-[250px] gap-5"><label
-                            for="">ログイン
-                            ID</label><span class="text-[#F58220]">必須</span></div>
-                    <input type="email" id="email" class="p-3 w-full border-2 border-gray-300 border-b-0" name="email" required value="{{ old('email') }}">
+                    <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 ">
+                        <label for="">ログイン
+                            ID
+                        </label>
+                        <span class="text-[#F58220]">必須</span>
+                    </div>
+                    <input type="email" id="email" class="p-3 w-full border-2 border-gray-300 border-b-0"
+                        name="email" required value="{{ old('email') }}">
                 </div>
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0 ">
-                    <div class="flex items-center gap-6 lg:justify-center font-semibold w-[250px] gap-5"><label
+                    <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 "><label
                             for="">ログインパスワード
                             Password</label><span class="text-[#F58220]">必須</span></div>
-                    <input type="password" name="password" class="p-3 w-full border-2 border-gray-300 border-b-0" id="password">
+                    <input type="password" name="password" class="p-3 w-full border-2 border-gray-300 border-b-0"
+                        id="password">
                 </div>
                 <div class="grid justify-center">
                     <button type="submit" class="p-3 bg-[#F58220] rounded px-5 text-white">ログイン</button>
