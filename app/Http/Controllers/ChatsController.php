@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
-use Pusher\Pusher;
-use Validator;
+use App\Events\MessageSent;
+use Illuminate\Support\Facades\Event;
 
 class ChatsController extends Controller
 {
@@ -36,7 +36,8 @@ class ChatsController extends Controller
      */
     public function fetchMessages()
     {
-        return Message::with('user')->get();
+        $messages = Chat::latest()->get();
+        return response()->json($messages);
     }
 
     /**
@@ -102,54 +103,13 @@ class ChatsController extends Controller
 
     public function sendMessage(Request $request)
     {
-        $return_data['response_code'] = 0;
-        $return_data['message'] = 'Something went wrong. Please try again later.';
+        $message = new Message();
+        $message->user_id = Auth::id();
+        $message->message = $request->message;
+        $message->save();
 
-        // Assuming your AJAX sends JSON data, decode it
-        $requestData = json_decode($request->getContent(), true);
+        event(new MessageSent($message->message));
 
-        // Ensure the 'message' key exists in the received data
-        if (!isset($requestData['message'])) {
-            $return_data['message'] = 'Message not provided.';
-            return response()->json($return_data, 422); // 422 Unprocessable Entity status code
-        }
-
-        // Validate the 'message' field
-        $validator = Validator::make($requestData, [
-            'message' => 'required'
-        ], [
-            'message.required' => 'Please enter a message to communicate.'
-        ]);
-
-        // Check if validation fails
-        if ($validator->fails()) {
-            $return_data['message'] = implode("\n", $validator->messages()->all());
-            return response()->json($return_data, 422); // 422 Unprocessable Entity status code
-        }
-
-        try {
-            $options = [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => true
-            ];
-
-            $pusher = new Pusher(
-                env('PUSHER_APP_KEY'),
-                env('PUSHER_APP_SECRET'),
-                env('PUSHER_APP_ID'),
-                $options
-            );
-
-            $response = $pusher->trigger('chat', 'my-new-message-event', ['message' => $requestData['message']]);
-
-            if ($response) {
-                $return_data['response_code'] = 1;
-                $return_data['message'] = 'Success.';
-            }
-        } catch (\Exception $e) {
-            $return_data['message'] = $e->getMessage();
-        }
-
-        return response()->json($return_data);
+        return response()->json(['message' => 'Message sent successfully']);
     }
 }

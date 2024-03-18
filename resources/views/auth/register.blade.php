@@ -89,9 +89,11 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-                <div class="flex items-center gap-2">
-                    <input type="checkbox">
-                    <p class="text-center">利用規約とプライバシーポリシーに同意したうえで送信する</p>
+                {{-- checkbox with text --}}
+
+                <div class="text-center">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms" class="text-[#F58220]">利用規約とプライバシーポリシーに同意したうえで送信する</label>
                 </div>
                 <div class="grid justify-center">
                     <button type="submit" class="p-3 bg-[#F58220] rounded px-5 text-white">BOOKEER 登録</button>

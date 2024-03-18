@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'furigana' => ['string', 'max:255'],
             'age' => ['string', 'max:255'],
             'gender' => ['string', 'max:255'],
+            'terms' => 'required|accepted'
         ]);
     }
 

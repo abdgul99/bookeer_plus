@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 
@@ -102,7 +103,9 @@ Route::middleware('auth')->group(function () {
 
 
 
-
+Route::get('/chat', [ChatsController::class, 'index'])->name('chat');
+Route::post('/send-message', [ChatsController::class, 'sendMessage']);
+Route::get('/messages', [ChatsController::class, 'fetchMessages']);
 
 Route::get('publisher_profile_view/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile_view');
 Route::get('booker_details/{id}', [HomeController::class, 'bookerProfile'])->name('booker.details');
@@ -114,7 +117,6 @@ Route::get('search_publisher_result', [ProfileController::class, 'search_publish
 
 
 Route::get('search_result', function () {
-    
 })->name('search_result');
 
 Route::get('about_company', function () {
