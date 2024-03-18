@@ -83,8 +83,12 @@
                     </select>
                 </div>
             </div>
-            <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.
-            </p>
+            <div>
+                <label for="terms" class="text-[#F58220]"><input type="checkbox" name="terms" id="terms" class="me-2" required>I agree to the Terms of Use and Privacy Policy before submitting</label>
+
+            </div>
+            {{-- <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.
+            </p> --}}
             <div class="flex justify-center">
                 <button type="submit"
                     class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white hover:bg-[#ffa25b]">Search</button>

@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <div class="lg:flex items-center mt-5">
-                        <a href="message_list"
+                        <a href="{{ route('send_dm', ['id' => $user->id]) }}"
                             class="p-4 flex justify-between bg-black items-center text-white  w-full">Send
                             DM</a>
                         {{-- if current url have id --}}

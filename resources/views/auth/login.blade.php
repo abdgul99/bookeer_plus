@@ -40,7 +40,7 @@
                 <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0 ">
                     <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 "><label
                             for="">ログインパスワード
-                            Password</label><span class="text-[#F58220]">必須</span></div>
+                            </label><span class="text-[#F58220]">必須</span></div>
                     <input type="password" name="password" class="p-3 w-full border-2 border-gray-300 border-b-0"
                         id="password">
                 </div>

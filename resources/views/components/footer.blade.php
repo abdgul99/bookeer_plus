@@ -41,7 +41,7 @@
         Matching Service between Publishers and Authors
     </p>
     <img class="mx-auto" src="{{ asset('assets/footerlogo.png') }}" alt="">
-    <a href="login" class="p-1"> <button
+    <a href="{{ route('login') }}" class="p-1"> <button
             class="p-3 px-5  flex items-center justify-between text-black  w-full bg-white ">
             <img src="{{ asset('assets/txt.png') }}" alt="">
             <span>出版社詳細</span>

@@ -105,7 +105,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/chat', [ChatsController::class, 'index'])->name('chat');
 Route::post('/send-message', [ChatsController::class, 'sendMessage']);
-Route::get('/messages', [ChatsController::class, 'fetchMessages']);
+Route::get('/messages/{id}', [ChatsController::class, 'fetchMessages']);
+
+//send_dm
+Route::get('/send_dm', [ChatsController::class, 'sendDm'])->name('send_dm');
+//message_to
+Route::get('/message_to/{id}', [ChatsController::class, 'messageTo'])->name('message_to');
 
 Route::get('publisher_profile_view/{id}', [HomeController::class, 'publisherProfile'])->name('publisher_profile_view');
 Route::get('booker_details/{id}', [HomeController::class, 'bookerProfile'])->name('booker.details');

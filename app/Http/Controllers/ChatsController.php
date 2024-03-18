@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
 use Illuminate\Support\Facades\Event;
@@ -26,7 +27,11 @@ class ChatsController extends Controller
      */
     public function index()
     {
-        return view('containers.message_list');
+        $id = Auth::id();
+        $messages = Message::where('user_id', $id)->get();
+        $users = Message::where('from_user_id', $id)->get();
+        return view('containers.message_list', compact('users', 'messages'));
+        // return view('containers.message_list');
     }
 
     /**
@@ -34,9 +39,14 @@ class ChatsController extends Controller
      *
      * @return Message
      */
-    public function fetchMessages()
+    public function fetchMessages(Request $request)
     {
-        $messages = Chat::latest()->get();
+        $from = Auth::id();
+        $to = $request->id;
+        // where message not empty
+        $messages = Message::where('from_user_id', $from)->where('user_id', $to)->where('message', '!=', '')->orWhere('from_user_id', $to)->where('user_id', $from)->where('message', '!=', '')->latest()->get();
+
+        // $messages = Message::where('from_user_id', $from)->where('user_id', $to)->orWhere('from_user_id', $to)->where('user_id', $from)->where('message', '!=', '')->latest()->get();
         return response()->json($messages);
     }
 
@@ -106,10 +116,37 @@ class ChatsController extends Controller
         $message = new Message();
         $message->user_id = Auth::id();
         $message->message = $request->message;
+        $message->from_user_id = Auth::id();
+        $message->user_id = $request->id;
         $message->save();
 
         event(new MessageSent($message->message));
 
         return response()->json(['message' => 'Message sent successfully']);
+    }
+
+    public function sendDm(Request $request)
+    {
+        $id = $request->id;
+        // check if message already exist
+        $message = Message::where('from_user_id', Auth::id())->where('user_id', $id)->first();
+        if ($message) {
+            return redirect()->route('chat');
+        }
+        $message = new Message();
+        $message->from_user_id = Auth::id();
+        $message->message = '';
+        $message->user_id = $id;
+        $message->save();
+
+        //redirect to message_list
+        return redirect()->route('chat');
+    }
+
+    public function messageTo($id)
+    {
+        $message = Message::where('from_user_id', Auth::id())->where('user_id', $id)->where('message', '!=', '')->get();
+        $user = User::find($id);
+        return view('containers.chat')->with(['messages' => $message, 'user' => $user]);
     }
 }

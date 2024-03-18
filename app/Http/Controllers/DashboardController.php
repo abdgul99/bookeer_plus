@@ -27,7 +27,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $data = [
+            'labels' => ['1', '2', '3', '4', '5', '6', '7'],
+            'chart1' => [10, 0, 50, -10, 80, 20, 100],
+            'chart2' => [10, 0, 50, -10, 80, 20, 100],
+            'chart3' => [10, 0, 50, -10, 80, 20, 100],
+            'chart4' => [10, 0, 50, -10, 80, 20, 100],
+        ];
+        return view('dashboard.dashboard')->with('data', $data);
     }
 
     public function bookerUsers()

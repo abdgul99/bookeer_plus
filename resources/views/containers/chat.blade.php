@@ -26,12 +26,9 @@
             </div>
             <div class="w-full grid lg:grid-cols-2">
                 <div class="">
-                    @if($users->count() > 0)
-                        @foreach($users as $muser)
-                            <a href="{{ route('message_to', $muser->user_id) }}">
+                    @if($user)
                                 <div class="p-5 border flex gap-5 items-center ">
                                     @php
-                                    $user = App\Models\User::find($muser->user_id);
                                     if($user->profile_photo_path != null){
                                         $img = asset('assets/profile/'.$user->profile_photo_path);
                                     }else{
@@ -44,25 +41,29 @@
                                         {{ $user->comment ?? '' }}
                                     </div>
                                 </div>
-                            </a>
-                        @endforeach
                     @endif
                 </div>
                 <div class="bg-[#DCDDDE] hidden lg:block">
                     <div class="p-5">
                         {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
                     </div>
-                    <div id="chat"></div>
-
-                    {{-- <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                        <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
+                    <div id="oldChat">
+                    @if($messages->count() > 0)
+                        @foreach($messages as $message)
+                            @if($message->message != '')
+                            <div class="border p-5 m-5 bg-white rounded-2xl relative">
+                                <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
+                                <span class="chatMessage">{{ $message->message }}</span>
+                                <span class="absolute -bottom-5 right-1 text-[7px]">{{ $message->created_at }}</span>
+                            </div>
+                            @endif
+                        @endforeach
+                    @endif
                     </div>
-                    <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
+
+
+                    {{-- <div id="chat"></div> --}}
+                    {{--<div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
                         <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
                         dignissimos
@@ -109,9 +110,8 @@
     <script>
         $(document).ready(function(){
     // Initialize Pusher
-    console.log('ready');
 
-
+    var img ="{{ asset('assets/chat_side.png') }}";
     var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
         cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
     });
@@ -119,7 +119,8 @@
     var channel = pusher.subscribe('chat');
 
     channel.bind('App\\Events\\MessageSent', function(data) {
-        $('#chat').append($('<div>').text(data.message));
+        // $('#chat').append($('<div>').text(data.message));
+            // $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+data.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+data.created_at+'</span></div>');
     });
 
     // Send message
@@ -127,11 +128,19 @@
         var message = $('#message').val();
         //crsf token
         var _token = $('input[name="_token"]').val();
+        // get id from url
+        var url = window.location.href;
+        var id = url.substring(url.lastIndexOf('/') + 1);
+        console.log(id);
 
         $.ajax({
             type: 'POST',
             url: '/send-message',
-            data: {message: message},
+            data: {
+                message: message,
+                 _token: _token,
+                  id: id
+            },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -146,10 +155,35 @@
 });
 // Fetch messages
 function fetchMessages() {
-    $.get('/messages', function(messages) {
-        $('#chat').empty(); // Clear existing messages
-        $.each(messages, function(index, message) {
-            $('#chat').append('<div class="received-message">' + message.message + '</div>');
+
+    var url = window.location.href;
+        var id = url.substring(url.lastIndexOf('/') + 1);
+        var img ="{{ asset('assets/chat_side.png') }}";
+        //get messages for this user
+    $.get('/messages/'+id, function(chats) {
+        // $('#chat').empty(); // Clear existing messages
+        $.each(chats, function(index, chat) {
+            // check if the message append not append again
+            var oldChat = $('#oldChat').find('div').find('.chatMessage');
+            //find messgae in old chat
+            var chatmessagearray=[];
+            $.each(oldChat, function(index, old){
+                // push message to array but not duplicate
+                if(jQuery.inArray(old.innerText, chatmessagearray) === -1) {
+                    // item NOT in Array
+                    chatmessagearray.push(old.innerText);
+                }
+
+            });
+            console.log(chatmessagearray);
+            if(jQuery.inArray(chat.message, chatmessagearray) === -1) {
+                // item NOT in Array
+                $('#oldChat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt=""><span class="chatMessage">'+chat.message+'</span><span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
+            }
+            // if($('#chat').find('div').text() != chat.message){
+            //     $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
+            // }
+            // $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
         });
     });
 }

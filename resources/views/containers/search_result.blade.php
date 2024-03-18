@@ -57,7 +57,7 @@
 
                                 </div>
                             </div>
-                            <a href="{{ route('publisher_profile', $publisher->id) }}"
+                            <a href="{{ route('publisher_profile_view', $publisher->id) }}"
                                 class="ms-auto p-3 px-5 flex items-center justify-between  w-full lg:w-[244px] bg-[#D9D9D9] ">
                                 <img src="{{ asset('assets/txt.png') }}" alt="">
                                 <span>出版社詳細</span>
