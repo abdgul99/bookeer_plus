@@ -131,8 +131,6 @@
         // get id from url
         var url = window.location.href;
         var id = url.substring(url.lastIndexOf('/') + 1);
-        console.log(id);
-
         $.ajax({
             type: 'POST',
             url: '/send-message',
@@ -145,7 +143,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(response){
-                console.log(response);
+                $('#message').val('');
             },
             error: function(xhr, status, error){
                 console.error(error);
