@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\PublisherDetail;
+use App\Models\SupportArea;
 use App\Models\User;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
@@ -55,10 +56,12 @@ class HomeController extends Controller
         $userid = Auth::user()->id;
         $user = Auth::user();
         $favorite_publishers = User::find($userid)->favorite_publishers()->get();
+        $genres = Genre::all();
+        $support_area = SupportArea::all();
         if ($user->type == 'publisher') {
-            return view('containers.faverout_booker')->with('favorite_publishers', $favorite_publishers);
+            return view('containers.faverout_booker')->with(['favorite_publishers' => $favorite_publishers, 'genres' => $genres, 'support_area' => $support_area]);
         } else {
-            return view('containers.faverout_publisher')->with('favorite_publishers', $favorite_publishers);
+            return view('containers.faverout_publisher')->with(['favorite_publishers' => $favorite_publishers, 'genres' => $genres, 'support_area' => $support_area]);
         }
     }
 }
