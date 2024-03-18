@@ -95,10 +95,7 @@
                         <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
                     </div> --}}
                 </div>
-                <div class="w-full">
-                    <textarea rows="20" type="text" id="message" class="w-full"></textarea>
-    <button id="send" class="btn btn-primary">Send</button>
-                </div>
+                {{--  --}}
             </div>
         </div>
     </div>
