@@ -54,7 +54,15 @@
                             <div class="border p-5 m-5 bg-white rounded-2xl relative">
                                 <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
                                 <span class="chatMessage">{{ $message->message }}</span>
-                                <span class="absolute -bottom-5 right-1 text-[7px]">{{ $message->created_at }}</span>
+                                <span class="absolute -bottom-5 right-1 text-[7px]">
+                                    @php
+                                        //date format
+                                        $date = new DateTime($message->created_at);
+                                        // format dd/mm/yyyy
+                                        $date = $date->format('d/m/Y');
+
+                                    @endphp
+                                    {{ $date }}</span>
                             </div>
                             @endif
                         @endforeach
@@ -173,10 +181,16 @@ function fetchMessages() {
                 }
 
             });
-            console.log(chatmessagearray);
             if(jQuery.inArray(chat.message, chatmessagearray) === -1) {
                 // item NOT in Array
-                $('#oldChat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt=""><span class="chatMessage">'+chat.message+'</span><span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
+                // date format in jquery
+                var date = new Date(chat.created_at);
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                var year = date.getFullYear();
+                var combineDate= day+'/'+month+'/'+year;
+
+                $('#oldChat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt=""><span class="chatMessage">'+chat.message+'</span><span class="absolute -bottom-5 right-1 text-[7px]">'+combineDate+'</span></div>');
             }
             // if($('#chat').find('div').text() != chat.message){
             //     $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
