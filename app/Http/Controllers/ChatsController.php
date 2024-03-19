@@ -29,7 +29,7 @@ class ChatsController extends Controller
     {
         $id = Auth::id();
         $messages = Message::where('user_id', $id)->get();
-        $usersall = Message::where('from_user_id', $id)->get();
+        $usersall = Message::where('from_user_id', $id)->orWhere('user_id', $id)->get();
         //pluck user_id
         $user_ids = $usersall->pluck('user_id')->toArray();
         // remove due duplicate ids
