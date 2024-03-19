@@ -52,6 +52,7 @@
                         @if ($messages->count() > 0)
                             @foreach ($messages as $message)
                                 @if ($message->message != '')
+                                    @if($message->from_user_id == Auth::user()->id)
                                     <div class="border p-5 m-5 bg-white rounded-2xl relative">
                                         <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}"
                                             alt="">
@@ -66,6 +67,21 @@
                                             @endphp
                                             {{ $date }}</span>
                                     </div>
+                                    @else
+                                    <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
+                                        <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
+                                        <span class="chatMessage">{{ $message->message }}</span>
+                                        <span class="absolute -bottom-5 right-1 text-[7px]">
+                                            @php
+                                                //date format
+                                                $date = new DateTime($message->created_at);
+                                                // format dd/mm/yyyy
+                                                $date = $date->format('d/m/Y');
+
+                                            @endphp
+                                            {{ $date }}</span>
+                                    </div>
+                                    @endif
                                 @endif
                             @endforeach
                         @endif
@@ -172,7 +188,7 @@
 
         var url = window.location.href;
         var id = url.substring(url.lastIndexOf('/') + 1);
-        var img = "{{ asset('assets/chat_side.png') }}";
+
         //get messages for this user
         $.get('/messages/' + id, function(chats) {
             // $('#chat').empty(); // Clear existing messages
@@ -198,11 +214,21 @@
                     var year = date.getFullYear();
                     var combineDate = day + '/' + month + '/' + year;
 
+                    if(chat.from_user_id == id){
+                       var img = '{{ asset('assets/ch2.png') }}';
+                        $('#oldChat').append(
+                            '<div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative"><img class="absolute -top-0 -right-4" src="' +
+                                img + '" alt=""><span class="chatMessage">' + chat.message +
+                            '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
+                            combineDate + '</span></div>');
+                    }else{
+                        var img = "{{ asset('assets/chat_side.png') }}";
                     $('#oldChat').append(
                         '<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="' +
                         img + '" alt=""><span class="chatMessage">' + chat.message +
                         '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
                         combineDate + '</span></div>');
+                    }
                 }
                 // if($('#chat').find('div').text() != chat.message){
                 //     $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');

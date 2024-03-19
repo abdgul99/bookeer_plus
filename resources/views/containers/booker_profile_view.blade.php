@@ -96,7 +96,7 @@
 
 
             <div class="w-full lg:grid grid-cols-2">
-                <a href=""
+                <a href="{{ route('send_dm', ['id' => request()->route()->parameters['id']]) }}"
                     class="w-full p-3 px-5 float-left mt-12 text-[18px] text-white flex items-center justify-between border-b-2 w-full bg-[#F5821F] lg:w-[482px] border-b-[F5821F] ">Send
                     Message</a>
                 <a href="{{ route('favorite_unfavorite_booker', ['id' => request()->route()->parameters['id']]) }}"
