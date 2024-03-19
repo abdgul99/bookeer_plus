@@ -30,7 +30,12 @@
                 </div>
 
                 <div class="bg-white">
-                    <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt="">
+                    {{-- <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt=""> --}}
+                    <div class="grid lg:grid-cols-4 items-center text-center justify-center max-w-2xl mx-auto py-3">
+                        <div class="p-2 bg-gray-200">test</div>
+                        <div class="p-2 bg-gray-400">test</div>
+                        <div class="p-2 bg-orange-500">test</div>
+                    </div>
                     <div class="p-6">
                         @foreach ($favorite_publishers as $favorite_publisher)
                             @include('components/faverout_publisher_card')

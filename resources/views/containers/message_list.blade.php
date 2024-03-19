@@ -2,8 +2,8 @@
 @section('content')
     <img class="w-full absolute top-0 -z-10 brightness-75 hidden lg:block" src="{{ asset('assets/hero_bg.png') }}"
         alt="">
-    <div class="px-8">
-        <div class="max-w-4xl min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
+    <div class="px-8 lg:min-h-[1200px]">
+        <div class="max-w-4xl min-h-screen w-full mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
                     <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/messages-image.png') }}"
@@ -26,19 +26,20 @@
             </div>
             <div class="w-full grid lg:grid-cols-2">
                 <div class="">
-                    @if($users->count() > 0)
-                        @foreach($users as $muser)
+                    @if ($users->count() > 0)
+                        @foreach ($users as $muser)
                             <a href="{{ route('message_to', $muser->id) }}">
                                 <div class="p-5 border flex gap-5 items-center ">
                                     @php
-                                    $user = App\Models\User::find($muser->id);
-                                    if($user->profile_photo_path != null){
-                                        $img = asset('assets/profile/'.$user->profile_photo_path);
-                                    }else{
-                                        $img = asset('assets/gentosha.png');
-                                    }
+                                        $user = App\Models\User::find($muser->id);
+                                        if ($user->profile_photo_path != null) {
+                                            $img = asset('assets/profile/' . $user->profile_photo_path);
+                                        } else {
+                                            $img = asset('assets/gentosha.png');
+                                        }
                                     @endphp
-                                    <div class=""><img class="" src="{{ $img }}" alt="{{ $user->name }}">
+                                    <div class=""><img class="" src="{{ $img }}"
+                                            alt="{{ $user->name }}">
                                     </div>
                                     <div><b>{{ $user->name }}</b><br>
                                         {{ $user->comment ?? '' }}
@@ -103,58 +104,59 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {{-- pusher is not defined --}}
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script>
-        $(document).ready(function(){
-    // Initialize Pusher
-    console.log('ready');
+<script>
+    $(document).ready(function() {
+        // Initialize Pusher
+        console.log('ready');
 
 
-    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
-        cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
-    });
+        var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+            cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
+        });
 
-    var channel = pusher.subscribe('chat');
+        var channel = pusher.subscribe('chat');
 
-    channel.bind('App\\Events\\MessageSent', function(data) {
-        $('#chat').append($('<div>').text(data.message));
-    });
+        channel.bind('App\\Events\\MessageSent', function(data) {
+            $('#chat').append($('<div>').text(data.message));
+        });
 
-    // Send message
-    $('#send').click(function(){
-        var message = $('#message').val();
-        //crsf token
-        var _token = $('input[name="_token"]').val();
+        // Send message
+        $('#send').click(function() {
+            var message = $('#message').val();
+            //crsf token
+            var _token = $('input[name="_token"]').val();
 
-        $.ajax({
-            type: 'POST',
-            url: '/send-message',
-            data: {message: message},
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(response){
-                console.log(response);
-            },
-            error: function(xhr, status, error){
-                console.error(error);
-            }
+            $.ajax({
+                type: 'POST',
+                url: '/send-message',
+                data: {
+                    message: message
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
         });
     });
-});
-// Fetch messages
-function fetchMessages() {
-    $.get('/messages', function(messages) {
-        $('#chat').empty(); // Clear existing messages
-        $.each(messages, function(index, message) {
-            $('#chat').append('<div class="received-message">' + message.message + '</div>');
+    // Fetch messages
+    function fetchMessages() {
+        $.get('/messages', function(messages) {
+            $('#chat').empty(); // Clear existing messages
+            $.each(messages, function(index, message) {
+                $('#chat').append('<div class="received-message">' + message.message + '</div>');
+            });
         });
-    });
-}
+    }
 
-// Call fetchMessages initially to load messages
-fetchMessages();
+    // Call fetchMessages initially to load messages
+    fetchMessages();
 
-// Set interval to periodically fetch messages
-setInterval(fetchMessages, 5000); // Adjust the interval as needed
-
-    </script>
+    // Set interval to periodically fetch messages
+    setInterval(fetchMessages, 5000); // Adjust the interval as needed
+</script>

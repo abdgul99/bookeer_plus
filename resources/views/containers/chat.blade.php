@@ -2,8 +2,9 @@
 @section('content')
     <img class="w-full absolute top-0 -z-10 brightness-75 hidden lg:block" src="{{ asset('assets/hero_bg.png') }}"
         alt="">
-    <div class="px-8">
-        <div class="max-w-4xl min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
+    <div class="px-8 ">
+        <div
+            class="max-w-4xl  min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
                     <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/messages-image.png') }}"
@@ -26,52 +27,62 @@
             </div>
             <div class="w-full grid lg:grid-cols-2">
                 <div class="">
-                    @if($user)
-                                <div class="p-5 border flex gap-5 items-center ">
-                                    @php
-                                    if($user->profile_photo_path != null){
-                                        $img = asset('assets/profile/'.$user->profile_photo_path);
-                                    }else{
-                                        $img = asset('assets/gentosha.png');
-                                    }
-                                    @endphp
-                                    <div class=""><img class="" src="{{ $img }}" alt="{{ $user->name }}">
-                                    </div>
-                                    <div><b>{{ $user->name }}</b><br>
-                                        {{ $user->comment ?? '' }}
-                                    </div>
-                                </div>
+                    @if ($user)
+                        <div class="p-5 border flex gap-5 items-center ">
+                            @php
+                                if ($user->profile_photo_path != null) {
+                                    $img = asset('assets/profile/' . $user->profile_photo_path);
+                                } else {
+                                    $img = asset('assets/gentosha.png');
+                                }
+                            @endphp
+                            <div class=""><img class="" src="{{ $img }}" alt="{{ $user->name }}">
+                            </div>
+                            <div><b>{{ $user->name }}</b><br>
+                                {{ $user->comment ?? '' }}
+                            </div>
+                        </div>
                     @endif
                 </div>
-                <div class="bg-[#DCDDDE] hidden lg:block">
+                <div class="bg-[#DCDDDE]  lg:block">
                     <div class="p-5">
                         {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
                     </div>
                     <div id="oldChat">
-                    @if($messages->count() > 0)
-                        @foreach($messages as $message)
-                            @if($message->message != '')
-                            <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                                <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
-                                <span class="chatMessage">{{ $message->message }}</span>
-                                <span class="absolute -bottom-5 right-1 text-[7px]">
-                                    @php
-                                        //date format
-                                        $date = new DateTime($message->created_at);
-                                        // format dd/mm/yyyy
-                                        $date = $date->format('d/m/Y');
+                        @if ($messages->count() > 0)
+                            @foreach ($messages as $message)
+                                @if ($message->message != '')
+                                    <div class="border p-5 m-5 bg-white rounded-2xl relative">
+                                        <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}"
+                                            alt="">
+                                        <span class="chatMessage">{{ $message->message }}</span>
+                                        <span class="absolute -bottom-5 right-1 text-[7px]">
+                                            @php
+                                                //date format
+                                                $date = new DateTime($message->created_at);
+                                                // format dd/mm/yyyy
+                                                $date = $date->format('d/m/Y');
 
-                                    @endphp
-                                    {{ $date }}</span>
-                            </div>
-                            @endif
-                        @endforeach
-                    @endif
+                                            @endphp
+                                            {{ $date }}</span>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="w-full ">
+                        <div class="flex items-center gap-3 p-2 relative bottom-0 w-full">
+                            <textarea rows="1" type="text" id="message" class="w-full rounded-full text-[10px]"
+                                style="line-height: 18px;height: 38px;"></textarea>
+                            <button id="send" class="btn btn-primary w-5"><img src="{{ asset('assets/send.png') }}"
+                                    alt=""></button>
+                        </div>
+
                     </div>
 
 
                     {{-- <div id="chat"></div> --}}
-                    {{--<div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
+                    {{-- <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
                         <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
                         dignissimos
@@ -104,106 +115,106 @@
                         <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
                     </div> --}}
                 </div>
-                <div class="w-full">
-                    <textarea rows="20" type="text" id="message" class="w-full"></textarea>
-    <button id="send" class="btn btn-primary">Send</button>
-                </div>
             </div>
+
         </div>
     </div>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {{-- pusher is not defined --}}
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script>
-        $(document).ready(function(){
-    // Initialize Pusher
+<script>
+    $(document).ready(function() {
+        // Initialize Pusher
 
-    var img ="{{ asset('assets/chat_side.png') }}";
-    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
-        cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
-    });
+        var img = "{{ asset('assets/chat_side.png') }}";
+        var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+            cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
+        });
 
-    var channel = pusher.subscribe('chat');
+        var channel = pusher.subscribe('chat');
 
-    channel.bind('App\\Events\\MessageSent', function(data) {
-        // $('#chat').append($('<div>').text(data.message));
+        channel.bind('App\\Events\\MessageSent', function(data) {
+            // $('#chat').append($('<div>').text(data.message));
             // $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+data.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+data.created_at+'</span></div>');
-    });
+        });
 
-    // Send message
-    $('#send').click(function(){
-        var message = $('#message').val();
-        //crsf token
-        var _token = $('input[name="_token"]').val();
-        // get id from url
+        // Send message
+        $('#send').click(function() {
+            var message = $('#message').val();
+            //crsf token
+            var _token = $('input[name="_token"]').val();
+            // get id from url
+            var url = window.location.href;
+            var id = url.substring(url.lastIndexOf('/') + 1);
+            $.ajax({
+                type: 'POST',
+                url: '/send-message',
+                data: {
+                    message: message,
+                    _token: _token,
+                    id: id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    $('#message').val('');
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+    // Fetch messages
+    function fetchMessages() {
+
         var url = window.location.href;
         var id = url.substring(url.lastIndexOf('/') + 1);
-        $.ajax({
-            type: 'POST',
-            url: '/send-message',
-            data: {
-                message: message,
-                 _token: _token,
-                  id: id
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(response){
-                $('#message').val('');
-            },
-            error: function(xhr, status, error){
-                console.error(error);
-            }
-        });
-    });
-});
-// Fetch messages
-function fetchMessages() {
-
-    var url = window.location.href;
-        var id = url.substring(url.lastIndexOf('/') + 1);
-        var img ="{{ asset('assets/chat_side.png') }}";
+        var img = "{{ asset('assets/chat_side.png') }}";
         //get messages for this user
-    $.get('/messages/'+id, function(chats) {
-        // $('#chat').empty(); // Clear existing messages
-        $.each(chats, function(index, chat) {
-            // check if the message append not append again
-            var oldChat = $('#oldChat').find('div').find('.chatMessage');
-            //find messgae in old chat
-            var chatmessagearray=[];
-            $.each(oldChat, function(index, old){
-                // push message to array but not duplicate
-                if(jQuery.inArray(old.innerText, chatmessagearray) === -1) {
+        $.get('/messages/' + id, function(chats) {
+            // $('#chat').empty(); // Clear existing messages
+            $.each(chats, function(index, chat) {
+                // check if the message append not append again
+                var oldChat = $('#oldChat').find('div').find('.chatMessage');
+                //find messgae in old chat
+                var chatmessagearray = [];
+                $.each(oldChat, function(index, old) {
+                    // push message to array but not duplicate
+                    if (jQuery.inArray(old.innerText, chatmessagearray) === -1) {
+                        // item NOT in Array
+                        chatmessagearray.push(old.innerText);
+                    }
+
+                });
+                if (jQuery.inArray(chat.message, chatmessagearray) === -1) {
                     // item NOT in Array
-                    chatmessagearray.push(old.innerText);
+                    // date format in jquery
+                    var date = new Date(chat.created_at);
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    var year = date.getFullYear();
+                    var combineDate = day + '/' + month + '/' + year;
+
+                    $('#oldChat').append(
+                        '<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="' +
+                        img + '" alt=""><span class="chatMessage">' + chat.message +
+                        '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
+                        combineDate + '</span></div>');
                 }
-
+                // if($('#chat').find('div').text() != chat.message){
+                //     $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
+                // }
+                // $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
             });
-            if(jQuery.inArray(chat.message, chatmessagearray) === -1) {
-                // item NOT in Array
-                // date format in jquery
-                var date = new Date(chat.created_at);
-                var month = date.getMonth() + 1;
-                var day = date.getDate();
-                var year = date.getFullYear();
-                var combineDate= day+'/'+month+'/'+year;
-
-                $('#oldChat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt=""><span class="chatMessage">'+chat.message+'</span><span class="absolute -bottom-5 right-1 text-[7px]">'+combineDate+'</span></div>');
-            }
-            // if($('#chat').find('div').text() != chat.message){
-            //     $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
-            // }
-            // $('#chat').append('<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="'+img+'" alt="">'+chat.message+'<span class="absolute -bottom-5 right-1 text-[7px]">'+chat.created_at+'</span></div>');
         });
-    });
-}
+    }
 
-// Call fetchMessages initially to load messages
-fetchMessages();
+    // Call fetchMessages initially to load messages
+    fetchMessages();
 
-// Set interval to periodically fetch messages
-setInterval(fetchMessages, 5000); // Adjust the interval as needed
-
-    </script>
+    // Set interval to periodically fetch messages
+    setInterval(fetchMessages, 5000); // Adjust the interval as needed
+</script>
