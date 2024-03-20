@@ -70,14 +70,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
-                        <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div>
+
                     <div class="w-full ">
                         <div class="flex items-center gap-3 p-2 relative bottom-0 w-full">
                             <textarea rows="1" type="text" id="message" class="w-full rounded-full text-[10px]"
