@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="grid grid-cols-2">
-            <a href="{{ url('/publisher_profile/'.$favorite_publisher->id) }}" class="p-3 px-5  flex items-center justify-between border-b-2 w-full bg-[#D9D9D9] border-b-[#F5821F] hover:bg-[#eee5e5]">
+            <a href="{{ url('/publisher_profile_view/'.$favorite_publisher->id) }}" class="p-3 px-5  flex items-center justify-between border-b-2 w-full bg-[#D9D9D9] border-b-[#F5821F] hover:bg-[#eee5e5]">
                 <img src="{{ asset('assets/txt.png') }}" alt="">
                 <span>出版社詳細</span>
                 <img src="{{ asset('assets/forward.png') }}" alt="">

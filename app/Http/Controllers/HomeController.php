@@ -55,13 +55,15 @@ class HomeController extends Controller
     {
         $userid = Auth::user()->id;
         $user = Auth::user();
-        $favorite_publishers = User::find($userid)->favorite_publishers()->get();
+        $favorite_rec = User::find($userid)->favorite_publishers()->get();
+        //get publisher who make me favoutite
+        $favorite_send = User::find($userid)->favorite_bookers()->get();
         $genres = Genre::all();
         $support_area = SupportArea::all();
         if ($user->type == 'publisher') {
-            return view('containers.faverout_booker')->with(['favorite_publishers' => $favorite_publishers, 'genres' => $genres, 'support_area' => $support_area]);
+            return view('containers.faverout_booker')->with(['favorite_rec' => $favorite_rec, 'genres' => $genres, 'support_area' => $support_area, 'favorite_send' => $favorite_send]);
         } else {
-            return view('containers.faverout_publisher')->with(['favorite_publishers' => $favorite_publishers, 'genres' => $genres, 'support_area' => $support_area]);
+            return view('containers.faverout_publisher')->with(['favorite_rec' => $favorite_rec, 'genres' => $genres, 'support_area' => $support_area, 'favorite_send' => $favorite_send]);
         }
     }
 }

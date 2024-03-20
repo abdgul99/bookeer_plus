@@ -4,8 +4,8 @@
     <div class="px-4 min-h-[200vh]">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
-                <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">お気に入りの出版社</button>
-                <button class="p-4 w-full bg-white " onclick="send_f()">あなたに注目している出版社 </button>
+                <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">Recieved Favourite</button>
+                <button class="p-4 w-full bg-white " onclick="send_f()">Send Favourite</button>
             </div>
             <div>
 
@@ -37,7 +37,7 @@
                         <div class="p-2 bg-orange-500">test</div>
                     </div>
                     <div class="p-6">
-                        @foreach ($favorite_publishers as $favorite_publisher)
+                        @foreach ($favorite_rec as $favorite_publisher)
                             @include('components/faverout_publisher_card')
                         @endforeach
                     </div>
@@ -62,7 +62,7 @@
                     <div class="bg-white">
                         <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt="">
                         <div class="p-6">
-                            @foreach ($favorite_publishers as $favorite_publisher)
+                            @foreach ($favorite_send as $favorite_publisher)
                                 @include('components/faverout_publisher_card')
                             @endforeach
                         </div>
