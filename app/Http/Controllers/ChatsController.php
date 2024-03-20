@@ -28,15 +28,20 @@ class ChatsController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $messages = Message::where('user_id', $id)->get();
+        // GET ALL users who have chat with me
         $usersall = Message::where('from_user_id', $id)->orWhere('user_id', $id)->get();
+
         //pluck user_id
-        $user_ids = $usersall->pluck('user_id')->toArray();
+        $from_user_ids = $usersall->pluck('from_user_id')->toArray();
+        $to_user_ids = $usersall->pluck('user_id')->toArray();
+        // merge both array
+        $user_ids = array_merge($from_user_ids, $to_user_ids);
+
         // remove due duplicate ids
         $user_ids = array_unique($user_ids);
         // get user from ids
-        $users = User::whereIn('id', $user_ids)->get();
-        return view('containers.message_list', compact('users', 'messages'));
+        $users = User::whereIn('id', $user_ids)->where('id', '!=', $id)->get();
+        return view('containers.message_list', compact('users'));
         // return view('containers.message_list');
     }
 

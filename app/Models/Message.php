@@ -16,4 +16,14 @@ class Message extends Model
      * @var array
      */
     protected $fillable = ['message'];
+
+    public function from()
+    {
+        return $this->belongsTo(User::class, 'from_user_id');
+    }
+
+    public function to()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
