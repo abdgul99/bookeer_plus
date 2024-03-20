@@ -38,7 +38,7 @@
                                             $img = asset('assets/gentosha.png');
                                         }
                                     @endphp
-                                    <div class=""><img class="" src="{{ $img }}"
+                                    <div class=""><img class="max-w-[60px]" class="" src="{{ $img }}"
                                             alt="{{ $user->name }}">
                                     </div>
                                     <div><b>{{ $user->name }}</b><br>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div class="min-h-[220vh]">
+    <div class="lg:min-h-[220vh]">
         <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/chat_bg.png') }}"
             alt="">
         <div class="max-w-5xl mx-auto mt-40 bg-white mb-10 pb-5 ">

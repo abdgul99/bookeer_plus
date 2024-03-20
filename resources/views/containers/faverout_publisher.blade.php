@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/hero_bg.png') }}" alt="">
-    <div class="px-4 min-h-[200vh]">
+    <div class="px-4 lg:min-h-[200vh]">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">Recieved Favourite</button>
@@ -31,7 +31,7 @@
 
                 <div class="bg-white">
                     {{-- <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt=""> --}}
-                    <div class="grid lg:grid-cols-4 items-center text-center justify-center max-w-2xl mx-auto py-3">
+                    <div class="grid grid-cols-4 items-center text-center justify-center max-w-2xl mx-auto py-3">
                         <div class="p-2 bg-gray-200">test</div>
                         <div class="p-2 bg-gray-400">test</div>
                         <div class="p-2 bg-orange-500">test</div>

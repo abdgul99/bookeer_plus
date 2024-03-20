@@ -25,8 +25,8 @@
                         alt="">
                 </div>
             </div>
-            <div class="w-full grid lg:grid-cols-2">
-                <div class="">
+            <div class="w-full  lg:grid lg:grid-cols-2">
+                <div class="h-0">
                     @if ($user)
                         <div class="p-5 border flex gap-5 items-center ">
                             @php
@@ -36,7 +36,8 @@
                                     $img = asset('assets/gentosha.png');
                                 }
                             @endphp
-                            <div class=""><img class="" src="{{ $img }}" alt="{{ $user->name }}">
+                            <div class=""><img class="max-w-[60px]" src="{{ $img }}"
+                                    alt="{{ $user->name }}">
                             </div>
                             <div><b>{{ $user->name }}</b><br>
                                 {{ $user->comment ?? '' }}
@@ -44,7 +45,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="bg-[#DCDDDE]  lg:block">
+                <div class="bg-[#DCDDDE]  lg:block mt-28 lg:mt-0">
                     <div class="p-5">
                         {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
                     </div>
@@ -52,35 +53,36 @@
                         @if ($messages->count() > 0)
                             @foreach ($messages as $message)
                                 @if ($message->message != '')
-                                    @if($message->from_user_id == Auth::user()->id)
-                                    <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                                        <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}"
-                                            alt="">
-                                        <span class="chatMessage">{{ $message->message }}</span>
-                                        <span class="absolute -bottom-5 right-1 text-[7px]">
-                                            @php
-                                                //date format
-                                                $date = new DateTime($message->created_at);
-                                                // format dd/mm/yyyy
-                                                $date = $date->format('d/m/Y');
+                                    @if ($message->from_user_id == Auth::user()->id)
+                                        <div class="border p-5 m-5 bg-white rounded-2xl relative">
+                                            <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}"
+                                                alt="">
+                                            <span class="chatMessage">{{ $message->message }}</span>
+                                            <span class="absolute -bottom-5 right-1 text-[7px]">
+                                                @php
+                                                    //date format
+                                                    $date = new DateTime($message->created_at);
+                                                    // format dd/mm/yyyy
+                                                    $date = $date->format('d/m/Y');
 
-                                            @endphp
-                                            {{ $date }}</span>
-                                    </div>
+                                                @endphp
+                                                {{ $date }}</span>
+                                        </div>
                                     @else
-                                    <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
-                                        <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
-                                        <span class="chatMessage">{{ $message->message }}</span>
-                                        <span class="absolute -bottom-5 right-1 text-[7px]">
-                                            @php
-                                                //date format
-                                                $date = new DateTime($message->created_at);
-                                                // format dd/mm/yyyy
-                                                $date = $date->format('d/m/Y');
+                                        <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
+                                            <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}"
+                                                alt="">
+                                            <span class="chatMessage">{{ $message->message }}</span>
+                                            <span class="absolute -bottom-5 right-1 text-[7px]">
+                                                @php
+                                                    //date format
+                                                    $date = new DateTime($message->created_at);
+                                                    // format dd/mm/yyyy
+                                                    $date = $date->format('d/m/Y');
 
-                                            @endphp
-                                            {{ $date }}</span>
-                                    </div>
+                                                @endphp
+                                                {{ $date }}</span>
+                                        </div>
                                     @endif
                                 @endif
                             @endforeach
@@ -215,20 +217,20 @@
                     var year = date.getFullYear();
                     var combineDate = day + '/' + month + '/' + year;
 
-                    if(chat.from_user_id == id){
-                       var img = '{{ asset('assets/ch2.png') }}';
+                    if (chat.from_user_id == id) {
+                        var img = '{{ asset('assets/ch2.png') }}';
                         $('#oldChat').append(
                             '<div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative"><img class="absolute -top-0 -right-4" src="' +
-                                img + '" alt=""><span class="chatMessage">' + chat.message +
+                            img + '" alt=""><span class="chatMessage">' + chat.message +
                             '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
                             combineDate + '</span></div>');
-                    }else{
+                    } else {
                         var img = "{{ asset('assets/chat_side.png') }}";
-                    $('#oldChat').append(
-                        '<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="' +
-                        img + '" alt=""><span class="chatMessage">' + chat.message +
-                        '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
-                        combineDate + '</span></div>');
+                        $('#oldChat').append(
+                            '<div class="border p-5 m-5 bg-white rounded-2xl relative"><img class="absolute -top-0 -left-4" src="' +
+                            img + '" alt=""><span class="chatMessage">' + chat.message +
+                            '</span><span class="absolute -bottom-5 right-1 text-[7px]">' +
+                            combineDate + '</span></div>');
                     }
                 }
                 // if($('#chat').find('div').text() != chat.message){

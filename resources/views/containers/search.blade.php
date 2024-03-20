@@ -16,8 +16,8 @@
         <form action="{{ route('search_publisher_result') }}" method="GET">
 
             <div class="flex items-center border-b-2 border-black">
-                <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8">Cost</div>
-                <div class="w-full py-4 lg:py-0 space-y-3 lg:flex items-center px-8  gap-3 ">
+                <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-8 min-h-[120px]">Cost</div>
+                <div class="w-full py-4 lg:py-0 space-y-3 lg:space-y-0 lg:flex items-center px-8  gap-3  ">
                     <input class="w-full" type="number" name="from">
                     <img class="hidden lg:block" src="{{ asset('assets/sign.png') }}" alt="">
                     <input class="w-full" type="number" name="to">
@@ -84,7 +84,8 @@
                 </div>
             </div>
             <div>
-                <label for="terms" class="text-[#F58220]"><input type="checkbox" name="terms" id="terms" class="me-2" required>I agree to the Terms of Use and Privacy Policy before submitting</label>
+                <label for="terms" class="text-[#F58220]"><input type="checkbox" name="terms" id="terms"
+                        class="me-2" required>I agree to the Terms of Use and Privacy Policy before submitting</label>
 
             </div>
             {{-- <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before submitting.
