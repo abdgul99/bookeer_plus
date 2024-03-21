@@ -1,5 +1,9 @@
 @extends('layouts.master')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..."
+        crossorigin="anonymous" />
+
+
     <img class="w-full absolute top-0 -z-10 brightness-75 hidden lg:block" src="{{ asset('assets/hero_bg.png') }}"
         alt="">
     <div class="px-8 ">
@@ -7,22 +11,17 @@
             class="max-w-4xl  min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/messages-image.png') }}"
-                        alt="">
+                    <i class="fab fa-rocketchat text-2xl text-white"></i>
                 </div>
                 <div class="flex flex-col gap-4 p-4">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/profile.png') }}"
-                        alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/message.png') }}"
-                        alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/offer.png') }}"
-                        alt="">
+                    <i class="fas fa-user text-2xl text-white"></i>
+                    <i class="fas fa-sms text-2xl text-white"></i>
+                    <i class="fas fa-envelope-open-text text-2xl text-white"></i>
                 </div>
                 <div class="flex flex-col gap-4 p-6">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/home.png') }}" alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/list.png') }}" alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/heart.png') }}"
-                        alt="">
+                    <i class="fas fa-home text-2xl text-white"></i>
+                    <i class="fas fa-pager text-2xl text-white"></i>
+                    <i class="fas fa-heart text-2xl text-white"></i>
                 </div>
             </div>
             <div class="w-full  lg:grid lg:grid-cols-2">
@@ -45,52 +44,56 @@
                         </div>
                     @endif
                 </div>
-                <div class="bg-[#DCDDDE]  lg:block mt-28 lg:mt-0">
-                    <div class="p-5">
-                        {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
-                    </div>
-                    <div id="oldChat">
-                        @if ($messages->count() > 0)
-                            @foreach ($messages as $message)
-                                @if ($message->message != '')
-                                    @if ($message->from_user_id == Auth::user()->id)
-                                        <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                                            <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}"
-                                                alt="">
-                                            <span class="chatMessage">{{ $message->message }}</span>
-                                            <span class="absolute -bottom-5 right-1 text-[7px]">
-                                                @php
-                                                    //date format
-                                                    $date = new DateTime($message->created_at);
-                                                    // format dd/mm/yyyy
-                                                    $date = $date->format('d/m/Y');
+                <div class="bg-[#DCDDDE]  lg:block mt-28 lg:mt-0 flex flex-col justify-between  h-full relative">
+                    <div class="">
+                        <div class="p-5">
+                            {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
+                        </div>
+                        <div id="oldChat">
+                            @if ($messages->count() > 0)
+                                @foreach ($messages as $message)
+                                    @if ($message->message != '')
+                                        @if ($message->from_user_id == Auth::user()->id)
+                                            <div class="border p-5 m-5 bg-white rounded-2xl relative">
+                                                <img class="absolute -top-0 -left-4"
+                                                    src="{{ asset('assets/chat_side.png') }}" alt="">
+                                                <span class="chatMessage">{{ $message->message }}</span>
+                                                <span class="absolute -bottom-5 right-1 text-[7px]">
+                                                    @php
+                                                        //date format
+                                                        $date = new DateTime($message->created_at);
+                                                        // format dd/mm/yyyy
+                                                        $date = $date->format('d/m/Y');
 
-                                                @endphp
-                                                {{ $date }}</span>
-                                        </div>
-                                    @else
-                                        <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
-                                            <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}"
-                                                alt="">
-                                            <span class="chatMessage">{{ $message->message }}</span>
-                                            <span class="absolute -bottom-5 right-1 text-[7px]">
-                                                @php
-                                                    //date format
-                                                    $date = new DateTime($message->created_at);
-                                                    // format dd/mm/yyyy
-                                                    $date = $date->format('d/m/Y');
+                                                    @endphp
+                                                    {{ $date }}</span>
+                                            </div>
+                                        @else
+                                            <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
+                                                <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}"
+                                                    alt="">
+                                                <span class="chatMessage">{{ $message->message }}</span>
+                                                <span class="absolute -bottom-5 right-1 text-[7px]">
+                                                    @php
+                                                        //date format
+                                                        $date = new DateTime($message->created_at);
+                                                        // format dd/mm/yyyy
+                                                        $date = $date->format('d/m/Y');
 
-                                                @endphp
-                                                {{ $date }}</span>
-                                        </div>
+                                                    @endphp
+                                                    {{ $date }}</span>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                            @endforeach
-                        @endif
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full absolute bottom-0 w-full">
                         <div class="flex items-center gap-3 p-2 relative bottom-0 w-full">
+                            <button id="send" class="btn btn-primary w-5"><i
+                                    class="fas fa-images text-2xl"></i></button>
                             <textarea rows="1" type="text" id="message" class="w-full rounded-full text-[10px]"
                                 style="line-height: 18px;height: 38px;"></textarea>
                             <button id="send" class="btn btn-primary w-5"><img src="{{ asset('assets/send.png') }}"
@@ -98,41 +101,6 @@
                         </div>
 
                     </div>
-
-
-                    {{-- <div id="chat"></div> --}}
-                    {{-- <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
-                        <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div>
-                    <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                        <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div>
-                    <div class="border p-5 m-5 bg-[#FECF8C] rounded-2xl relative">
-                        <img class="absolute -top-0 -right-4" src="{{ asset('assets/ch2.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div>
-                    <div class="border p-5 m-5 bg-white rounded-2xl relative">
-                        <img class="absolute -top-0 -left-4" src="{{ asset('assets/chat_side.png') }}" alt="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quaerat, ipsum cum reiciendis
-                        dignissimos
-                        vel quod laudantium at voluptatem veritatis, eum quos asperiores expedita excepturi quis ab ad
-                        laboriosam necessitatibus!
-                        <span class="absolute -bottom-5 right-1 text-[7px]">2023/6/15</span>
-                    </div> --}}
                 </div>
             </div>
 

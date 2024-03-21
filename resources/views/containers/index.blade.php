@@ -1,15 +1,21 @@
 @extends('layouts.master')
 @section('content')
     <style>
-        /* @media screen and (max-width: 1023px) {
-                                                                                    .mobile_nav {
-                                                                                        margin-top: 50px;
-                                                                                        width: 100% !important;
-                                                                                    }
-                                                                                } */
+        /* @media screen and (min-width: 1023px) {
+                                                                                                                                                                                                                                                                        .mobile_nav {
+                                                                                                                                                                                                                                                                        margin-top: 50px;
+                                                                                                                                                                                                                                                                         width: 100% !important;
+                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                         } */
+        @media screen and (min-width: 1700px) {
+            .orange-bg {
+                display: none;
+            }
+        }
     </style>
-    <img class="absolute top-[830px] lg:top-[940px] -z-10 w-full" src="{{ asset('assets/orange_bg.png') }}" alt="">
-    <img class="w-full absolute top-5 lg:top-0 -z-10" src="{{ asset('assets/hero_bg.png') }}" alt="">
+    <img class="absolute top-[830px] lg:top-[940px]  max-h-[900px]  -z-10 w-full orange-bg"
+        src="{{ asset('assets/orange_bg.png') }}" alt="">
+    <img class="w-full absolute top-5 lg:top-0 -z-10 max-h-[900px] " src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
         <div class="hidden md:block overflow-hidden">
             @include('components/slider/slider')
@@ -176,6 +182,7 @@
                                 class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-400 dark:border-gray-700 dark:text-gray-400 gap-3"
                                 data-accordion-target="#accordion-flush-body-{{ $faq->id }}" aria-expanded="false"
                                 aria-controls="accordion-flush-body-{{ $faq->id }}">
+                                <span class="text-2xl font-thin text-orange-600">Q</span>
                                 <span>{{ $faq->question }}</span>
                                 <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -187,7 +194,10 @@
                         <div id="accordion-flush-body-{{ $faq->id }}" class="hidden"
                             aria-labelledby="px-2 accordion-flush-heading-{{ $faq->id }}">
                             <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                <p class="mb-2 text-gray-500 dark:text-gray-400 px-2">{{ $faq->answer }}</p>
+                                <div class="mb-2 text-gray-500 dark:text-gray-400 px-2 flex gap-5 items-center ">
+                                    <span class="text-2xl font-thin text-orange-600">A</span>
+                                    <span>{{ $faq->answer }}</span>
+                                </div>
                             </div>
                         </div>
                     @endforeach
