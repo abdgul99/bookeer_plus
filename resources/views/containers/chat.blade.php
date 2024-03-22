@@ -4,8 +4,8 @@
         crossorigin="anonymous" />
 
 
-    <img class="w-full absolute top-0 -z-10 brightness-75 hidden lg:block" src="{{ asset('assets/hero_bg.png') }}"
-        alt="">
+    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="px-8 ">
         <div
             class="max-w-4xl  min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">

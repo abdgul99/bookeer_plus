@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/profile_bg.png') }}" alt="">
+    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/profile_bg.png') }}" alt="">
     <div class="px-4 min-h-[80vh] lg:min-h-[115vh]">
         <div class="max-w-3xl mt-40 mx-auto">
             <div class="flex font-bold text-xs lg:text-xl">

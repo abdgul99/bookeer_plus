@@ -1,9 +1,15 @@
 <style>
-    @media screen and (max-width: 1023px) and (min-width: 800px) {
+    @media screen and (max-width: 5000px) and (min-width: 768px) {
         #navitems {
             background-color: white !important;
         }
     }
+
+    /* @media screen and (max-width: 1800px) and (min-width: 5000px) {
+        #navitems {
+            background-color: white !important;
+        }
+    } */
 </style>
 <div class="">
     <div class=" mt-10 lg:mt-0 hidden md:block w-full background " id="navitems">

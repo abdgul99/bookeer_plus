@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt="">
+    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover "
+        src="{{ asset('assets/privacy_bg.png') }}" alt="">
     <div class="max-w-4xl mx-auto p-8 lg:p-0 bg-white lg:mt-20 mb-10 min-h-[150vh]">
         <div class="flex mt-12 p-3 bg-[#F5821F] text-white justify-evenly">
             <p>
