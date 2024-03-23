@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-0 -z-10 brightness-75 hidden lg:block" src="{{ asset('assets/hero_bg.png') }}"
-        alt="">
+    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="px-8 lg:min-h-[1200px]">
         <div class="max-w-4xl min-h-screen w-full mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
@@ -38,7 +38,7 @@
                                             $img = asset('assets/gentosha.png');
                                         }
                                     @endphp
-                                    <div class=""><img class="" src="{{ $img }}"
+                                    <div class=""><img class="max-w-[60px]" class="" src="{{ $img }}"
                                             alt="{{ $user->name }}">
                                     </div>
                                     <div><b>{{ $user->name }}</b><br>

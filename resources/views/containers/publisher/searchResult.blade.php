@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-10 lg:top-0 -z-10 brightness-75" src="{{ asset('assets/hero_bg.png') }}" alt="">
+    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt="">
     <div class="px-4">
         <div class="max-w-3xl mt-40 mx-auto min-w-[120vh]">
             <p

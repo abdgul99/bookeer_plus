@@ -3,10 +3,10 @@
 
 <!-- Main modal -->
 <div id="default-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    class="hidden overflow-y-auto overflow-x-hidden fixed  top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow pb-4">
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -40,7 +40,8 @@
                 <form action="{{ route('search_publisher_result') }}" method="GET">
 
                     <div class="flex items-center border-b-2 border-black">
-                        <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8">Cost</div>
+                        <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8 min-h-[120px]">Cost
+                        </div>
                         <div class="w-full py-4 lg:py-0 space-y-3 lg:flex items-center px-8  gap-3 ">
                             <input class="w-full" type="number" name="from">
                             <img class="hidden lg:block" src="{{ asset('assets/sign.png') }}" alt="">
@@ -83,7 +84,7 @@
                         </div>
                     </div>
                     <div class="flex  border-b-2 border-black">
-                        <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-8">Genres</div>
+                        <div class="text-[13px] text-center p-4  w-[200px] bg-[#FDE6D2] p-4">Genres</div>
                         <div class="grid w-full">
 
                             <div class="w-full grid grid-cols-2 lg:grid-cols-3 px-8  text-[10px] space-y-2 p-4">
@@ -99,9 +100,10 @@
                         </div>
                     </div>
                     <div class="flex items-center border-b-2 border-black">
-                        <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8">area</div>
+                        <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8 min-h-[120px]">area
+                        </div>
                         <div class="w-full  px-8   ">
-                            <select class="w-[153px] p-2" name="area" id="area">
+                            <select class="w-[130px] lg:w-[153px] p-2" name="area" id="area">
                                 <option value="">Select Area</option>
                                 @if ($support_area)
                                     @foreach ($support_area as $area)
