@@ -1,7 +1,37 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
-        src="{{ asset('assets/profile_bg.png') }}" alt="">
+    <style>
+        .blackBgImg {
+            background: url(assets/hero1122.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: -205px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+        .bgGrayDiv {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -146px;
+            }
+
+
+        }
+    </style>
+    {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/profile_bg.png') }}" alt=""> --}}
+    <div class="blackBgImg"></div>
     <div class="px-4 min-h-[80vh] lg:min-h-[115vh]">
         <div class="max-w-3xl mt-40 mx-auto">
             <div class="flex font-bold text-xs lg:text-xl">
@@ -25,7 +55,7 @@
             <div>
                 {{-- <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt=""> --}}
                 <div class="p-6 ">
-                    @if(isset($favorite_publishers) && count($favorite_publishers) > 0)
+                    @if (isset($favorite_publishers) && count($favorite_publishers) > 0)
                         @foreach ($favorite_publishers as $booker)
                             <div class="shadow mt-5 bg-white">
                                 <div class="border-2 border-l-black border-r-[#F5821F] border-t-black">
@@ -52,11 +82,13 @@
                                                 <p class="p-2">{{ $booker->age ?? '' }}</p>
                                             </div>
                                             <div class="border-b-2 border-black flex items-center">
-                                                <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Gender</h2>
+                                                <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Gender
+                                                </h2>
                                                 <p class="p-2">{{ $booker->gender ?? '' }}</p>
                                             </div>
                                             <div class="border-b-2 border-black flex items-center">
-                                                <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Business</h2>
+                                                <h2 class="max-w-[220px] font-semibold p-2 bg-[#D9D9D9] w-[100px]">Business
+                                                </h2>
                                                 <p class="p-2">{{ $booker->occupation ?? '' }}</p>
                                             </div>
                                             <div class="border-b-2 border-black flex items-center">

@@ -1,8 +1,46 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
-        src="{{ asset('assets/hero_bg.png') }}" alt="">
-    <div class="px-8 lg:min-h-[1200px]">
+    <style>
+        .blackBgImg {
+            background: url(assets/hero1122.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: -210px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+        .bgGrayDiv {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+
+
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -176px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
+        }
+
+        left: 50%;
+        transform: translate(-50%, -50%);
+        */
+    </style>
+    {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
+    <div class="blackBgImg"></div>
+    <div class="px-8 ">
         <div class="max-w-4xl min-h-screen w-full mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>

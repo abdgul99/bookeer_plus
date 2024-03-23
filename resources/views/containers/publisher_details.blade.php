@@ -1,8 +1,53 @@
 @extends('layouts.master')
 @section('content')
-    <div class="lg:min-h-[220vh]">
-        <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
-            src="{{ asset('assets/chat_bg.png') }}" alt="">
+    <style>
+        .blackBgImg {
+            background: url(../assets/hero_bg.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: -199px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+
+        .bgGrayDiv {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+
+        /*
+                                                            .bgOrangeImage {
+                                                                background: url(assets/orange_bg.png);
+                                                                width: 100%;
+                                                                height: 890px;
+                                                                background-repeat: no-repeat;
+                                                                background-size: 100% 100%;
+                                                                position: absolute;
+                                                                top: -220px;
+                                                                z-index: -1;
+                                                            } */
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -176px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
+        }
+    </style>
+    <div class="blackBgImg"></div>
+    <div class="lg:min-h-[220vh] mx-4">
+        {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+            src="{{ asset('assets/chat_bg.png') }}" alt=""> --}}
         <div class="max-w-5xl mx-auto mt-40 bg-white mb-10 pb-5 ">
             <p class="p-3 text-center border-b-4 border-[#F5821F]">{{ $user->name ?? '' }}</p>
             <div>

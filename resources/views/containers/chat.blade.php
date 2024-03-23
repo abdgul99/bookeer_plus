@@ -2,10 +2,46 @@
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..."
         crossorigin="anonymous" />
+    <style>
+        .blackBgImg {
+            background: url(../assets/hero1122.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: -210px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+        .bgGrayDiv {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
 
 
-    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
-        src="{{ asset('assets/hero_bg.png') }}" alt="">
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -176px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
+        }
+
+        /
+    </style>
+
+
+    {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
+    <div class="blackBgImg"></div>
     <div class="px-8 ">
         <div
             class="max-w-4xl  min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">
@@ -25,7 +61,7 @@
                 </div>
             </div>
             <div class="w-full  lg:grid lg:grid-cols-2">
-                <div class="h-0">
+                <div class="h-0 hidden lg:block">
                     @if ($user)
                         <div class="p-5 border flex gap-5 items-center ">
                             @php
@@ -44,7 +80,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="bg-[#DCDDDE]  lg:block mt-28 lg:mt-0 flex flex-col justify-between  h-full relative">
+                <div class="bg-[#DCDDDE]  lg:block  lg:mt-0 flex flex-col justify-between  h-full relative">
                     <div class="">
                         <div class="p-5">
                             {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}

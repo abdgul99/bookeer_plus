@@ -1,8 +1,55 @@
 @extends('layouts.master')
 @section('content')
-    <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
-        src="{{ asset('assets/hero_bg.png') }}" alt="">
-    <div class="px-4 lg:min-h-[200vh]">
+    <style>
+        .blackBgImg {
+            background: url(assets/hero_bg.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: -210px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+        .bgGrayDiv {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+
+        .bgOrangeImage {
+            background: url(assets/orange_bg.png);
+            width: 100%;
+            height: 890px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: -220px;
+            z-index: -1;
+        }
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -176px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
+        }
+
+        left: 50%;
+        transform: translate(-50%, -50%);
+        */
+    </style>
+    {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
+        src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
+    <div class="blackBgImg"></div>
+    <div class="px-4 lg:min-h-[150vh]">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">Recieved Favourite</button>
@@ -38,11 +85,9 @@
                         <div class="p-2 bg-orange-500">test</div>
                     </div>
                     <div class="p-6">
-                        @if($favorite_rec)
-                            @foreach ($favorite_rec as $favorite_publisher)
-                                @include('components/faverout_publisher_card')
-                            @endforeach
-                        @endif
+                        @foreach ($favorite_rec as $favorite_publisher)
+                            @include('components/faverout_publisher_card')
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -65,11 +110,9 @@
                     <div class="bg-white">
                         <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt="">
                         <div class="p-6">
-                            @if($favorite_send)
-                                @foreach ($favorite_send as $favorite_publisher)
-                                    @include('components/faverout_publisher_card')
-                                @endforeach
-                            @endif
+                            @foreach ($favorite_send as $favorite_publisher)
+                                @include('components/faverout_publisher_card')
+                            @endforeach
                         </div>
                     </div>
                 </div>
