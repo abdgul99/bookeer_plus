@@ -17,6 +17,7 @@
 
         <div>
 
+
             @if (count($publishers) > 0)
                 @foreach ($publishers as $publisher)
                     {{-- card start --}}
