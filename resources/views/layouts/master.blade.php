@@ -22,7 +22,9 @@
 
 <body>
     @include('components.navbar')
+    <div class="bg-gray-200 bgGrayDiv">
     @yield('content')
+    </div>
     @include('components.footer')
 </body>
 

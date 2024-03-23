@@ -1,6 +1,32 @@
 @extends('layouts.master')
 @section('content')
     <style>
+        .blackBgImg{
+            background: url(assets/hbg.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: 0px;
+            background-position: 50%;
+            z-index: -1;
+        }
+        .bgGrayDiv{
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+        .bgOrangeImage{
+            background: url(assets/orange_bg.png);
+            width: 100%;
+            height: 890px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: -220px;
+            z-index: -1;
+        }
         /* @media screen and (min-width: 1023px) {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                             .mobile_nav {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                             margin-top: 50px;
@@ -20,20 +46,22 @@
                                                                                                         transform: translate(-50%, -50%); */
     </style>
     <div class="">
-        <img class="absolute top-[830px] lg:top-[940px]   max-h-[900px]  -z-10 w-full orange-bg"
-            src="{{ asset('assets/orange_bg.png') }}" alt="">
-        <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover " style=""
-            src="{{ asset('assets/hero_bg.png') }}" alt="">
-        <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
-            <div class="hidden md:block overflow-hidden">
-                @include('components/slider/slider')
-            </div>
-            <div class="block md:hidden ">
-                @include('components/slider/mobile_slider')
-            </div>
-            <div>
+        {{-- <img class="absolute top-[830px] lg:top-[940px]   max-h-[900px]  -z-10 w-full orange-bg"
+            src="{{ asset('assets/orange_bg.png') }}" alt=""> --}}
+        {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover " style=""
+            src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
+            <div class="blackBgImg"></div>
+                <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
+                    <div class="hidden md:block overflow-hidden">
+                        @include('components/slider/slider')
+                    </div>
+                    <div class="block md:hidden ">
+                        @include('components/slider/mobile_slider')
+                    </div>
+                </div>
+            {{-- </div> --}}
 
-            </div>
+        <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
             <div class="mt-4 lg:mt-10 ">
                 <div class="bg-[#F5821F]  px-8 py-2 lg:p-8">
                     <div
@@ -164,6 +192,7 @@
             </div>
         </div>
 
+
         {{-- <div>
     <div class="hidden md:block overflow-hidden">
         @include('components/slider/slider')
@@ -173,6 +202,9 @@
     </div>
 
 </div> --}}
+        <div class="relative">
+        <div class="bgOrangeImage"></div>
+        </div>
         <div class="max-w-4xl mx-auto mt-14 lg:mt-40 px-8">
             <div>
 
@@ -216,5 +248,5 @@
             </div>
 
         </div>
-    </div>
+    {{-- </div> --}}
 @endsection
