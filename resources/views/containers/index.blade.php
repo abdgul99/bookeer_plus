@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <style>
-        .blackBgImg{
+        .blackBgImg {
             background: url(assets/hbg.png);
             width: 100%;
             height: 580px;
@@ -12,12 +12,14 @@
             background-position: 50%;
             z-index: -1;
         }
-        .bgGrayDiv{
+
+        .bgGrayDiv {
             position: relative;
             top: 0px;
             z-index: 0;
         }
-        .bgOrangeImage{
+
+        .bgOrangeImage {
             background: url(assets/orange_bg.png);
             width: 100%;
             height: 890px;
@@ -27,39 +29,52 @@
             top: -220px;
             z-index: -1;
         }
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -58px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
+        }
+
         /* @media screen and (min-width: 1023px) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .mobile_nav {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            margin-top: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             width: 100% !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             /* } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .mobile_nav {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        margin-top: 50px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         width: 100% !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         /* } */
         /* @media screen and (min-width: 1700px) { */
         /* .orange-bg {
-                                                                                                            display: none;
-                                                                                                        } */
+                                                                                                                                                                        display: none;
+                                                                                                                                                                    } */
         /* }  */
 
         /* max-w-[1599px] object-cover */
         /* position: absolute;
-                                                                                                         top: 50%;
-                                                                                                         left: 50%;
-                                                                                                        transform: translate(-50%, -50%); */
+                                                                                                                                                                     top: 50%;
+                                                                                                                                                                     left: 50%;
+                                                                                                                                                                    transform: translate(-50%, -50%); */
     </style>
     <div class="">
         {{-- <img class="absolute top-[830px] lg:top-[940px]   max-h-[900px]  -z-10 w-full orange-bg"
             src="{{ asset('assets/orange_bg.png') }}" alt=""> --}}
         {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover " style=""
             src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
-            <div class="blackBgImg"></div>
-                <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
-                    <div class="hidden md:block overflow-hidden">
-                        @include('components/slider/slider')
-                    </div>
-                    <div class="block md:hidden ">
-                        @include('components/slider/mobile_slider')
-                    </div>
-                </div>
-            {{-- </div> --}}
+        <div class="blackBgImg"></div>
+        <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
+            <div class="hidden md:block overflow-hidden">
+                @include('components/slider/slider')
+            </div>
+            <div class="block md:hidden ">
+                @include('components/slider/mobile_slider')
+            </div>
+        </div>
+        {{-- </div> --}}
 
         <div class="w-full lg:max-w-4xl mx-auto  lg:mt-34 px-8">
             <div class="mt-4 lg:mt-10 ">
@@ -203,7 +218,7 @@
 
 </div> --}}
         <div class="relative">
-        <div class="bgOrangeImage"></div>
+            <div class="bgOrangeImage"></div>
         </div>
         <div class="max-w-4xl mx-auto mt-14 lg:mt-40 px-8">
             <div>
@@ -248,5 +263,5 @@
             </div>
 
         </div>
-    {{-- </div> --}}
-@endsection
+        {{-- </div> --}}
+    @endsection
