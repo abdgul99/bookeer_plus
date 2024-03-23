@@ -8,7 +8,7 @@
         $backgorund = 'bg-black';
     @endphp
 @endif
-<div class="w-full relative bottom-0 mb-0 ">
+<div class="w-full relative bottom-0 mb-0">
     <footer class="{{ $backgorund }} p-4 text-white w-full hidden lg:block relative bottom-0">
         <div class="grid lg:grid-cols-4  max-w-5xl mx-auto">
             <div class="mx-auto">

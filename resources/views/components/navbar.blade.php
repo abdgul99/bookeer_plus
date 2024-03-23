@@ -1,9 +1,9 @@
 <style>
-    @media screen and (max-width: 5000px) and (min-width: 768px) {
+    /* @media screen and (max-width: 5000px) and (min-width: 768px) {
         #navitems {
             background-color: white !important;
         }
-    }
+    } */
 
     /* @media screen and (max-width: 1800px) and (min-width: 5000px) {
         #navitems {
