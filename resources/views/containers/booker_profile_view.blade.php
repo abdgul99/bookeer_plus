@@ -1,50 +1,36 @@
 @extends('layouts.master')
 @section('content')
-<style>
-    .blackBgImg {
-        background: url('../assets/hero_bg.png');
-        width: 100%;
-        height: 580px;
-        background-repeat: no-repeat;
-        position: absolute;
-        background-size: 100% 100%;
-        top: -78px;
-        background-position: 50%;
-        z-index: -1;
-    }
-
-    .bgGrayDiv {
-        position: relative;
-        top: 0px;
-        z-index: 0;
-    }
-
-    .bgOrangeImage {
-        background: url(assets/orange_bg.png);
-        width: 100%;
-        height: 890px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        position: absolute;
-        top: -220px;
-        z-index: -1;
-    }
-
-    @media screen and (max-width: 767px) {
+    <style>
         .blackBgImg {
-            height: 380px;
-            top: -58px;
+            background: url('../assets/hero_bg.png');
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: 178px;
+            background-position: 50%;
+            z-index: -1;
         }
 
-        .bgOrangeImage {
-            height: 380px;
-            top: -130px;
+
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: -58px;
+            }
+
+            .bgOrangeImage {
+                height: 380px;
+                top: -130px;
+            }
         }
-    }
-                                                                                                                                                          left: 50%;
-                                                                                                                                                                transform: translate(-50%, -50%); */
-</style>
-<div class="blackBgImg"></div>
+
+        left: 50%;
+        transform: translate(-50%, -50%);
+        */
+    </style>
+    <div class="blackBgImg"></div>
     {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
         src="{{ asset('assets/profile_bg.png') }}" alt=""> --}}
     <div class="pb-10">
@@ -58,8 +44,8 @@
                 @if (Session::has('message'))
                     {{ Session::get('message') }}
                 @endif
-    
-    
+
+
                 <div class="lg:flex">
                     <div class="lg:w-[30%] p-6 ">
                         <div class="shadow-2xl w-[179px] lg:w-full mx-auto bg-white min-h-[220px]">
@@ -77,7 +63,7 @@
                                 <img class="mx-auto pt-8" src="{{ asset('assets/nav_item_1.png') }}" alt="">
                             @endif
                         </div>
-    
+
                         <div class="shadow-2xl mt-12 w-[179px] lg:w-full mx-auto bg-white  min-h-[220px]">
                             <div class="relative">
                                 <!-- <img src="{{ asset('assets/rectangle.png') }}" alt=""> -->
@@ -86,10 +72,10 @@
                         ">Name</label>
                             </div>
                             <p class="text-center font-bold text-xl my-5"> {{ $user->name ?? '' }}</p>
-    
+
                         </div>
                         <div>
-    
+
                         </div>
                     </div>
                     <div class="lg:w-[70%] px-8 ">
@@ -101,10 +87,10 @@
                         ">Comment</label>
                             </div>
                             <p class="text-center font-bold text-xl my-5"> {{ $user->comment ?? '' }}</p>
-    
+
                         </div>
-    
-    
+
+
                         <div>
                             <div class="relative mt-8">
                                 <!-- <img src="{{ asset('assets/rectangle.png') }}" alt=""> -->
@@ -116,32 +102,35 @@
                                 </div>
                                 <div class="shadow-2xl  border p-4 bg-white">
                                     <ul class=" text-[16px] mt-2">
-                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Age</span>
+                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center">
+                                            <span>Age</span>
                                             <span>{{ $user->age ?? '' }}</span>
                                         </li>
                                         <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center">
                                             <span>Gender</span>
                                             <span>{{ $user->gender ?? '' }}</span>
                                         </li>
-                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Job</span>
+                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center">
+                                            <span>Job</span>
                                             <span>{{ $user->job ?? '' }}</span>
                                         </li>
                                         <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center">
                                             <span>Location</span>
                                             <span>{{ $user->area ?? '' }}</span>
                                         </li>
-                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center"><span>Blog</span>
+                                        <li class="grid grid-cols-3 border-b-2 border-black p-1 items-center">
+                                            <span>Blog</span>
                                             <span>{{ $user->website ?? '' }}</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
-    
-    
+
+
                 <div class="w-full lg:grid grid-cols-2">
                     <a href="{{ route('send_dm', ['id' => request()->route()->parameters['id']]) }}"
                         class="w-full p-3 px-5 float-left mt-12 text-[18px] text-white flex items-center justify-between border-b-2 w-full bg-[#F5821F] lg:w-[482px] border-b-[F5821F] ">Send
@@ -162,5 +151,5 @@
                 </div>
             </div>
         </div>
-        </div>    
+    </div>
 @endsection

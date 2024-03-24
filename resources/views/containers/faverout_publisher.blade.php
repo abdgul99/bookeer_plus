@@ -8,22 +8,17 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -205px;
+            top: 50px;
             background-position: 50%;
             z-index: -1;
         }
 
-        /* .bgGrayDiv {
-                                                                    position: relative;
-                                                                    top: 0px;
-                                                                    z-index: 0;
-                                                                } */
 
 
         @media screen and (max-width: 767px) {
             .blackBgImg {
                 height: 380px;
-                top: -146px;
+                top: 70px;
             }
 
 
@@ -32,11 +27,11 @@
     {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
         src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
     <div class="blackBgImg"></div>
-    <div class="px-4 lg:min-h-[150vh] bg-white">
+    <div class="px-4 lg:min-h-[150vh] ">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
-                <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">Recieved Favourite</button>
-                <button class="p-4 w-full  " onclick="send_f()">Send Favourite</button>
+                <button class="p-4 w-full bg-[#F5821F] text-white recFav" onclick="recive()">Recieved Favourite</button>
+                <button class="p-4 w-full sndFav bg-white" onclick="send_f()">Send Favourite</button>
             </div>
             <div class="">
 
@@ -103,6 +98,9 @@
         </div>
     </div>
 @endsection
+{{-- jquery cdn --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- jquery cdn --}}
 <script>
     var background = '';
 
@@ -111,7 +109,13 @@
         recive_content.classList.remove('hidden');
         const send_content = document.getElementById("send_content");
         send_content.classList.add('hidden');
-        background = 'black';
+        $('.recFav').addClass('bg-[#F5821F]');
+        $('.recFav').removeClass('bg-white');
+        $('.sndFav').removeClass('bg-[#F5821F]');
+        $('.sndFav').addClass('bg-white');
+
+
+
     }
 
     function send_f() {
@@ -119,5 +123,12 @@
         recive_content.classList.add('hidden');
         const send_content = document.getElementById("send_content");
         send_content.classList.remove('hidden');
+        $('.sndFav').removeClass('bg-white');
+        $('.sndFav').addClass('bg-[#F5821F]');
+        $('.recFav').removeClass('bg-[#F5821F]');
+        $('.recFav').removeClass('text-white');
+        $('.recFav').addClass('bg-white');
+        $('.recFav').addClass('text-black');
+
     }
 </script>

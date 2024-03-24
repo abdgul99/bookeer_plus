@@ -8,16 +8,11 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: 0px;
+            top: 90px;
             background-position: 50%;
             z-index: -1;
         }
 
-        .bgGrayDiv {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
 
         .bgOrangeImage {
             background: url(assets/orange_bg.png);
@@ -33,7 +28,7 @@
         @media screen and (max-width: 767px) {
             .blackBgImg {
                 height: 380px;
-                top: -58px;
+                top: 70px;
             }
 
             .bgOrangeImage {
@@ -43,22 +38,22 @@
         }
 
         /* @media screen and (min-width: 1023px) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .mobile_nav {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        margin-top: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         width: 100% !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         /* } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .mobile_nav {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    margin-top: 50px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     width: 100% !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* } */
         /* @media screen and (min-width: 1700px) { */
         /* .orange-bg {
-                                                                                                                                                                        display: none;
-                                                                                                                                                                    } */
+                                                                                                                                                                                                                    display: none;
+                                                                                                                                                                                                                } */
         /* }  */
 
         /* max-w-[1599px] object-cover */
         /* position: absolute;
-                                                                                                                                                                     top: 50%;
-                                                                                                                                                                     left: 50%;
-                                                                                                                                                                    transform: translate(-50%, -50%); */
+                                                                                                                                                                                                                 top: 50%;
+                                                                                                                                                                                                                 left: 50%;
+                                                                                                                                                                                                                transform: translate(-50%, -50%); */
     </style>
     <div class="">
         {{-- <img class="absolute top-[830px] lg:top-[940px]   max-h-[900px]  -z-10 w-full orange-bg"
@@ -234,7 +229,7 @@
                         @foreach ($faqs as $faq)
                             <h2 id="accordion-flush-heading-{{ $faq->id }}">
                                 <button type="button"
-                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-400 dark:border-gray-700 dark:text-gray-400 gap-3"
+                                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right bg-gray-100 text-gray-500 border-b border-gray-400 dark:border-gray-700 dark:text-gray-400 gap-3"
                                     data-accordion-target="#accordion-flush-body-{{ $faq->id }}" aria-expanded="false"
                                     aria-controls="accordion-flush-body-{{ $faq->id }}">
                                     <span class="text-2xl font-thin text-orange-600">Q</span>
@@ -248,7 +243,7 @@
                             </h2>
                             <div id="accordion-flush-body-{{ $faq->id }}" class="hidden"
                                 aria-labelledby="px-2 accordion-flush-heading-{{ $faq->id }}">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                                <div class="py-5 border-b bg-gray-100 border-gray-200 dark:border-gray-700">
                                     <div class="mb-2 text-gray-500 dark:text-gray-400 px-2 flex gap-5 items-center ">
                                         <span class="text-2xl font-thin text-orange-600">A</span>
                                         <span>{{ $faq->answer }}</span>

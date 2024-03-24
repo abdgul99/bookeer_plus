@@ -1,34 +1,44 @@
 @extends('layouts.master')
 @section('content')
     <style>
-        .bgGrayDiv, .bg-gray-200 {
-            background-color: transparent;
-        }
+        /* .bgGrayDiv,
+                                            .bg-gray-200 {
+                                                background-color: transparent;
+                                            } */
+
         .imgBg {
-    background: url(assets/search_bg.png);
-    width: 100%;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    z-index: 0;
-    top: 0px;
-}
-.forOtherPage{
-    position: relative;
-    z-index: 9;
-}
-nav.bg-white.z-10.md\:hidden.border-gray-200.mobile_nav {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-}
-@media screen and (max-width: 767px)
-{
-    .imgBg{
-        height: 80vh;
-    }
-}
+            background: url(assets/search_bg.png);
+            width: 100%;
+            height: 115vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            z-index: 0;
+            top: 0px;
+        }
+
+        .forOtherPage {
+            position: relative;
+            z-index: 9;
+        }
+
+        nav.bg-white.z-10.md\:hidden.border-gray-200.mobile_nav {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+        }
+
+        @media screen and (max-width: 1030px) {
+            .imgBg {
+                height: 140vh;
+            }
+        }
+
+        @media screen and (max-width: 762px) {
+            .imgBg {
+                height: 118vh;
+            }
+        }
     </style>
     <div class="bg-white">
         {{-- <img class="w-full absolute top-0 h-[110vh] -z-10 max-h-[1100px] hidden lg:block"

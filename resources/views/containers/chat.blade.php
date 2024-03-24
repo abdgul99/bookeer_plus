@@ -10,23 +10,18 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -210px;
+            top: 80px;
             background-position: 50%;
             z-index: -1;
         }
 
-        .bgGrayDiv {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
 
 
 
         @media screen and (max-width: 767px) {
             .blackBgImg {
                 height: 380px;
-                top: -176px;
+                top: 76px;
             }
 
             .bgOrangeImage {

@@ -8,40 +8,33 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -199px;
+            top: 80px;
             background-position: 50%;
             z-index: -1;
         }
 
 
-        .bgGrayDiv {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
+
 
         /*
-                                                            .bgOrangeImage {
-                                                                background: url(assets/orange_bg.png);
-                                                                width: 100%;
-                                                                height: 890px;
-                                                                background-repeat: no-repeat;
-                                                                background-size: 100% 100%;
-                                                                position: absolute;
-                                                                top: -220px;
-                                                                z-index: -1;
-                                                            } */
+                                                                                .bgOrangeImage {
+                                                                                    background: url(assets/orange_bg.png);
+                                                                                    width: 100%;
+                                                                                    height: 890px;
+                                                                                    background-repeat: no-repeat;
+                                                                                    background-size: 100% 100%;
+                                                                                    position: absolute;
+                                                                                    top: -220px;
+                                                                                    z-index: -1;
+                                                                                } */
 
         @media screen and (max-width: 767px) {
             .blackBgImg {
-                height: 380px;
-                top: -176px;
+                height: 251px;
+                top: 76px;
             }
 
-            .bgOrangeImage {
-                height: 380px;
-                top: -130px;
-            }
+
         }
     </style>
     <div class="blackBgImg"></div>

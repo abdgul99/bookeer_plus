@@ -14,7 +14,7 @@
 <div class="forOtherPage">
     <div class=" mt-10 lg:mt-0 hidden md:block w-full background " id="navitems">
         <nav class="grid justify-center md:block ">
-            <div class="grid  md:grid-cols-3 max-w-5xl space-y-5 mx-auto items-center justify-between py-6">
+            <div class="grid  md:grid-cols-3 max-w-5xl lg:space-y-5 mx-auto items-center justify-between lg:py-6">
                 <div class="text-sm mx-auto font-semibold">出版社と執筆者のマッチングサービス</div>
                 <div class="mx-auto "><a href="/"><img class="w-[285px]" src="{{ asset('assets/booker_logo.png') }}"
                             alt=""></a>

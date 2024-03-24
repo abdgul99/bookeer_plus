@@ -1,39 +1,41 @@
 @extends('layouts.master')
 @section('content')
-<style>
-    .bgGrayDiv, .bg-gray-200 {
-        background-color: transparent;
-    }
-    .imgBg {
-background: url(assets/search_bg.png);
-width: 100%;
-height: 230vh;
-background-repeat: no-repeat;
-background-size: 100% 100%;
-position: absolute;
-z-index: 0;
-top: 0px;
-}
-.forOtherPage{
-position: relative;
-z-index: 9;
-}
-nav.bg-white.z-10.md\:hidden.border-gray-200.mobile_nav {
-position: relative;
-z-index: 1;
-background: transparent;
-}
-@media screen and (max-width: 991px)
-{
-.imgBg{
-    height: 165vh;
-}
-}
-</style>
+    <style>
+        /* .bgGrayDiv, .bg-gray-200 {
+                            background-color: transparent;
+                        } */
+        .imgBg {
+            background: url(assets/search_bg.png);
+            width: 100%;
+            height: 183vh;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            z-index: 0;
+            top: 0px;
+        }
+
+        .forOtherPage {
+            position: relative;
+            z-index: 9;
+        }
+
+        nav.bg-white.z-10.md\:hidden.border-gray-200.mobile_nav {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+        }
+
+        @media screen and (max-width: 991px) {
+            .imgBg {
+                height: 165vh;
+            }
+        }
+    </style>
     <div class="bg-white">
         {{-- <img class="w-full absolute top-0 -z-10 max-h-[1100px] hidden lg:block" src="{{ asset('assets/search_bg.png') }}"
             alt=""> --}}
-            <div class="imgBg"></div>
+        <div class="imgBg"></div>
         <div class="lg:h-[100vh] grid items-center max-w-5xl mt-16  mx-auto lg:mb-[400px] px-8 relative">
             <div class="max-w-3xl mx-auto w-full">
                 <p class="m-5 text-[#12px]">出版社と執筆者のマッチングサービスTOP ▶︎ 会員登録</p>
