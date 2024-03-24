@@ -2,25 +2,25 @@
 @section('content')
     <style>
         .blackBgImg {
-            background: url(../assets/hero_bg.png);
+            background: url(../assets/search_bg.png);
             width: 100%;
-            height: 580px;
+            height: 257vh;
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -199px;
+            top: 0px;
             background-position: 50%;
             z-index: -1;
         }
+        @media screen and (max-width: 991px) {
+            .blackBgImg {
+                height: 372vh;
+            }
 
 
-        .bgGrayDiv {
-            background-color: transparent;
-            position: relative;
-            top: 0px;
-            z-index: 0;
         }
     </style>
+    <div class="blackBgImg"></div>
     {{-- <img class="w-full hidden lg:block lg:absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt=""> --}}
     <div class="max-w-4xl mx-auto mt-5 lg:mt-20 mb-5 p-4 lg:p-0 shadow">
         <h2 class="p-4 text-center bg-[#F5821F] font-bold text-white text-[20px]">Publisher Search</h2>
