@@ -57,10 +57,20 @@
 
                 <div class="bg-white">
                     {{-- <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt=""> --}}
+                    {{-- if url have --}}
                     <div class="grid grid-cols-4 items-center text-center justify-center max-w-2xl mx-auto py-3">
-                        <div class="p-2 bg-gray-200">test</div>
-                        <div class="p-2 bg-gray-400">test</div>
-                        <div class="p-2 bg-orange-500">test</div>
+                        @if(\Request::has('from') && \Request::has('to'))
+                        <div class="p-2 bg-gray-200">Cost</div>
+                        @endif
+                        @if(\Request::has('editorial'))
+                        <div class="p-2 bg-gray-400">Support</div>
+                        @endif
+                        @if(\Request::has('genres'))
+                        <div class="p-2 bg-orange-500">Genres</div>
+                        @endif
+                        @if(\Request::has('area'))
+                        <div class="p-2 bg-orange-600">Area</div>
+                        @endif
                     </div>
                     <div class="p-6">
                         @foreach ($favorite_rec as $favorite_publisher)

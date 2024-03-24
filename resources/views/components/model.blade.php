@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('search_publisher_result') }}" method="GET">
+                <form action="" method="GET">
 
                     <div class="flex items-center border-b-2 border-black">
                         <div class="text-[13px] text-center p-4 h-full w-[200px] bg-[#FDE6D2] p-8 min-h-[120px]">Cost
@@ -113,9 +113,11 @@
                             </select>
                         </div>
                     </div>
-                    <p class="my-5 w-full text-center underline">I agree to the Terms of Use and Privacy Policy before
-                        submitting.
-                    </p>
+                    <div class="p-5">
+                        <label for="terms" class="text-[#F58220]"><input type="checkbox" name="terms" id="terms"
+                                class="me-2" required>I agree to the Terms of Use and Privacy Policy before submitting</label>
+
+                    </div>
                     <div class="flex justify-center">
                         <button type="submit"
                             class="w-[214px]  text-center p-3 bg-[#FAA74A] text-white hover:bg-[#ffa25b]">Search</button>

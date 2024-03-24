@@ -51,13 +51,26 @@ class HomeController extends Controller
         }
     }
 
-    public function faveroutPublisher()
+    public function faveroutPublisher(Request $request)
     {
         $userid = Auth::user()->id;
         $user = Auth::user();
-        $favorite_rec = User::find($userid)->favorite_publishers()->get();
-        //get publisher who make me favoutite
-        $favorite_send = User::find($userid)->favorite_bookers()->get();
+        // get request variable and match
+        if ($request->has('genres') && $request->has('editorial') && $request->has('area')) {
+            $favorite_rec = User::find($userid)->favorite_publishers()->where('genres', $request->genres)->where('area', $request->area)->get();
+            $favorite_send = User::find($userid)->favorite_bookers()->where('genres', $request->genres)->where('area', $request->area)->get();
+            if (empty($favorite_rec) && empty($favorite_send)) {
+                $favorite_rec = User::find($userid)->favorite_publishers()->get();
+                //get publisher who make me favoutite
+                $favorite_send = User::find($userid)->favorite_bookers()->get();
+            }
+        } else {
+
+            $favorite_rec = User::find($userid)->favorite_publishers()->get();
+            //get publisher who make me favoutite
+            $favorite_send = User::find($userid)->favorite_bookers()->get();
+        }
+
         $genres = Genre::all();
         $support_area = SupportArea::all();
         if ($user->type == 'publisher') {
