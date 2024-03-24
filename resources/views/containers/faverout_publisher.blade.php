@@ -14,10 +14,10 @@
         }
 
         /* .bgGrayDiv {
-                                                                position: relative;
-                                                                top: 0px;
-                                                                z-index: 0;
-                                                            } */
+                                                                    position: relative;
+                                                                    top: 0px;
+                                                                    z-index: 0;
+                                                                } */
 
 
         @media screen and (max-width: 767px) {
@@ -32,7 +32,7 @@
     {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
         src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
     <div class="blackBgImg"></div>
-    <div class="px-4 lg:min-h-[150vh] ">
+    <div class="px-4 lg:min-h-[150vh] bg-white">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white" onclick="recive()">Recieved Favourite</button>
