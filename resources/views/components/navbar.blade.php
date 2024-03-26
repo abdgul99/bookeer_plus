@@ -88,9 +88,9 @@
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <img class="w-[31px] mx-auto" src="{{ asset('assets/nav_item_4.png') }}"
                                         alt="">
-                                    <h4 class="text-[10px] text-center mt-1">Logout</h4>
+                                    <h4 class="text-[10px] text-center mt-1 ">Logout</h4>
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none hidden">
                                     @csrf
                                 </form>
                             </li>

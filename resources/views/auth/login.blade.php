@@ -2,9 +2,9 @@
 @section('content')
     <style>
         /* .bgGrayDiv,
-                                            .bg-gray-200 {
-                                                background-color: transparent;
-                                            } */
+                                                            .bg-gray-200 {
+                                                                background-color: transparent;
+                                                            } */
 
         .imgBg {
             background: url(assets/search_bg.png);
@@ -68,8 +68,8 @@
                 @endif
                 <form action="{{ route('login') }}" class="my-5 space-y-5" method="POST">
                     @csrf
-                    <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0  ">
-                        <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 ">
+                    <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0 lg:justify-between text-sm ">
+                        <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 text-[12px]">
                             <label for="">ログイン
                                 ID
                             </label>
@@ -79,9 +79,9 @@
                             name="email" required value="{{ old('email') }}">
                     </div>
                     <div class="border-b-2 border-gray-300 lg:flex space-y-2 lg:space-y-0 ">
-                        <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 "><label
-                                for="">ログインパスワード
-                            </label><span class="text-[#F58220]">必須</span></div>
+                        <div class="flex items-center gap-8 lg:justify-center font-semibold w-[290px] pr-2 text-[12px] ">
+                            <label for="">ログインパスワード</label><span class="text-[#F58220]">必須</span>
+                        </div>
                         <input type="password" name="password" class="p-3 w-full border-2 border-gray-300 border-b-0"
                             id="password">
                     </div>

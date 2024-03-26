@@ -27,7 +27,7 @@
     {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
         src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
     <div class="blackBgImg"></div>
-    <div class="px-4 lg:min-h-[150vh] ">
+    <div class="px-4 min-h-[80vh] lg:min-h-[80vh] ">
         <div class="max-w-3xl mt-40 mx-auto ">
             <div class="flex font-bold text-xs lg:text-xl">
                 <button class="p-4 w-full bg-[#F5821F] text-white recFav" onclick="recive()">Recieved Favourite</button>
@@ -55,21 +55,21 @@
                     </div>
                 </div>
 
-                <div class="bg-white">
+                <div class="bg-white shadow min-h-[300px]">
                     {{-- <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt=""> --}}
                     {{-- if url have --}}
                     <div class="grid grid-cols-4 items-center text-center justify-center max-w-2xl mx-auto py-3">
-                        @if(\Request::has('from') && \Request::has('to'))
-                        <div class="p-2 bg-gray-200">Cost</div>
+                        @if (\Request::has('from') && \Request::has('to'))
+                            <div class="p-2 bg-gray-200">Cost</div>
                         @endif
-                        @if(\Request::has('editorial'))
-                        <div class="p-2 bg-gray-400">Support</div>
+                        @if (\Request::has('editorial'))
+                            <div class="p-2 bg-gray-400">Support</div>
                         @endif
-                        @if(\Request::has('genres'))
-                        <div class="p-2 bg-orange-500">Genres</div>
+                        @if (\Request::has('genres'))
+                            <div class="p-2 bg-orange-500">Genres</div>
                         @endif
-                        @if(\Request::has('area'))
-                        <div class="p-2 bg-orange-600">Area</div>
+                        @if (\Request::has('area'))
+                            <div class="p-2 bg-orange-600">Area</div>
                         @endif
                     </div>
                     <div class="p-6">
@@ -120,9 +120,12 @@
         const send_content = document.getElementById("send_content");
         send_content.classList.add('hidden');
         $('.recFav').addClass('bg-[#F5821F]');
+        $('.recFav').addClass('text-white');
         $('.recFav').removeClass('bg-white');
         $('.sndFav').removeClass('bg-[#F5821F]');
         $('.sndFav').addClass('bg-white');
+        $('.sndFav').removeClass('text-white');
+        $('.sndFav').addClass('text-black');
 
 
 
@@ -134,7 +137,9 @@
         const send_content = document.getElementById("send_content");
         send_content.classList.remove('hidden');
         $('.sndFav').removeClass('bg-white');
+        $('.sndFav').removeClass('text-black');
         $('.sndFav').addClass('bg-[#F5821F]');
+        $('.sndFav').addClass('text-white');
         $('.recFav').removeClass('bg-[#F5821F]');
         $('.recFav').removeClass('text-white');
         $('.recFav').addClass('bg-white');

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..."
+        crossorigin="anonymous" />
     <style>
         .blackBgImg {
             background: url(assets/hero1122.png);
@@ -41,25 +43,20 @@
         src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
     <div class="blackBgImg"></div>
     <div class="px-8 ">
-        <div class="max-w-4xl min-h-screen w-full mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
+        <div class="max-w-4xl min-h-[90vh] w-full mx-auto bg-white flex text-[10px] my-10 lg:mt-40">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/messages-image.png') }}"
-                        alt="">
+                    <i class="fab fa-rocketchat text-2xl text-white"></i>
                 </div>
                 <div class="flex flex-col gap-4 p-4">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/profile.png') }}"
-                        alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/message.png') }}"
-                        alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/offer.png') }}"
-                        alt="">
+                    <i class="fas fa-user text-2xl text-white"></i>
+                    <i class="fas fa-sms text-2xl text-white"></i>
+                    <i class="fas fa-envelope-open-text text-2xl text-white"></i>
                 </div>
                 <div class="flex flex-col gap-4 p-6">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/home.png') }}" alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/list.png') }}" alt="">
-                    <img class="w-[30px] h-[30px] object-cover" src="{{ asset('assets/chatbox/heart.png') }}"
-                        alt="">
+                    <i class="fas fa-home text-2xl text-white"></i>
+                    <i class="fas fa-pager text-2xl text-white"></i>
+                    <i class="fas fa-heart text-2xl text-white"></i>
                 </div>
             </div>
             <div class="w-full grid lg:grid-cols-2">

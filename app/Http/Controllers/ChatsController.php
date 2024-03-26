@@ -26,7 +26,8 @@ class ChatsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $users=[];
         $id = Auth::id();
         // GET ALL users who have chat with me
         $usersall = Message::where('from_user_id', $id)->orWhere('user_id', $id)->get();
