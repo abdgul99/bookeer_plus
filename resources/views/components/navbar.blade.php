@@ -14,7 +14,7 @@
 <div class="forOtherPage">
     <div class=" mt-10 lg:mt-0 hidden md:block w-full background " id="navitems">
         <nav class="grid justify-center md:block ">
-            <div class="grid  md:grid-cols-3 max-w-5xl space-y-5 mx-auto items-center justify-between py-6">
+            <div class="grid  md:grid-cols-3 max-w-5xl lg:space-y-5 mx-auto items-center justify-between lg:py-6">
                 <div class="text-sm mx-auto font-semibold">出版社と執筆者のマッチングサービス</div>
                 <div class="mx-auto "><a href="/"><img class="w-[285px]" src="{{ asset('assets/booker_logo.png') }}"
                             alt=""></a>
@@ -88,9 +88,9 @@
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <img class="w-[31px] mx-auto" src="{{ asset('assets/nav_item_4.png') }}"
                                         alt="">
-                                    <h4 class="text-[10px] text-center mt-1">Logout</h4>
+                                    <h4 class="text-[10px] text-center mt-1 ">Logout</h4>
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none hidden">
                                     @csrf
                                 </form>
                             </li>

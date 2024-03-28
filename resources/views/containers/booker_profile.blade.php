@@ -1,68 +1,60 @@
 @extends('layouts.master')
 @section('content')
-<style>
-    .blackBgImg {
-        background: url(assets/hero_bg.png);
-        width: 100%;
-        height: 580px;
-        background-repeat: no-repeat;
-        position: absolute;
-        background-size: 100% 100%;
-        top: -78px;
-        background-position: 50%;
-        z-index: -1;
-    }
-
-    .bgGrayDiv {
-        position: relative;
-        top: 0px;
-        z-index: 0;
-    }
-
-    .bgOrangeImage {
-        background: url(assets/orange_bg.png);
-        width: 100%;
-        height: 890px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        position: absolute;
-        top: -220px;
-        z-index: -1;
-    }
-
-    @media screen and (max-width: 767px) {
+    <style>
         .blackBgImg {
-            height: 380px;
-            top: -58px;
+            background: url(assets/hero_bg.png);
+            width: 100%;
+            height: 580px;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: 70px;
+            background-position: 50%;
+            z-index: -1;
         }
+
 
         .bgOrangeImage {
-            height: 380px;
-            top: -130px;
+            background: url(assets/orange_bg.png);
+            width: 100%;
+            height: 890px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 0px;
+            z-index: -1;
         }
-    }
 
-    /* @media screen and (min-width: 1023px) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .mobile_nav {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    margin-top: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     width: 100% !important;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* } */
-    /* @media screen and (min-width: 1700px) { */
-    /* .orange-bg {
-                                                                                                                                                                    display: none;
-                                                                                                                                                                } */
-    /* }  */
+        @media screen and (max-width: 767px) {
+            .blackBgImg {
+                height: 380px;
+                top: 72px;
+            }
 
-    /* max-w-[1599px] object-cover */
-    /* position: absolute;
-                                                                                                                                                                 top: 50%;
-                                                                                                                                                                 left: 50%;
-                                                                                                                                                                transform: translate(-50%, -50%); */
-</style>
+
+        }
+
+        /* @media screen and (min-width: 1023px) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .mobile_nav {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    margin-top: 50px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     width: 100% !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* } */
+        /* @media screen and (min-width: 1700px) { */
+        /* .orange-bg {
+                                                                                                                                                                                                    display: none;
+                                                                                                                                                                                                } */
+        /* }  */
+
+        /* max-w-[1599px] object-cover */
+        /* position: absolute;
+                                                                                                                                                                                                 top: 50%;
+                                                                                                                                                                                                 left: 50%;
+                                                                                                                                                                                                transform: translate(-50%, -50%); */
+    </style>
     {{-- <img class="w-full absolute top-5 sm:top-0 lg:top-0 -z-10   2xl:h-[650px] object-cover"
         src="{{ asset('assets/hero_bg.png') }}" alt=""> --}}
-        <div class="blackBgImg"></div>
+    <div class="blackBgImg"></div>
     <div class="lg:px-4 lg:pb-20 lg:px-0">
         <div
             class="max-w-5xl  lg:mx-auto text-2xl font-semibold mt-20 lg:mt-20  bg-gray-100 border relative p-6 lg:p-0 mx-6">

@@ -12,6 +12,7 @@
             background-position: 50%;
             z-index: -1;
         }
+
         @media screen and (max-width: 991px) {
             .blackBgImg {
                 height: 372vh;

@@ -8,16 +8,11 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -78px;
+            top: 78px;
             background-position: 50%;
             z-index: -1;
         }
 
-        .bgGrayDiv {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
 
         .bgOrangeImage {
             background: url(assets/orange_bg.png);
@@ -26,7 +21,7 @@
             background-repeat: no-repeat;
             background-size: 100% 100%;
             position: absolute;
-            top: -220px;
+            top: 80px;
             z-index: -1;
         }
 

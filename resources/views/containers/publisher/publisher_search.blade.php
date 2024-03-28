@@ -1,6 +1,28 @@
 @extends('layouts.master')
 @section('content')
+    <style>
+        .blackBgImg {
+            background: url(../assets/search_bg.png);
+            width: 100%;
+            height: 146vh;
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            top: 0px;
+            background-position: 50%;
+            z-index: -1;
+        }
+
+        @media screen and (max-width: 991px) {
+            .blackBgImg {
+                height: 130vh;
+            }
+
+
+        }
+    </style>
     {{-- <img class=" w-full h-[150vh]  absolute top-0 -z-10 " src="{{ asset('assets/search_bg.png') }}" alt=""> --}}
+    <div class="blackBgImg"></div>
     <div class="max-w-4xl mx-auto mt-5 lg:mt-20 p-4 lg:p-4 shadow min-h-[110vh]">
         <h2 class="p-4 text-center bg-[#F5821F] font-bold text-white text-[20px]">Booker Search</h2>
         {{-- errors --}}

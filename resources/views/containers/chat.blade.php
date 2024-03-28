@@ -10,23 +10,18 @@
             background-repeat: no-repeat;
             position: absolute;
             background-size: 100% 100%;
-            top: -210px;
+            top: 80px;
             background-position: 50%;
             z-index: -1;
         }
 
-        .bgGrayDiv {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
 
 
 
         @media screen and (max-width: 767px) {
             .blackBgImg {
                 height: 380px;
-                top: -176px;
+                top: 76px;
             }
 
             .bgOrangeImage {
@@ -44,7 +39,7 @@
     <div class="blackBgImg"></div>
     <div class="px-8 ">
         <div
-            class="max-w-4xl  min-h-screen lg:min-h-[1200px] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">
+            class="max-w-4xl  min-h-screen lg:min-h-[90vh] mx-auto bg-white flex text-[10px] my-10 lg:mt-40 border border-gray-200">
             <div class="w-[87px] bg-[#F58220] flex flex-col justify-between items-center">
                 <div>
                     <i class="fab fa-rocketchat text-2xl text-white"></i>
@@ -80,9 +75,10 @@
                         </div>
                     @endif
                 </div>
-                <div class="bg-[#DCDDDE]  lg:block  lg:mt-0 flex flex-col justify-between  h-full relative">
-                    <div class="">
-                        <div class="p-5">
+                <div
+                    class="bg-[#DCDDDE]   lg:block  lg:mt-0 flex flex-col justify-between  h-full relative overflow-y-hidden">
+                    <div class="overflow-y-scroll h-[80vh] p-3">
+                        <div class="p-5 ">
                             {{-- <p class="w-full p-2 bg-[#9D9999] text-center text-white ">2023/6/15</p> --}}
                         </div>
                         <div id="oldChat">
