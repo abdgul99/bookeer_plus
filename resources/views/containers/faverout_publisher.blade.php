@@ -73,9 +73,9 @@
                         @endif
                     </div>
                     <div class="p-6">
-                        @foreach ($favorite_rec as $favorite_publisher)
-                            @include('components/faverout_publisher_card')
-                        @endforeach
+                        @foreach ($favorite_send as $favorite_publisher)
+                                @include('components/faverout_publisher_card')
+                            @endforeach
                     </div>
                 </div>
             </div>
@@ -98,9 +98,10 @@
                     <div class="bg-white">
                         <img class="mx-auto py-8 w-80 lg:w-auto" src="{{ asset('assets/btn.png') }}" alt="">
                         <div class="p-6">
-                            @foreach ($favorite_send as $favorite_publisher)
-                                @include('components/faverout_publisher_card')
-                            @endforeach
+
+                            @foreach ($favorite_rec as $favorite_publisher)
+                            @include('components/faverout_publisher_card')
+                        @endforeach
                         </div>
                     </div>
                 </div>
